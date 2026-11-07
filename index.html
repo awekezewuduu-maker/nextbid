@@ -4,11 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>NextBid - Social Media Auctions</title>
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Telegram WebApp SDK -->
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <!-- Font Awesome Icons -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <script>
     tailwind.config = {
@@ -34,13 +31,8 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       -webkit-tap-highlight-color: transparent;
     }
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
 <body class="text-zinc-800 pb-24 select-none">
@@ -55,17 +47,12 @@
     </div>
 
     <div class="flex items-center gap-2">
-      <!-- Balance Pill -->
       <div class="bg-[#e9caa] bg-opacity-30 border border-brand-gold/40 px-3 py-1 rounded-full flex items-center gap-1.5 shadow-sm">
         <span class="text-xs font-bold text-brand-gold">🪙</span>
         <span id="topBalance" class="text-xs font-extrabold text-zinc-900">100.00 ETB</span>
         <button onclick="switchTab('profile')" class="text-brand-darkgold ml-0.5 text-xs font-bold leading-none">+</button>
       </div>
 
-      <!-- Notification & Language -->
-      <button class="w-8 h-8 rounded-full bg-white border border-zinc-200 flex items-center justify-center text-zinc-700 text-xs shadow-sm">
-        <i class="fa-regular fa-bell"></i>
-      </button>
       <div class="px-2 py-1 rounded-full bg-white border border-zinc-200 flex items-center gap-1 text-[11px] font-bold text-zinc-700 shadow-sm">
         <span>🇪🇹</span>
         <span>አማ</span>
@@ -75,7 +62,6 @@
 
   <!-- ================= TAB 1: HOME ================= -->
   <main id="tab-home" class="tab-content max-w-md mx-auto px-4 pt-3 space-y-4">
-    <!-- Promotional Banner -->
     <div class="rounded-3xl p-4 text-zinc-900 shadow-sm border border-amber-200/70" style="background: linear-gradient(135deg, #fef7e0 0%, #f7e3af 100%);">
       <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-brand-gold text-white inline-block mb-1">
         ልዩ ጨረታ
@@ -91,7 +77,6 @@
       </div>
     </div>
 
-    <!-- Category Chips -->
     <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
       <button class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-brand-gold text-white shadow-sm whitespace-nowrap">ሁሉም (All)</button>
       <button class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-white text-zinc-600 border border-zinc-200 whitespace-nowrap">TikTok</button>
@@ -99,7 +84,7 @@
       <button class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-white text-zinc-600 border border-zinc-200 whitespace-nowrap">YouTube</button>
     </div>
 
-    <!-- Auction Card 1: TikTok -->
+    <!-- Auction Item 1 -->
     <div class="bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
       <div class="relative rounded-2xl overflow-hidden bg-gradient-to-tr from-zinc-950 to-zinc-800 p-5 text-white flex flex-col justify-between h-44">
         <div class="flex justify-between items-start">
@@ -133,7 +118,7 @@
       <p class="text-center text-[10px] text-zinc-400">የመጫረቻ ክፍያ ተመላሽ አይሆንም (Non-refundable)</p>
     </div>
 
-    <!-- Auction Card 2: Telegram Channel -->
+    <!-- Auction Item 2 -->
     <div class="bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
       <div class="relative rounded-2xl overflow-hidden bg-gradient-to-tr from-sky-950 to-indigo-900 p-5 text-white flex flex-col justify-between h-44">
         <div class="flex justify-between items-start">
@@ -175,46 +160,20 @@
       <span class="text-xs text-zinc-500">ያለፉ አሸናፊዎች</span>
     </div>
 
-    <!-- Draw Winner Card 1 -->
     <div class="bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
       <div class="relative rounded-2xl overflow-hidden bg-amber-50 border border-amber-200/80 p-4">
         <span class="bg-brand-gold text-white text-[10px] font-bold px-2 py-0.5 rounded-md flex items-center gap-1 w-max">
           🏆 አሸናፊ (WINNER)
         </span>
         <h4 class="font-extrabold text-base text-zinc-900 mt-2">TikTok @habesha_vibes (25K)</h4>
-        <div class="mt-3 flex items-center justify-between bg-white rounded-xl p-2.5 border border-amber-200">
+        <div class="mt-3 flex items-center justify-between bg-white rounded-xl p-2.5 border border-amber-200 text-xs">
           <div>
             <p class="text-[10px] text-zinc-400">አሸናፊ ዋጋ (Unique Bid)</p>
             <p class="text-base font-black text-zinc-900">0.47 ETB</p>
           </div>
-          <div class="text-right">
-            <p class="text-[10px] text-zinc-400">አሸናፊ ተጠቃሚ</p>
-            <p class="text-xs font-bold text-brand-darkgold">+2519****3201</p>
-          </div>
+          <span class="text-brand-darkgold font-bold">+2519****3201</span>
         </div>
       </div>
-      <p class="text-[11px] text-zinc-400 text-center font-mono">የተጠናቀቀበት ቀን፦ ኅዳር 2026</p>
-    </div>
-
-    <!-- Draw Winner Card 2 -->
-    <div class="bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
-      <div class="relative rounded-2xl overflow-hidden bg-amber-50 border border-amber-200/80 p-4">
-        <span class="bg-brand-gold text-white text-[10px] font-bold px-2 py-0.5 rounded-md flex items-center gap-1 w-max">
-          🏆 አሸናፊ (WINNER)
-        </span>
-        <h4 class="font-extrabold text-base text-zinc-900 mt-2">YouTube @TechAddis (4K Subs)</h4>
-        <div class="mt-3 flex items-center justify-between bg-white rounded-xl p-2.5 border border-amber-200">
-          <div>
-            <p class="text-[10px] text-zinc-400">አሸናፊ ዋጋ (Unique Bid)</p>
-            <p class="text-base font-black text-zinc-900">1.12 ETB</p>
-          </div>
-          <div class="text-right">
-            <p class="text-[10px] text-zinc-400">አሸናፊ ተጠቃሚ</p>
-            <p class="text-xs font-bold text-brand-darkgold">+2519****8814</p>
-          </div>
-        </div>
-      </div>
-      <p class="text-[11px] text-zinc-400 text-center font-mono">የተጠናቀቀበት ቀን፦ ኅዳር 2026</p>
     </div>
   </main>
 
@@ -224,7 +183,6 @@
       <h2 class="text-lg font-black text-zinc-900">የእኔ ጨረታዎች</h2>
     </div>
 
-    <!-- Quick Stats -->
     <div class="grid grid-cols-4 gap-2 bg-white rounded-2xl p-3 border border-zinc-200 text-center shadow-sm">
       <div>
         <p class="text-[10px] text-zinc-400 font-semibold">ጠቅላላ</p>
@@ -244,53 +202,39 @@
       </div>
     </div>
 
-    <!-- Bid Item List -->
     <div id="bidsListContainer" class="space-y-3">
       <div class="bg-white rounded-2xl p-4 border border-zinc-200 shadow-sm flex items-center justify-between">
         <div class="space-y-1">
           <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold">ንቁ (Active)</span>
           <h4 class="font-extrabold text-sm text-zinc-900">@ethio_tech_daily</h4>
-          <p class="text-[11px] text-zinc-400">ያስገቡት ዋጋ፦ <span class="font-bold text-zinc-800">0.45 ETB</span> • ክፍያ፦ ETB 25</p>
+          <p class="text-[11px] text-zinc-400">ያስገቡት ዋጋ፦ 0.45 ETB • ክፍያ፦ ETB 25</p>
         </div>
-        <div class="text-right">
-          <span class="text-xs text-brand-darkgold font-bold">ተመዝግቧል ✅</span>
-        </div>
+        <span class="text-xs text-brand-darkgold font-bold">ተመዝግቧል ✅</span>
       </div>
     </div>
   </main>
 
   <!-- ================= TAB 4: PROFILE ================= -->
   <main id="tab-profile" class="tab-content hidden max-w-md mx-auto px-4 pt-3 space-y-4">
-    <!-- User Card -->
     <div class="bg-zinc-900 text-white rounded-3xl p-4 flex items-center gap-3 shadow-md">
-      <div class="w-12 h-12 rounded-2xl bg-amber-400/20 text-brand-gold flex items-center justify-center text-xl font-black border border-amber-300/30">
+      <div class="w-12 h-12 rounded-2xl bg-amber-400/20 text-brand-gold flex items-center justify-center text-xl font-black">
         <i class="fa-solid fa-user"></i>
       </div>
-      <div class="flex-1">
-        <div class="flex items-center gap-2">
-          <h3 id="profileName" class="font-bold text-base text-white">ተጠቃሚ</h3>
-          <span class="text-[10px] bg-brand-gold/30 text-amber-300 border border-brand-gold/40 px-2 py-0.5 rounded-full font-bold">Verified</span>
-        </div>
-        <p id="profileTgId" class="text-xs text-zinc-400 font-mono">Telegram Connected</p>
+      <div>
+        <h3 id="profileName" class="font-bold text-base text-white">ተጫራች</h3>
+        <p id="profileTgId" class="text-xs text-zinc-400">@user</p>
       </div>
     </div>
 
-    <!-- Wallet Card -->
     <div class="bg-zinc-950 text-white rounded-3xl p-5 shadow-lg border border-zinc-800 space-y-3">
-      <div class="flex items-center justify-between">
-        <span class="text-xs text-zinc-400 flex items-center gap-1.5 font-medium">
-          <i class="fa-solid fa-wallet text-brand-gold"></i> ቀሪ ሒሳብ (Wallet)
-        </span>
-        <i class="fa-solid fa-chevron-right text-xs text-zinc-600"></i>
-      </div>
-      <h2 id="walletBalanceMain" class="text-3xl font-black text-white tracking-tight">100.00 ETB</h2>
+      <span class="text-xs text-zinc-400 font-medium">🪙 ቀሪ ሒሳብ (Wallet Balance)</span>
+      <h2 id="walletBalanceMain" class="text-3xl font-black text-white">100.00 ETB</h2>
       
-      <button onclick="openDepositModal()" class="w-full py-3.5 rounded-xl bg-brand-gold text-zinc-950 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 active:scale-[0.98] transition shadow">
-        <i class="fa-solid fa-bolt"></i> በቴሌብር ባላንስ ሙላ (Chapa Top-up)
+      <button onclick="openDepositModal()" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 active:scale-[0.98] transition shadow-lg">
+        <i class="fa-solid fa-mobile-screen-button"></i> በቴሌብር ባላንስ ሙላ (Direct Telebirr)
       </button>
     </div>
 
-    <!-- Referral Card -->
     <div class="bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-2.5">
       <div class="flex items-center gap-2 text-zinc-900 font-bold text-sm">
         <i class="fa-solid fa-users text-brand-gold"></i>
@@ -306,112 +250,91 @@
     </div>
   </main>
 
-  <!-- ================= BID MODAL ================= -->
-  <div id="bidModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
-    <div class="bg-white w-full max-w-md rounded-t-3xl sm:rounded-3xl p-5 space-y-4 shadow-2xl">
-      <div class="flex justify-between items-center border-b border-zinc-100 pb-3">
-        <div>
-          <h3 id="modalItemTitle" class="font-extrabold text-base text-zinc-900">የመጫረቻ ዋጋ ያስገቡ</h3>
-          <p class="text-[11px] text-zinc-400">ያልተደገመ ዝቅተኛ ሳንቲም ያስገቡ</p>
-        </div>
-        <button onclick="closeBidModal()" class="w-8 h-8 rounded-full bg-zinc-100 text-zinc-600 flex items-center justify-center font-bold">✕</button>
-      </div>
-
-      <div class="bg-amber-50 border border-amber-200 rounded-2xl p-3 flex justify-between items-center text-xs">
-        <span class="text-zinc-600 font-medium">የመጫረቻ ክፍያ (Fee):</span>
-        <span id="modalFeeText" class="font-extrabold text-zinc-900">25.00 ETB</span>
-      </div>
-
-      <div class="space-y-1.5">
-        <label class="text-xs font-bold text-zinc-700">የእርስዎ የጨረታ ዋጋ (Your Bid)</label>
-        <div class="relative">
-          <input 
-            type="number" 
-            id="modalBidInput" 
-            step="0.01" 
-            min="0.01" 
-            placeholder="ምሳሌ፦ 0.45" 
-            class="w-full bg-zinc-50 border border-zinc-300 rounded-xl px-4 py-3.5 text-base font-bold text-zinc-900 focus:outline-none focus:border-brand-gold"
-          >
-          <span class="absolute right-4 top-3.5 text-xs font-bold text-zinc-400">ETB</span>
-        </div>
-        <p class="text-[11px] text-zinc-500">💡 ሁለት ሰዎች ተመሳሳይ ካስገቡ ውድቅ ይሆናል፤ ማንም ያልደገመው አነስተኛ ዋጋ ያሸንፋል።</p>
-      </div>
-
-      <button onclick="submitModalBid()" class="w-full py-4 rounded-xl bg-zinc-950 text-brand-gold font-black text-sm flex items-center justify-center gap-2 active:scale-[0.98] transition shadow-lg">
-        <span>ጨረታውን አረጋግጥ</span>
-      </button>
-    </div>
-  </div>
-
-  <!-- ================= TOP UP MODAL ================= -->
+  <!-- ================= DIRECT TELEBIRR TOP UP MODAL ================= -->
   <div id="depositModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
     <div class="bg-white w-full max-w-md rounded-t-3xl sm:rounded-3xl p-5 space-y-4 shadow-2xl">
       <div class="flex justify-between items-center border-b border-zinc-100 pb-3">
-        <h3 class="font-extrabold text-base text-zinc-900">ባላንስ መሙያ (Chapa Top-up)</h3>
+        <h3 class="font-extrabold text-base text-zinc-900">በቴሌብር ቀጥታ መክፈያ</h3>
         <button onclick="closeDepositModal()" class="w-8 h-8 rounded-full bg-zinc-100 text-zinc-600 flex items-center justify-center font-bold">✕</button>
       </div>
 
       <div class="space-y-3">
-        <p class="text-xs text-zinc-600 font-medium">የሚሞሉትን የብር መጠን ይምረጡ፦</p>
-        
+        <div class="p-3 bg-emerald-50 rounded-2xl border border-emerald-200 text-xs space-y-1">
+          <p class="font-bold text-emerald-950 flex items-center gap-1.5">
+            <span>📱 የቴሌብር ቁጥር፦</span>
+            <span class="font-mono text-emerald-800 font-black text-sm select-all">0924136307</span>
+          </p>
+          <p class="text-[11px] text-emerald-700">ስም፦ Aweke Zewdu</p>
+        </div>
+
+        <p class="text-xs text-zinc-600 font-medium">የሚሞሉትን መጠን ይምረጡ፦</p>
         <div class="grid grid-cols-3 gap-2">
-          <button onclick="selectAmount(50)" class="py-3 rounded-xl border border-zinc-300 font-extrabold text-sm hover:border-brand-gold active:bg-amber-50">50 ETB</button>
-          <button onclick="selectAmount(100)" class="py-3 rounded-xl border-2 border-brand-gold bg-amber-50/50 font-extrabold text-sm text-brand-darkgold">100 ETB</button>
-          <button onclick="selectAmount(200)" class="py-3 rounded-xl border border-zinc-300 font-extrabold text-sm hover:border-brand-gold active:bg-amber-50">200 ETB</button>
+          <button onclick="selectAmount(50)" class="py-2.5 rounded-xl border border-zinc-300 font-extrabold text-sm active:bg-amber-50">50 ETB</button>
+          <button onclick="selectAmount(100)" class="py-2.5 rounded-xl border-2 border-emerald-500 bg-emerald-50/40 font-extrabold text-sm text-emerald-800">100 ETB</button>
+          <button onclick="selectAmount(200)" class="py-2.5 rounded-xl border border-zinc-300 font-extrabold text-sm active:bg-amber-50">200 ETB</button>
         </div>
 
         <input 
           type="number" 
           id="customAmountInput" 
-          placeholder="ወይም ሌላ መጠን ጻፍ (ምሳሌ፦ 75)" 
           value="100" 
-          class="w-full bg-zinc-50 border border-zinc-300 rounded-xl px-4 py-3 text-xs text-zinc-900 focus:outline-none focus:border-brand-gold"
+          class="w-full bg-zinc-50 border border-zinc-300 rounded-xl px-4 py-3 text-xs text-zinc-900 focus:outline-none focus:border-emerald-500"
         >
 
-        <button onclick="payViaChapaDirect()" class="w-full py-4 rounded-xl bg-zinc-950 text-brand-gold font-black text-sm flex items-center justify-center gap-2 active:scale-[0.98] transition shadow-lg">
-          <span>በቴሌብር / ባንክ ክፈል</span>
-          <span>⚡</span>
+        <button onclick="executeDirectTelebirr()" class="w-full py-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-black text-sm flex items-center justify-center gap-2 active:scale-[0.98] transition shadow-lg">
+          <span>ቴሌብርን በቀጥታ ክፈት</span>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
         </button>
+
+        <p class="text-[10px] text-zinc-400 text-center">
+          ክፍያውን ልከው እንደጨረሱ ባላንስዎ በራስ-ሰር ይሞላል።
+        </p>
       </div>
+    </div>
+  </div>
+
+  <!-- ================= BID MODAL ================= -->
+  <div id="bidModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="bg-white w-full max-w-md rounded-t-3xl sm:rounded-3xl p-5 space-y-4 shadow-2xl">
+      <div class="flex justify-between items-center border-b border-zinc-100 pb-3">
+        <h3 id="modalItemTitle" class="font-extrabold text-base text-zinc-900">የመጫረቻ ዋጋ ያስገቡ</h3>
+        <button onclick="closeBidModal()" class="w-8 h-8 rounded-full bg-zinc-100 text-zinc-600 flex items-center justify-center font-bold">✕</button>
+      </div>
+      <div class="space-y-2">
+        <input type="number" id="modalBidInput" step="0.01" min="0.01" placeholder="ያልተደገመ ዝቅተኛ ዋጋ (ምሳሌ፦ 0.45)" class="w-full bg-zinc-50 border border-zinc-300 rounded-xl px-4 py-3.5 text-base font-bold text-zinc-900 focus:outline-none focus:border-brand-gold">
+        <p class="text-[11px] text-zinc-400">💡 ማንም ያልደገመው ዝቅተኛ ዋጋ ያሸንፋል።</p>
+      </div>
+      <button onclick="submitModalBid()" class="w-full py-4 rounded-xl bg-zinc-950 text-brand-gold font-black text-sm active:scale-[0.98] transition shadow-lg">ጨረታውን አረጋግጥ</button>
     </div>
   </div>
 
   <!-- ================= BOTTOM NAVIGATION ================= -->
   <nav class="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-zinc-200 flex items-center justify-around py-2 max-w-md mx-auto shadow-lg">
     <button onclick="switchTab('home')" id="nav-home" class="nav-btn flex flex-col items-center gap-1 text-brand-gold">
-      <i class="fa-solid fa-house text-base"></i>
-      <span class="text-[10px] font-bold">መነሻ</span>
+      <i class="fa-solid fa-house text-base"></i><span class="text-[10px] font-bold">መነሻ</span>
     </button>
     <button onclick="switchTab('draws')" id="nav-draws" class="nav-btn flex flex-col items-center gap-1 text-zinc-400">
-      <i class="fa-solid fa-clock-rotate-left text-base"></i>
-      <span class="text-[10px] font-bold">ዕጣዎች</span>
+      <i class="fa-solid fa-clock-rotate-left text-base"></i><span class="text-[10px] font-bold">ዕጣዎች</span>
     </button>
     <button onclick="switchTab('mybids')" id="nav-mybids" class="nav-btn flex flex-col items-center gap-1 text-zinc-400">
-      <i class="fa-solid fa-ticket text-base"></i>
-      <span class="text-[10px] font-bold">የእኔ ጨረታ</span>
+      <i class="fa-solid fa-ticket text-base"></i><span class="text-[10px] font-bold">የእኔ ጨረታ</span>
     </button>
     <button onclick="switchTab('profile')" id="nav-profile" class="nav-btn flex flex-col items-center gap-1 text-zinc-400">
-      <i class="fa-solid fa-user text-base"></i>
-      <span class="text-[10px] font-bold">መገለጫ</span>
+      <i class="fa-solid fa-user text-base"></i><span class="text-[10px] font-bold">መገለጫ</span>
     </button>
   </nav>
 
-  <!-- ================= JAVASCRIPT LOGIC ================= -->
+  <!-- ================= APPLICATION JAVASCRIPT ================= -->
   <script>
     const tg = window.Telegram ? window.Telegram.WebApp : null;
     let balance = parseFloat(localStorage.getItem('nb_balance') || '100.0');
-    let currentBidFee = 25.0;
-    let currentItemTitle = '';
-    let totalBidsCount = 1;
 
     if (tg) {
       tg.ready();
       tg.expand();
       if (tg.initDataUnsafe && tg.initDataUnsafe.user) {
         const u = tg.initDataUnsafe.user;
-        const name = (u.first_name || '') + ' ' + (u.last_name || '');
-        document.getElementById('profileName').innerText = name.trim() || 'ተጫራች';
+        document.getElementById('profileName').innerText = (u.first_name || 'ተጫራች');
         document.getElementById('profileTgId').innerText = '@' + (u.username || 'user');
       }
     }
@@ -427,7 +350,6 @@
     function switchTab(tabId) {
       document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
       document.getElementById('tab-' + tabId).classList.remove('hidden');
-
       document.querySelectorAll('.nav-btn').forEach(btn => {
         btn.classList.remove('text-brand-gold');
         btn.classList.add('text-zinc-400');
@@ -437,103 +359,51 @@
       window.scrollTo(0, 0);
     }
 
-    function openBidModal(title, fee) {
-      currentItemTitle = title;
-      currentBidFee = fee;
-      document.getElementById('modalItemTitle').innerText = title;
-      document.getElementById('modalFeeText').innerText = fee.toFixed(2) + " ETB";
-      document.getElementById('modalBidInput').value = '';
-      document.getElementById('bidModal').classList.remove('hidden');
-    }
+    function openDepositModal() { document.getElementById('depositModal').classList.remove('hidden'); }
+    function closeDepositModal() { document.getElementById('depositModal').classList.add('hidden'); }
+    function selectAmount(val) { document.getElementById('customAmountInput').value = val; }
 
-    function closeBidModal() {
-      document.getElementById('bidModal').classList.add('hidden');
-    }
-
-    function submitModalBid() {
-      const input = document.getElementById('modalBidInput');
-      const val = parseFloat(input.value);
-
-      if (!val || val <= 0) {
-        showMsg("እባክዎ ትክክለኛ የሳንቲም ዋጋ ያስገቡ (ምሳሌ፦ 0.45)");
-        return;
-      }
-      if (balance < currentBidFee) {
-        showMsg("ቀሪ ሒሳብዎ በቂ አይደለም! እባክዎ መጀመሪያ ዋሌትዎን ይሙሉ");
-        return;
-      }
-
-      balance -= currentBidFee;
-      updateBalanceUI();
-      closeBidModal();
-
-      totalBidsCount++;
-      document.getElementById('statTotalBids').innerText = totalBidsCount;
-
-      // Add to My Bids List
-      const container = document.getElementById('bidsListContainer');
-      const newCard = document.createElement('div');
-      newCard.className = "bg-white rounded-2xl p-4 border border-zinc-200 shadow-sm flex items-center justify-between";
-      newCard.innerHTML = `
-        <div class="space-y-1">
-          <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold">ንቁ (Active)</span>
-          <h4 class="font-extrabold text-sm text-zinc-900">${currentItemTitle}</h4>
-          <p class="text-[11px] text-zinc-400">ያስገቡት ዋጋ፦ <span class="font-bold text-zinc-800">${val.toFixed(2)} ETB</span> • ክፍያ፦ ETB ${currentBidFee.toFixed(2)}</p>
-        </div>
-        <span class="text-xs text-brand-darkgold font-bold">ተመዝግቧል ✅</span>
-      `;
-      container.prepend(newCard);
-
-      showMsg(`✅ ጨረታዎ ተመዝግቧል!\nያስገቡት ዋጋ፦ ${val.toFixed(2)} ETB\nየተቆረጠ ክፍያ፦ ${currentBidFee.toFixed(2)} ETB`);
-    }
-
-    function openDepositModal() {
-      document.getElementById('depositModal').classList.remove('hidden');
-    }
-    function closeDepositModal() {
-      document.getElementById('depositModal').classList.add('hidden');
-    }
-    function selectAmount(val) {
-      document.getElementById('customAmountInput').value = val;
-    }
-
-    function payViaChapaDirect() {
+    function executeDirectTelebirr() {
       const amount = parseFloat(document.getElementById('customAmountInput').value);
       if (!amount || amount <= 0) {
-        showMsg("እባክዎ ትክክለኛ የብር መጠን ያስገቡ!");
+        alert("እባክዎ ትክክለኛ የብር መጠን ያስገቡ!");
         return;
       }
 
       closeDepositModal();
 
-      // የቴሌብር ክፍያ ሊንክ መክፈት
-      const chapaCheckoutUrl = `https://checkout.chapa.co/checkout/payment/${amount}`;
-      if (tg && tg.openLink) {
-        tg.openLink(chapaCheckoutUrl);
-      } else {
-        window.open(chapaCheckoutUrl, '_blank');
-      }
+      const telebirrUssd = `tel:*127*1*0924136307*${amount}%23`;
+      window.location.href = telebirrUssd;
 
-      // ክፍያው እንደተፈጸመ ባላንሱን ማደስ
       setTimeout(() => {
         balance += amount;
         updateBalanceUI();
-        showMsg(`🎉 ክፍያዎ ተረጋግጧል! ${amount} ETB ወደ ዋሌትዎ ገቢ ሆኗል።`);
-      }, 3500);
+        if (tg && tg.showAlert) {
+          tg.showAlert(`🎉 ክፍያዎ ተፈጽሟል! ${amount} ETB ወደ ዋሌትዎ ገቢ ሆኗል።`);
+        } else {
+          alert(`🎉 ክፍያዎ ተፈጽሟል! ${amount} ETB ወደ ዋሌትዎ ገቢ ሆኗል።`);
+        }
+      }, 4000);
     }
 
-    function copyRefLink() {
-      const txt = document.getElementById('refLink').innerText;
-      navigator.clipboard.writeText(txt);
-      showMsg("የመጋበዣ ሊንክዎ ኮፒ ተደርጓል!");
+    function openBidModal(title, fee) {
+      document.getElementById('modalItemTitle').innerText = title;
+      document.getElementById('modalBidInput').value = '';
+      document.getElementById('bidModal').classList.remove('hidden');
+    }
+    function closeBidModal() { document.getElementById('bidModal').classList.add('hidden'); }
+
+    function submitModalBid() {
+      const val = parseFloat(document.getElementById('modalBidInput').value);
+      if (!val || val <= 0) { alert("እባክዎ ትክክለኛ የሳንቲም ዋጋ ያስገቡ!"); return; }
+      if (balance < 25) { alert("ቀሪ ሒሳብዎ በቂ አይደለም! እባክዎ መጀመሪያ ዋሌትዎን ይሙሉ"); return; }
+      
+      balance -= 25;
+      updateBalanceUI();
+      closeBidModal();
+      alert(`✅ ጨረታዎ ተመዝግቧል!\nዋጋ፦ ${val.toFixed(2)} ETB\nየተቆረጠ ክፍያ፦ 25 ETB`);
     }
 
-    function showMsg(text) {
-      if (tg && tg.showAlert) tg.showAlert(text);
-      else alert(text);
-    }
-
-    // Countdown Timers
     let sec1 = 4 * 3600 + 12 * 60 + 35;
     let sec2 = 8 * 3600 + 25 * 60 + 15;
     setInterval(() => {
