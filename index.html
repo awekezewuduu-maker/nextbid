@@ -4,8 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>NextBid - Social Media Auctions</title>
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Telegram WebApp SDK -->
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <!-- Font Awesome Icons -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <script>
     tailwind.config = {
@@ -47,10 +50,11 @@
     </div>
 
     <div class="flex items-center gap-2">
+      <!-- Balance Pill -->
       <div class="bg-[#e9caa] bg-opacity-30 border border-brand-gold/40 px-3 py-1 rounded-full flex items-center gap-1.5 shadow-sm">
         <span class="text-xs font-bold text-brand-gold">🪙</span>
         <span id="topBalance" class="text-xs font-extrabold text-zinc-900">100.00 ETB</span>
-        <button onclick="switchTab('profile')" class="text-brand-darkgold ml-0.5 text-xs font-bold leading-none">+</button>
+        <button onclick="openDepositModal()" class="text-brand-darkgold ml-0.5 text-xs font-bold leading-none">+</button>
       </div>
 
       <div class="px-2 py-1 rounded-full bg-white border border-zinc-200 flex items-center gap-1 text-[11px] font-bold text-zinc-700 shadow-sm">
@@ -62,6 +66,7 @@
 
   <!-- ================= TAB 1: HOME ================= -->
   <main id="tab-home" class="tab-content max-w-md mx-auto px-4 pt-3 space-y-4">
+    <!-- Promotional Banner -->
     <div class="rounded-3xl p-4 text-zinc-900 shadow-sm border border-amber-200/70" style="background: linear-gradient(135deg, #fef7e0 0%, #f7e3af 100%);">
       <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-brand-gold text-white inline-block mb-1">
         ልዩ ጨረታ
@@ -77,6 +82,7 @@
       </div>
     </div>
 
+    <!-- Category Chips -->
     <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
       <button class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-brand-gold text-white shadow-sm whitespace-nowrap">ሁሉም (All)</button>
       <button class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-white text-zinc-600 border border-zinc-200 whitespace-nowrap">TikTok</button>
@@ -84,7 +90,7 @@
       <button class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-white text-zinc-600 border border-zinc-200 whitespace-nowrap">YouTube</button>
     </div>
 
-    <!-- Auction Item 1 -->
+    <!-- Auction Card 1 -->
     <div class="bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
       <div class="relative rounded-2xl overflow-hidden bg-gradient-to-tr from-zinc-950 to-zinc-800 p-5 text-white flex flex-col justify-between h-44">
         <div class="flex justify-between items-start">
@@ -118,7 +124,7 @@
       <p class="text-center text-[10px] text-zinc-400">የመጫረቻ ክፍያ ተመላሽ አይሆንም (Non-refundable)</p>
     </div>
 
-    <!-- Auction Item 2 -->
+    <!-- Auction Card 2 -->
     <div class="bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
       <div class="relative rounded-2xl overflow-hidden bg-gradient-to-tr from-sky-950 to-indigo-900 p-5 text-white flex flex-col justify-between h-44">
         <div class="flex justify-between items-start">
@@ -168,7 +174,7 @@
         <h4 class="font-extrabold text-base text-zinc-900 mt-2">TikTok @habesha_vibes (25K)</h4>
         <div class="mt-3 flex items-center justify-between bg-white rounded-xl p-2.5 border border-amber-200 text-xs">
           <div>
-            <p class="text-[10px] text-zinc-400">አሸናፊ ዋጋ (Unique Bid)</p>
+            <p class="text-[10px] text-zinc-400">አሸናፊ ዋጋ</p>
             <p class="text-base font-black text-zinc-900">0.47 ETB</p>
           </div>
           <span class="text-brand-darkgold font-bold">+2519****3201</span>
@@ -179,10 +185,7 @@
 
   <!-- ================= TAB 3: MY BIDS ================= -->
   <main id="tab-mybids" class="tab-content hidden max-w-md mx-auto px-4 pt-3 space-y-4">
-    <div class="flex items-center justify-between">
-      <h2 class="text-lg font-black text-zinc-900">የእኔ ጨረታዎች</h2>
-    </div>
-
+    <h2 class="text-lg font-black text-zinc-900">የእኔ ጨረታዎች</h2>
     <div class="grid grid-cols-4 gap-2 bg-white rounded-2xl p-3 border border-zinc-200 text-center shadow-sm">
       <div>
         <p class="text-[10px] text-zinc-400 font-semibold">ጠቅላላ</p>
@@ -226,15 +229,17 @@
       </div>
     </div>
 
+    <!-- Wallet Card -->
     <div class="bg-zinc-950 text-white rounded-3xl p-5 shadow-lg border border-zinc-800 space-y-3">
       <span class="text-xs text-zinc-400 font-medium">🪙 ቀሪ ሒሳብ (Wallet Balance)</span>
       <h2 id="walletBalanceMain" class="text-3xl font-black text-white">100.00 ETB</h2>
       
-      <button onclick="openDepositModal()" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 active:scale-[0.98] transition shadow-lg">
-        <i class="fa-solid fa-mobile-screen-button"></i> በቴሌብር ባላንስ ሙላ (Direct Telebirr)
+      <button onclick="openDepositModal()" class="w-full py-3.5 rounded-xl bg-brand-gold text-zinc-950 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 active:scale-[0.98] transition shadow">
+        <i class="fa-solid fa-plus font-bold"></i> + Top up
       </button>
     </div>
 
+    <!-- Referral Card -->
     <div class="bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-2.5">
       <div class="flex items-center gap-2 text-zinc-900 font-bold text-sm">
         <i class="fa-solid fa-users text-brand-gold"></i>
@@ -250,45 +255,165 @@
     </div>
   </main>
 
-  <!-- ================= DIRECT TELEBIRR TOP UP MODAL ================= -->
+  <!-- ================= FULL ONEBID-STYLE TOP UP MODAL ================= -->
   <div id="depositModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
-    <div class="bg-white w-full max-w-md rounded-t-3xl sm:rounded-3xl p-5 space-y-4 shadow-2xl">
-      <div class="flex justify-between items-center border-b border-zinc-100 pb-3">
-        <h3 class="font-extrabold text-base text-zinc-900">በቴሌብር ቀጥታ መክፈያ</h3>
-        <button onclick="closeDepositModal()" class="w-8 h-8 rounded-full bg-zinc-100 text-zinc-600 flex items-center justify-center font-bold">✕</button>
+    <div class="bg-white w-full max-w-md rounded-t-[32px] sm:rounded-3xl p-5 space-y-4 shadow-2xl max-h-[92vh] overflow-y-auto no-scrollbar">
+      
+      <!-- Initial Top-up View -->
+      <div id="topUpViewForm" class="space-y-4">
+        <div class="flex justify-between items-center border-b border-zinc-100 pb-2">
+          <div class="flex items-center gap-2">
+            <span class="w-7 h-7 rounded-lg bg-amber-50 text-brand-gold flex items-center justify-center text-xs">
+              <i class="fa-solid fa-wallet"></i>
+            </span>
+            <h3 class="font-black text-base text-zinc-900">Top up wallet</h3>
+          </div>
+          <button onclick="closeDepositModal()" class="w-8 h-8 rounded-full bg-zinc-100 text-zinc-600 flex items-center justify-center font-bold text-xs">✕</button>
+        </div>
+
+        <div class="p-3 bg-zinc-50 rounded-2xl border border-zinc-200/70 text-xs">
+          <div class="flex justify-between items-center text-zinc-500 mb-1">
+            <span>Wallet</span>
+            <span id="modalCurrentWallet" class="font-extrabold text-zinc-900 text-sm">100.00 ETB</span>
+          </div>
+          <p class="text-[11px] text-zinc-400 leading-snug">
+            ⓘ Wallet funds cannot be withdrawn — they can be used to bid on any auction.
+          </p>
+        </div>
+
+        <!-- Amount Box -->
+        <div class="space-y-1.5">
+          <span class="text-xs font-bold text-zinc-500">Amount</span>
+          <div class="relative">
+            <input 
+              type="number" 
+              id="topUpAmountInput" 
+              value="100.00" 
+              step="1"
+              class="w-full bg-zinc-50 border border-zinc-200 rounded-2xl px-4 py-3.5 text-lg font-black text-zinc-900 focus:outline-none focus:border-brand-gold"
+            >
+            <span class="absolute right-4 top-3.5 text-xs font-extrabold text-zinc-400">ETB</span>
+          </div>
+          <p class="text-[10px] text-zinc-400">
+            Bonus is added when your payment is confirmed.
+          </p>
+        </div>
+
+        <!-- Preset Amount Grid -->
+        <div class="grid grid-cols-3 gap-2">
+          <button onclick="setAmount(10)" class="amt-chip p-2.5 rounded-2xl border border-zinc-200 text-center active:scale-95 transition bg-zinc-50">
+            <p class="text-xs font-black text-zinc-900">10.00 ETB</p>
+            <p class="text-[9px] text-emerald-600 font-bold">+10.00 ETB</p>
+          </button>
+          <button onclick="setAmount(100)" class="amt-chip p-2.5 rounded-2xl border-2 border-brand-gold bg-amber-50/50 text-center active:scale-95 transition">
+            <p class="text-xs font-black text-zinc-900">100.00 ETB</p>
+            <p class="text-[9px] text-emerald-600 font-bold">+100.00 ETB</p>
+          </button>
+          <button onclick="setAmount(250)" class="amt-chip p-2.5 rounded-2xl border border-zinc-200 text-center active:scale-95 transition bg-zinc-50">
+            <p class="text-xs font-black text-zinc-900">250.00 ETB</p>
+            <p class="text-[9px] text-emerald-600 font-bold">+250.00 ETB</p>
+          </button>
+          <button onclick="setAmount(500)" class="amt-chip p-2.5 rounded-2xl border border-zinc-200 text-center active:scale-95 transition bg-zinc-50">
+            <p class="text-xs font-black text-zinc-900">500.00 ETB</p>
+            <p class="text-[9px] text-emerald-600 font-bold">+500.00 ETB</p>
+          </button>
+          <button onclick="setAmount(1000)" class="amt-chip p-2.5 rounded-2xl border border-zinc-200 text-center active:scale-95 transition bg-zinc-50">
+            <p class="text-xs font-black text-zinc-900">1,000.00 ETB</p>
+            <p class="text-[9px] text-emerald-600 font-bold">+1,000.00 ETB</p>
+          </button>
+          <button onclick="setAmount(10000)" class="amt-chip p-2.5 rounded-2xl border border-zinc-200 text-center active:scale-95 transition bg-zinc-50">
+            <p class="text-xs font-black text-zinc-900">10,000.00 ETB</p>
+            <p class="text-[9px] text-emerald-600 font-bold">+10,000.00 ETB</p>
+          </button>
+        </div>
+
+        <!-- Payment Method Selection -->
+        <div class="space-y-2">
+          <span class="text-xs font-bold text-zinc-500">Select payment method</span>
+          <div class="grid grid-cols-2 gap-2">
+            <!-- Telebirr -->
+            <button onclick="selectMethod('telebirr')" id="method-telebirr" class="method-card p-3 rounded-2xl border-2 border-emerald-500 bg-emerald-50/30 flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center text-[10px] font-black">tb</span>
+              <span class="text-xs font-extrabold text-zinc-900">telebirr</span>
+            </button>
+            <!-- CBE Birr -->
+            <button onclick="selectMethod('cbe')" id="method-cbe" class="method-card p-3 rounded-2xl border border-zinc-200 bg-zinc-50 flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-purple-700 text-white flex items-center justify-center text-[9px] font-black">CBE</span>
+              <span class="text-xs font-extrabold text-zinc-900">CBE Birr</span>
+            </button>
+            <!-- Kacha -->
+            <button onclick="selectMethod('kacha')" id="method-kacha" class="method-card p-3 rounded-2xl border border-zinc-200 bg-zinc-50 flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-amber-500 text-white flex items-center justify-center text-[9px] font-black">K</span>
+              <span class="text-xs font-extrabold text-zinc-900">Kacha</span>
+            </button>
+            <!-- M-PESA -->
+            <button onclick="selectMethod('mpesa')" id="method-mpesa" class="method-card p-3 rounded-2xl border border-zinc-200 bg-zinc-50 flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-emerald-700 text-white flex items-center justify-center text-[8px] font-black">M</span>
+              <span class="text-xs font-extrabold text-zinc-900">M-PESA</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Phone Input -->
+        <div class="space-y-1">
+          <label class="text-xs font-bold text-zinc-500">የቴሌብር ስልክ ቁጥር</label>
+          <div class="relative">
+            <input 
+              type="tel" 
+              id="payerPhone" 
+              value="0924136307" 
+              placeholder="09... ወይም 07..." 
+              class="w-full bg-zinc-50 border border-zinc-200 rounded-2xl px-4 py-3 text-xs font-bold text-zinc-900 focus:outline-none focus:border-brand-gold font-mono"
+            >
+          </div>
+        </div>
+
+        <button onclick="startPushConfirmation()" class="w-full py-4 rounded-2xl bg-[#dfa938] hover:bg-[#cba135] text-white font-black text-sm active:scale-[0.98] transition shadow-md">
+          Top up
+        </button>
       </div>
 
-      <div class="space-y-3">
-        <div class="p-3 bg-emerald-50 rounded-2xl border border-emerald-200 text-xs space-y-1">
-          <p class="font-bold text-emerald-950 flex items-center gap-1.5">
-            <span>📱 የቴሌብር ቁጥር፦</span>
-            <span class="font-mono text-emerald-800 font-black text-sm select-all">0924136307</span>
+      <!-- Confirming / USSD Push Loading View -->
+      <div id="topUpViewConfirming" class="hidden py-8 px-2 flex flex-col items-center text-center space-y-4">
+        <div class="w-16 h-16 rounded-full bg-[#f3e6cf] flex items-center justify-center text-brand-darkgold font-black text-2xl animate-pulse">
+          C
+        </div>
+        <div>
+          <h3 class="text-lg font-black text-zinc-900">Confirming your top-up...</h3>
+          <p class="text-xs text-zinc-500 mt-1 max-w-[260px] mx-auto leading-relaxed">
+            Approve the payment request on your phone to complete your bid.
           </p>
-          <p class="text-[11px] text-emerald-700">ስም፦ Aweke Zewdu</p>
         </div>
-
-        <p class="text-xs text-zinc-600 font-medium">የሚሞሉትን መጠን ይምረጡ፦</p>
-        <div class="grid grid-cols-3 gap-2">
-          <button onclick="selectAmount(50)" class="py-2.5 rounded-xl border border-zinc-300 font-extrabold text-sm active:bg-amber-50">50 ETB</button>
-          <button onclick="selectAmount(100)" class="py-2.5 rounded-xl border-2 border-emerald-500 bg-emerald-50/40 font-extrabold text-sm text-emerald-800">100 ETB</button>
-          <button onclick="selectAmount(200)" class="py-2.5 rounded-xl border border-zinc-300 font-extrabold text-sm active:bg-amber-50">200 ETB</button>
+        <div class="w-48 h-1.5 bg-zinc-200 rounded-full overflow-hidden">
+          <div class="h-full bg-brand-gold w-2/3 animate-pulse"></div>
         </div>
+      </div>
+    </div>
+  </div>
 
-        <input 
-          type="number" 
-          id="customAmountInput" 
-          value="100" 
-          class="w-full bg-zinc-50 border border-zinc-300 rounded-xl px-4 py-3 text-xs text-zinc-900 focus:outline-none focus:border-emerald-500"
-        >
-
-        <button onclick="executeDirectTelebirr()" class="w-full py-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-black text-sm flex items-center justify-center gap-2 active:scale-[0.98] transition shadow-lg">
-          <span>ቴሌብርን በቀጥታ ክፈት</span>
-          <i class="fa-solid fa-arrow-up-right-from-square"></i>
-        </button>
-
-        <p class="text-[10px] text-zinc-400 text-center">
-          ክፍያውን ልከው እንደጨረሱ ባላንስዎ በራስ-ሰር ይሞላል።
+  <!-- ================= SIMULATED USSD PUSH PROMPT ================= -->
+  <div id="ussdPushPrompt" class="fixed inset-0 bg-black/70 backdrop-blur-xs z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-[#1c1c1e] text-white w-full max-w-xs rounded-2xl p-5 space-y-4 shadow-2xl border border-zinc-700 animate-scale-up">
+      <div class="space-y-1 text-center">
+        <p class="text-xs text-zinc-300 leading-relaxed font-sans">
+          You are requested to Pay to <span class="font-bold text-white">NextBid Financial Technologies</span> Merchant ID <span class="font-mono text-amber-400">515565</span> amount <span id="ussdAmountText" class="font-black text-white">100.00 ETB</span>. Please enter your PIN for confirmation.
         </p>
+      </div>
+
+      <div class="pt-2">
+        <input 
+          type="password" 
+          id="simulatedPinInput" 
+          maxlength="4" 
+          placeholder="••••" 
+          class="w-full bg-transparent border-b-2 border-zinc-500 focus:border-brand-gold text-center text-xl font-mono text-white tracking-widest focus:outline-none pb-1"
+        >
+      </div>
+
+      <div class="flex items-center justify-between border-t border-zinc-800 pt-3 text-xs font-bold">
+        <button onclick="cancelUssdPush()" class="w-1/2 text-zinc-400 py-1 hover:text-white">Cancel</button>
+        <span class="text-zinc-700">|</span>
+        <button onclick="submitUssdPush()" class="w-1/2 text-brand-gold py-1 hover:text-amber-300 font-extrabold">Send</button>
       </div>
     </div>
   </div>
@@ -328,6 +453,8 @@
   <script>
     const tg = window.Telegram ? window.Telegram.WebApp : null;
     let balance = parseFloat(localStorage.getItem('nb_balance') || '100.0');
+    let selectedAmount = 100.0;
+    let selectedMethodName = 'telebirr';
 
     if (tg) {
       tg.ready();
@@ -343,6 +470,7 @@
       const formatted = balance.toFixed(2) + " ETB";
       document.getElementById('topBalance').innerText = formatted;
       document.getElementById('walletBalanceMain').innerText = formatted;
+      document.getElementById('modalCurrentWallet').innerText = formatted;
       localStorage.setItem('nb_balance', balance.toString());
     }
     updateBalanceUI();
@@ -359,33 +487,82 @@
       window.scrollTo(0, 0);
     }
 
-    function openDepositModal() { document.getElementById('depositModal').classList.remove('hidden'); }
-    function closeDepositModal() { document.getElementById('depositModal').classList.add('hidden'); }
-    function selectAmount(val) { document.getElementById('customAmountInput').value = val; }
+    // Top up Modal Controls
+    function openDepositModal() {
+      document.getElementById('topUpViewForm').classList.remove('hidden');
+      document.getElementById('topUpViewConfirming').classList.add('hidden');
+      document.getElementById('depositModal').classList.remove('hidden');
+    }
+    function closeDepositModal() {
+      document.getElementById('depositModal').classList.add('hidden');
+    }
 
-    function executeDirectTelebirr() {
-      const amount = parseFloat(document.getElementById('customAmountInput').value);
-      if (!amount || amount <= 0) {
+    function setAmount(amt) {
+      selectedAmount = amt;
+      document.getElementById('topUpAmountInput').value = amt.toFixed(2);
+      document.querySelectorAll('.amt-chip').forEach(c => {
+        c.classList.remove('border-2', 'border-brand-gold', 'bg-amber-50/50');
+        c.classList.add('border-zinc-200', 'bg-zinc-50');
+      });
+      event.currentTarget.classList.add('border-2', 'border-brand-gold', 'bg-amber-50/50');
+    }
+
+    function selectMethod(method) {
+      selectedMethodName = method;
+      document.querySelectorAll('.method-card').forEach(m => {
+        m.classList.remove('border-2', 'border-emerald-500', 'bg-emerald-50/30');
+        m.classList.add('border-zinc-200', 'bg-zinc-50');
+      });
+      document.getElementById('method-' + method).classList.add('border-2', 'border-emerald-500', 'bg-emerald-50/30');
+    }
+
+    function startPushConfirmation() {
+      const val = parseFloat(document.getElementById('topUpAmountInput').value);
+      if (!val || val <= 0) {
         alert("እባክዎ ትክክለኛ የብር መጠን ያስገቡ!");
         return;
       }
+      selectedAmount = val;
 
-      closeDepositModal();
+      // Switch to Confirming... view
+      document.getElementById('topUpViewForm').classList.add('hidden');
+      document.getElementById('topUpViewConfirming').classList.remove('hidden');
 
-      const telebirrUssd = `tel:*127*1*0924136307*${amount}%23`;
-      window.location.href = telebirrUssd;
-
+      // Trigger USSD Push Prompt
       setTimeout(() => {
-        balance += amount;
-        updateBalanceUI();
-        if (tg && tg.showAlert) {
-          tg.showAlert(`🎉 ክፍያዎ ተፈጽሟል! ${amount} ETB ወደ ዋሌትዎ ገቢ ሆኗል።`);
-        } else {
-          alert(`🎉 ክፍያዎ ተፈጽሟል! ${amount} ETB ወደ ዋሌትዎ ገቢ ሆኗል።`);
-        }
-      }, 4000);
+        document.getElementById('ussdAmountText').innerText = selectedAmount.toFixed(2) + " ETB";
+        document.getElementById('simulatedPinInput').value = '';
+        document.getElementById('ussdPushPrompt').classList.remove('hidden');
+      }, 1200);
     }
 
+    function cancelUssdPush() {
+      document.getElementById('ussdPushPrompt').classList.add('hidden');
+      document.getElementById('topUpViewConfirming').classList.add('hidden');
+      document.getElementById('topUpViewForm').classList.remove('hidden');
+    }
+
+    function submitUssdPush() {
+      const pin = document.getElementById('simulatedPinInput').value;
+      if (!pin || pin.length < 4) {
+        alert("እባክዎ ትክክለኛ 4-ዲጂት ፒን ያስገቡ!");
+        return;
+      }
+
+      document.getElementById('ussdPushPrompt').classList.add('hidden');
+
+      setTimeout(() => {
+        balance += selectedAmount;
+        updateBalanceUI();
+        closeDepositModal();
+
+        const successNotice = `✅ ክፍያዎ በተሳካ ሁኔታ ተፈጽሟል!\n${selectedAmount.toFixed(2)} ETB ወደ ዋሌትዎ ገቢ ሆኗል።`;
+        if (tg && tg.showAlert) tg.showAlert(successNotice);
+        else alert(successNotice);
+      }, 1000);
+    }
+
+    // Bid Modal Controls
     function openBidModal(title, fee) {
       document.getElementById('modalItemTitle').innerText = title;
       document.getElementById('modalBidInput').value = '';
@@ -404,6 +581,7 @@
       alert(`✅ ጨረታዎ ተመዝግቧል!\nዋጋ፦ ${val.toFixed(2)} ETB\nየተቆረጠ ክፍያ፦ 25 ETB`);
     }
 
+    // Countdown Timers
     let sec1 = 4 * 3600 + 12 * 60 + 35;
     let sec2 = 8 * 3600 + 25 * 60 + 15;
     setInterval(() => {
