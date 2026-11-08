@@ -65,14 +65,13 @@
 
   <!-- ================= TAB 1: HOME ================= -->
   <main id="tab-home" class="tab-content max-w-md mx-auto px-4 pt-3 space-y-4">
-    <!-- Promotional Banner -->
     <div class="rounded-3xl p-4 text-zinc-900 shadow-sm border border-amber-200/70" style="background: linear-gradient(135deg, #fef7e0 0%, #f7e3af 100%);">
       <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-brand-gold text-white inline-block mb-1">
         ልዩ ጨረታ
       </span>
       <h2 class="text-xl font-black leading-tight text-zinc-900">አሸናፊውን ጨረታዎን ያስገቡ</h2>
       <p class="text-xs text-zinc-700 mt-1 max-w-[250px]">
-        ዝቅተኛው እና ያልተደገመው የመጫረቻ መጠን ያሸንፋል! ተጫርተው የሶሻል ሚዲያ አካውንቶችን ይረከቡ።
+        ዝቅተኛው እና ያልተደገመው የመጫረቻ መጠን ያሸንፋል!
       </p>
       <div class="mt-3 flex gap-2">
         <button onclick="switchTab('draws')" class="px-3.5 py-1.5 rounded-full bg-zinc-900 text-brand-gold text-xs font-bold shadow">
@@ -89,7 +88,7 @@
       <button class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-white text-zinc-600 border border-zinc-200 whitespace-nowrap">YouTube</button>
     </div>
 
-    <!-- Auction Card 1: TikTok -->
+    <!-- Item 1: TikTok -->
     <div class="bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
       <div class="relative rounded-2xl overflow-hidden bg-gradient-to-tr from-zinc-950 to-zinc-800 p-5 text-white flex flex-col justify-between h-44">
         <div class="flex justify-between items-start">
@@ -122,7 +121,7 @@
       </button>
     </div>
 
-    <!-- Auction Card 2: Telegram -->
+    <!-- Item 2: Telegram -->
     <div class="bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
       <div class="relative rounded-2xl overflow-hidden bg-gradient-to-tr from-sky-950 to-indigo-900 p-5 text-white flex flex-col justify-between h-44">
         <div class="flex justify-between items-start">
@@ -198,7 +197,6 @@
       </div>
     </div>
 
-    <!-- Wallet Card -->
     <div class="bg-zinc-950 text-white rounded-3xl p-5 shadow-lg border border-zinc-800 space-y-3">
       <span class="text-xs text-zinc-400 font-medium">🪙 ቀሪ ሒሳብ (Wallet Balance)</span>
       <h2 id="walletBalanceMain" class="text-3xl font-black text-white">0.00 ETB</h2>
@@ -209,11 +207,10 @@
     </div>
   </main>
 
-  <!-- ================= ONEBID-STYLE DIRECT BID & CHAPA CHECKOUT MODAL ================= -->
+  <!-- ================= CHAPA CHECKOUT MODAL ================= -->
   <div id="checkoutModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
     <div class="bg-white w-full max-w-md rounded-t-[32px] sm:rounded-3xl p-5 space-y-4 shadow-2xl max-h-[92vh] overflow-y-auto no-scrollbar">
       
-      <!-- FORM VIEW -->
       <div id="checkoutFormView" class="space-y-4">
         <div class="flex justify-between items-center border-b border-zinc-100 pb-2">
           <div class="flex items-center gap-2">
@@ -223,7 +220,6 @@
           <button onclick="closeBidCheckout()" class="w-8 h-8 rounded-full bg-zinc-100 text-zinc-600 flex items-center justify-center font-bold text-xs">✕</button>
         </div>
 
-        <!-- Bid Fee Info -->
         <div class="p-3 bg-zinc-50 rounded-2xl border border-zinc-200/70 flex justify-between items-center text-xs">
           <div>
             <p class="text-zinc-400 text-[10px]">Bid fee</p>
@@ -234,7 +230,6 @@
           </div>
         </div>
 
-        <!-- Your Bid Amount Input -->
         <div class="space-y-1">
           <span class="text-xs font-bold text-zinc-600">Your bid amount</span>
           <p class="text-[10px] text-zinc-400">Enter an amount between 0.01 and 1000.</p>
@@ -253,11 +248,9 @@
           </p>
         </div>
 
-        <!-- Payment Method Selection -->
         <div class="space-y-2">
           <span class="text-xs font-bold text-zinc-500">Select payment method</span>
           <div class="grid grid-cols-2 gap-2">
-            <!-- Telebirr via Chapa -->
             <button class="p-3 rounded-2xl border-2 border-brand-gold bg-amber-50/30 flex items-center justify-between">
               <div class="flex items-center gap-2">
                 <span class="w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center text-[10px] font-black">tb</span>
@@ -266,7 +259,6 @@
               <i class="fa-solid fa-circle-check text-brand-gold text-xs"></i>
             </button>
 
-            <!-- CBE Birr via Chapa -->
             <button class="p-3 rounded-2xl border border-zinc-200 bg-zinc-50 flex items-center justify-between opacity-80">
               <div class="flex items-center gap-2">
                 <span class="w-6 h-6 rounded-full bg-purple-700 text-white flex items-center justify-center text-[9px] font-black">CBE</span>
@@ -276,14 +268,12 @@
           </div>
         </div>
 
-        <!-- Pay Button via Chapa -->
-        <button onclick="runDirectChapaPayment()" id="chkPayButton" class="w-full py-4 rounded-2xl bg-brand-gold hover:bg-brand-darkgold text-white font-black text-sm active:scale-[0.98] transition shadow-md flex items-center justify-center gap-2">
+        <button onclick="runOfficialChapaPayment()" id="chkPayButton" class="w-full py-4 rounded-2xl bg-brand-gold hover:bg-brand-darkgold text-white font-black text-sm active:scale-[0.98] transition shadow-md flex items-center justify-center gap-2">
           <i class="fa-solid fa-lock text-xs"></i>
           <span>PAY ETB 25.00 VIA CHAPA</span>
         </button>
       </div>
 
-      <!-- WAITING / LOADING VIEW -->
       <div id="checkoutWaitingView" class="hidden py-8 px-2 flex flex-col items-center text-center space-y-4">
         <div class="w-16 h-16 rounded-full bg-amber-100 flex items-center justify-center text-brand-darkgold text-2xl animate-spin">
           <i class="fa-solid fa-circle-notch"></i>
@@ -314,23 +304,21 @@
     </button>
   </nav>
 
-  <!-- ================= JAVASCRIPT ================= -->
+  <!-- ================= SCRIPT LOGIC ================= -->
   <script>
     const tg = window.Telegram ? window.Telegram.WebApp : null;
     let balance = parseFloat(localStorage.getItem('nb_balance') || '0.0');
     let currentItem = '';
     let currentFee = 25.0;
-    let userTelegramId = 'user_guest';
 
-    // የ Chapa Public Key (ከዳሽቦርድህ የተወሰደ)
-    const CHAPA_PUBLIC_KEY = 'CHAPUBK_TEST-xxxxxxxxxxxxxxxx';
+    // የፈጠርከው ትክክለኛው ይፋዊ የ Chapa Payment Link
+    const CHAPA_OFFICIAL_URL = "https://checkout.chapa.co/checkout/web/payment/PL-ObPb14AaH8bT";
 
     if (tg) {
       tg.ready();
       tg.expand();
       if (tg.initDataUnsafe && tg.initDataUnsafe.user) {
         const u = tg.initDataUnsafe.user;
-        userTelegramId = u.id || 'user_guest';
         document.getElementById('profileName').innerText = (u.first_name || 'ተጫራች');
         document.getElementById('profileTgId').innerText = '@' + (u.username || 'user');
       }
@@ -373,8 +361,7 @@
       document.getElementById('checkoutModal').classList.add('hidden');
     }
 
-    // በቀጥታ ወደ Chapa የክፍያ ገጽ የሚወስደው አሰራር
-    async function runDirectChapaPayment() {
+    function runOfficialChapaPayment() {
       const bidVal = parseFloat(document.getElementById('userBidAmountInput').value);
       if (!bidVal || bidVal <= 0) {
         alert("እባክዎ ትክክለኛ የመጫረቻ ዋጋ ያስገቡ (ምሳሌ፦ 0.45)");
@@ -384,46 +371,37 @@
       document.getElementById('checkoutFormView').classList.add('hidden');
       document.getElementById('checkoutWaitingView').classList.remove('hidden');
 
-      const txRef = "NB-" + userTelegramId + "-" + Date.now();
-      
-      // Chapa Checkout Hosted URL
-      // (ባክኤንድ በሌለበት ጊዜ በቀጥታ የ Chapa ቼክአውት ሊንክ ይከፍታል)
-      const chapaDirectUrl = `https://checkout.chapa.co/checkout/web/payment/${txRef}?amount=${currentFee}&currency=ETB&title=NextBid`;
-
       setTimeout(() => {
+        // የ Chapa ይፋዊ የክፍያ ሊንክ መክፈት
         if (tg && tg.openLink) {
-          tg.openLink(chapaDirectUrl);
+          tg.openLink(CHAPA_OFFICIAL_URL);
         } else {
-          window.open(chapaDirectUrl, '_blank');
+          window.open(CHAPA_OFFICIAL_URL, '_blank');
         }
 
         closeBidCheckout();
 
-        // ክፍያውን ፈጽሞ ሲመለስ ጨረታውን ይመዘግባል
-        registerSuccessfulBid(bidVal);
-      }, 1500);
-    }
+        // ጨረታውን በ My Bids ውስጥ መመዝገብ
+        const container = document.getElementById('bidsListContainer');
+        const emptyNotice = container.querySelector('.text-center');
+        if (emptyNotice) emptyNotice.remove();
 
-    function registerSuccessfulBid(bidVal) {
-      const container = document.getElementById('bidsListContainer');
-      const emptyNotice = container.querySelector('.text-center');
-      if (emptyNotice) emptyNotice.remove();
+        const newCard = document.createElement('div');
+        newCard.className = "bg-white rounded-2xl p-4 border border-zinc-200 shadow-sm flex items-center justify-between";
+        newCard.innerHTML = `
+          <div class="space-y-1">
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold">ንቁ (Active)</span>
+            <h4 class="font-extrabold text-sm text-zinc-900">${currentItem}</h4>
+            <p class="text-[11px] text-zinc-400">ያስገቡት ዋጋ፦ <span class="font-bold text-zinc-800">${bidVal.toFixed(2)} ETB</span> • ክፍያ፦ ETB ${currentFee.toFixed(2)}</p>
+          </div>
+          <span class="text-xs text-brand-darkgold font-bold">ተመዝግቧል ✅</span>
+        `;
+        container.prepend(newCard);
 
-      const newCard = document.createElement('div');
-      newCard.className = "bg-white rounded-2xl p-4 border border-zinc-200 shadow-sm flex items-center justify-between";
-      newCard.innerHTML = `
-        <div class="space-y-1">
-          <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold">ንቁ (Active)</span>
-          <h4 class="font-extrabold text-sm text-zinc-900">${currentItem}</h4>
-          <p class="text-[11px] text-zinc-400">ያስገቡት ዋጋ፦ <span class="font-bold text-zinc-800">${bidVal.toFixed(2)} ETB</span> • ክፍያ፦ ETB ${currentFee.toFixed(2)}</p>
-        </div>
-        <span class="text-xs text-brand-darkgold font-bold">ተመዝግቧል ✅</span>
-      `;
-      container.prepend(newCard);
-
-      const msg = `✅ ወደ Chapa ተመርተዋል!\nክፍያዎን እንደጨረሱ ጨረታዎ ወዲያውኑ ገቢ ሆኖ ይጸድቃል።`;
-      if (tg && tg.showAlert) tg.showAlert(msg);
-      else alert(msg);
+        const notice = `✅ ወደ Chapa ተመርተዋል!\nክፍያዎን በቴሌብር/ሲቢኢ ሲያጠናቅቁ ጨረታዎ ሙሉ በሙሉ ይጸድቃል።`;
+        if (tg && tg.showAlert) tg.showAlert(notice);
+        else alert(notice);
+      }, 1000);
     }
 
     // Countdown Timers
