@@ -67,7 +67,7 @@
 
   <!-- ================= TAB 1: HOME ================= -->
   <main id="tab-home" class="tab-content max-w-md mx-auto px-4 pt-3 space-y-4">
-    <!-- Promotional Banner with 'ልዩ ጨረታ' -->
+    <!-- Promotional Banner -->
     <div class="rounded-3xl p-4 text-zinc-900 shadow-sm border border-amber-200/70" style="background: linear-gradient(135deg, #fef7e0 0%, #f7e3af 100%);">
       <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-brand-gold text-white inline-block mb-1">
         ልዩ ጨረታ
@@ -192,9 +192,8 @@
     </div>
   </main>
 
-  <!-- ================= TAB 4: WALLET (FIDRO STYLE) ================= -->
+  <!-- ================= TAB 4: WALLET ================= -->
   <main id="tab-wallet" class="tab-content hidden max-w-md mx-auto px-4 pt-3 space-y-4">
-    <!-- Big Balance Header Card -->
     <div class="rounded-3xl p-5 text-white shadow-lg space-y-4 bg-gradient-to-b from-[#064e3b] to-[#022c22]">
       <div class="flex justify-between items-start">
         <div class="flex items-center gap-2.5">
@@ -218,7 +217,6 @@
         <h1 id="walletLargeDisplay" class="text-3xl font-black tracking-tight text-white">0.00 <span class="text-lg font-normal text-emerald-200">ETB</span></h1>
       </div>
 
-      <!-- Action Buttons -->
       <div class="grid grid-cols-2 gap-3 pt-1">
         <button onclick="openDepositModal()" class="py-3 rounded-2xl bg-white text-emerald-950 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 shadow active:scale-95 transition">
           <i class="fa-solid fa-plus text-emerald-700"></i> + Deposit
@@ -229,11 +227,10 @@
       </div>
     </div>
 
-    <!-- Select Deposit Method Card -->
+    <!-- Deposit Options -->
     <div class="bg-white rounded-3xl p-4 border border-zinc-200/80 shadow-sm space-y-3">
       <span class="text-xs font-bold text-zinc-600 block">Select Deposit Method</span>
 
-      <!-- Telebirr (Primary) -->
       <div onclick="openDepositModal()" class="p-3.5 rounded-2xl border border-zinc-200 hover:border-emerald-500 bg-zinc-50 flex items-center justify-between cursor-pointer active:scale-[0.99] transition">
         <div class="flex items-center gap-3">
           <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-black text-sm">
@@ -250,7 +247,6 @@
         <i class="fa-solid fa-chevron-right text-zinc-300 text-xs"></i>
       </div>
 
-      <!-- CBE Birr -->
       <div onclick="openDepositModal()" class="p-3.5 rounded-2xl border border-zinc-200 hover:border-purple-500 bg-zinc-50 flex items-center justify-between cursor-pointer active:scale-[0.99] transition">
         <div class="flex items-center gap-3">
           <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-800 flex items-center justify-center font-black text-xs">
@@ -266,65 +262,120 @@
         <i class="fa-solid fa-chevron-right text-zinc-300 text-xs"></i>
       </div>
     </div>
-
-    <!-- History Shortcuts (Fidro Style) -->
-    <div class="space-y-2">
-      <div class="bg-white rounded-2xl p-3.5 border border-zinc-200 flex items-center justify-between shadow-sm">
-        <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-full bg-emerald-50 text-emerald-700 flex items-center justify-center text-xs">
-            <i class="fa-solid fa-arrow-down"></i>
-          </div>
-          <div>
-            <p class="text-xs font-bold text-zinc-800">Deposits</p>
-            <p class="text-[10px] text-zinc-400">Deposit history & receipts</p>
-          </div>
-        </div>
-        <button onclick="alert('No prior deposit records.')" class="px-3.5 py-1 rounded-xl bg-emerald-950 text-white text-xs font-bold">Open</button>
-      </div>
-
-      <div class="bg-white rounded-2xl p-3.5 border border-zinc-200 flex items-center justify-between shadow-sm">
-        <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-full bg-emerald-50 text-emerald-700 flex items-center justify-center text-xs">
-            <i class="fa-solid fa-arrow-up"></i>
-          </div>
-          <div>
-            <p class="text-xs font-bold text-zinc-800">Withdrawals</p>
-            <p class="text-[10px] text-zinc-400">Payout request records</p>
-          </div>
-        </div>
-        <button onclick="alert('No prior withdrawal requests.')" class="px-3.5 py-1 rounded-xl bg-emerald-950 text-white text-xs font-bold">Open</button>
-      </div>
-    </div>
   </main>
 
-  <!-- ================= TAB 5: PROFILE ================= -->
+  <!-- ================= TAB 5: PROFILE (UPDATED WITH REFERRAL, BALANCE, & HISTORIES) ================= -->
   <main id="tab-profile" class="tab-content hidden max-w-md mx-auto px-4 pt-3 space-y-4">
+    <!-- User Info Card -->
     <div class="bg-zinc-900 text-white rounded-3xl p-4 flex items-center gap-3 shadow-md">
       <div class="w-12 h-12 rounded-2xl bg-amber-400/20 text-brand-gold flex items-center justify-center text-xl font-black">
         <i class="fa-solid fa-user"></i>
       </div>
       <div>
         <h3 id="profileName" class="font-bold text-base text-white">Player</h3>
-        <p id="profileTgId" class="text-xs text-zinc-400">@user</p>
+        <p id="profileTgId" class="text-xs text-zinc-400 font-mono">@user</p>
       </div>
     </div>
 
-    <!-- Support Box -->
+    <!-- 1. HIS WALLET BALANCE CARD -->
+    <div class="rounded-3xl p-4 text-white shadow-md space-y-3 bg-gradient-to-r from-zinc-900 to-zinc-950 border border-zinc-800">
+      <div class="flex items-center justify-between text-xs text-zinc-400">
+        <span class="flex items-center gap-1.5">
+          <i class="fa-solid fa-wallet text-brand-gold"></i> Available Wallet Balance
+        </span>
+        <span class="text-[10px] bg-emerald-900/60 text-emerald-300 border border-emerald-500/30 px-2 py-0.5 rounded-full font-bold">Active</span>
+      </div>
+      <div class="flex items-baseline justify-between">
+        <h2 id="profileWalletBalanceDisplay" class="text-3xl font-black text-white">0.00 <span class="text-sm font-semibold text-zinc-400">ETB</span></h2>
+      </div>
+      <div class="grid grid-cols-2 gap-2 pt-1">
+        <button onclick="openDepositModal()" class="py-2.5 rounded-xl bg-brand-gold text-zinc-950 font-black text-xs uppercase flex items-center justify-center gap-1 shadow active:scale-95 transition">
+          <i class="fa-solid fa-plus"></i> Deposit
+        </button>
+        <button onclick="openWithdrawModal()" class="py-2.5 rounded-xl bg-zinc-800 text-zinc-200 border border-zinc-700 font-black text-xs uppercase flex items-center justify-center gap-1 active:scale-95 transition">
+          <i class="fa-solid fa-arrow-up"></i> Withdraw
+        </button>
+      </div>
+    </div>
+
+    <!-- 2. HIS REFERRAL LINK CARD -->
+    <div class="bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-2.5">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2 text-zinc-900 font-bold text-xs">
+          <i class="fa-solid fa-share-nodes text-brand-gold text-sm"></i>
+          <span>My Referral Link</span>
+        </div>
+        <span class="text-[10px] text-amber-600 bg-amber-50 px-2 py-0.5 rounded-full font-bold">+10 ETB / Invite</span>
+      </div>
+      <p class="text-[11px] text-zinc-500 leading-relaxed">
+        Share this link with your friends. Get bonus auction tickets and ETB rewards when they join and enter bids!
+      </p>
+      <div class="bg-zinc-50 border border-zinc-200 rounded-2xl p-2.5 flex items-center justify-between text-xs font-mono text-zinc-700">
+        <span id="userRefLinkText" class="truncate pr-2 font-medium">https://t.me/Nextbidet_bot/app?ref=user</span>
+        <button onclick="copyMyReferralLink()" class="px-3 py-1.5 bg-brand-gold text-zinc-950 font-extrabold rounded-xl text-xs shadow-sm active:scale-95 transition flex items-center gap-1">
+          <i class="fa-regular fa-copy"></i>
+          <span>Copy</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- 3. DEPOSIT HISTORY -->
+    <div class="bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
+      <div class="flex items-center justify-between border-b border-zinc-100 pb-2">
+        <div class="flex items-center gap-2 text-xs font-extrabold text-zinc-900">
+          <span class="w-6 h-6 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center text-xs">
+            <i class="fa-solid fa-arrow-down"></i>
+          </span>
+          <span>Deposit History</span>
+        </div>
+        <span id="depositHistoryCountBadge" class="text-[10px] text-zinc-400 font-semibold font-mono">0 records</span>
+      </div>
+
+      <div id="profileDepositHistoryList" class="space-y-2 max-h-48 overflow-y-auto no-scrollbar">
+        <div class="text-center py-4 text-zinc-400 text-[11px]">
+          No deposits recorded yet.
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. WITHDRAWAL HISTORY -->
+    <div class="bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
+      <div class="flex items-center justify-between border-b border-zinc-100 pb-2">
+        <div class="flex items-center gap-2 text-xs font-extrabold text-zinc-900">
+          <span class="w-6 h-6 rounded-lg bg-amber-50 text-brand-darkgold flex items-center justify-center text-xs">
+            <i class="fa-solid fa-arrow-up"></i>
+          </span>
+          <span>Withdrawal History</span>
+        </div>
+        <span id="withdrawHistoryCountBadge" class="text-[10px] text-zinc-400 font-semibold font-mono">0 records</span>
+      </div>
+
+      <div id="profileWithdrawHistoryList" class="space-y-2 max-h-48 overflow-y-auto no-scrollbar">
+        <div class="text-center py-4 text-zinc-400 text-[11px]">
+          No withdrawal requests recorded yet.
+        </div>
+      </div>
+    </div>
+
+    <!-- Clean Customer Support Box -->
     <div class="p-3.5 bg-white rounded-2xl border border-zinc-200 text-xs flex items-center justify-between shadow-sm">
       <div class="flex items-center gap-2">
-        <i class="fa-solid fa-shield-halved text-brand-gold"></i>
-        <span>Official Payment Admin: <b>@Biilget</b></span>
+        <i class="fa-solid fa-headset text-brand-gold text-sm"></i>
+        <span>Need Help? Contact 24/7 Support Desk</span>
       </div>
-      <a href="https://t.me/Biilget" target="_blank" class="px-3 py-1 bg-zinc-100 rounded-lg text-brand-darkgold font-bold">Contact</a>
+      <button onclick="openSupportDesk()" class="px-3 py-1 bg-zinc-100 rounded-lg text-brand-darkgold font-bold">Help</button>
     </div>
   </main>
 
-  <!-- ================= TAB 6: ADMIN LIVE CONTROLLER (FIDRO STYLE) ================= -->
+  <!-- ================= TAB 6: ADMIN LIVE CONTROLLER (EXCLUSIVE TO 8181751673) ================= -->
   <main id="tab-admin" class="tab-content hidden max-w-md mx-auto px-4 pt-3 space-y-4">
     <div class="bg-white rounded-3xl p-5 border border-zinc-200 shadow-sm space-y-4">
-      <div class="flex items-center gap-2 text-rose-600 font-extrabold text-sm border-b border-zinc-100 pb-3">
-        <i class="fa-solid fa-shield"></i>
-        <span>Admin Live Controller</span>
+      <div class="flex items-center justify-between border-b border-zinc-100 pb-3">
+        <div class="flex items-center gap-2 text-rose-600 font-extrabold text-sm">
+          <i class="fa-solid fa-shield"></i>
+          <span>Admin Live Controller</span>
+        </div>
+        <span class="text-[10px] bg-rose-50 text-rose-700 px-2 py-0.5 rounded-full font-bold">ROOT ACCESS</span>
       </div>
 
       <!-- Live Inputs -->
@@ -334,7 +385,7 @@
           <input 
             type="text" 
             id="adminTargetUserId" 
-            placeholder="e.g. 8181751673" 
+            placeholder="Target Telegram User ID" 
             class="w-full bg-[#f8f8f6] border border-zinc-200 rounded-2xl px-4 py-3 text-xs font-mono font-bold text-zinc-800 focus:outline-none focus:border-emerald-600"
           >
         </div>
@@ -350,24 +401,20 @@
         </div>
       </div>
 
-      <!-- Action Buttons 2x2 Matrix -->
+      <!-- Action Buttons Matrix -->
       <div class="grid grid-cols-2 gap-2.5 pt-1">
-        <!-- Credit Deposit -->
         <button onclick="adminAction('credit')" class="py-3.5 px-2 rounded-2xl bg-[#065f46] hover:bg-[#044e3a] text-white font-extrabold text-xs flex items-center justify-center gap-1.5 active:scale-95 transition shadow-sm">
           <i class="fa-solid fa-check"></i> Credit Deposit
         </button>
 
-        <!-- Reject Deposit -->
         <button onclick="adminAction('reject_dep')" class="py-3.5 px-2 rounded-2xl bg-[#e11d48] hover:bg-[#be123c] text-white font-extrabold text-xs flex items-center justify-center gap-1.5 active:scale-95 transition shadow-sm">
           <i class="fa-solid fa-xmark"></i> Reject Deposit
         </button>
 
-        <!-- Confirm Payout -->
         <button onclick="adminAction('confirm_payout')" class="py-3.5 px-2 rounded-2xl bg-[#4f46e5] hover:bg-[#4338ca] text-white font-extrabold text-xs flex items-center justify-center gap-1.5 active:scale-95 transition shadow-sm">
           <i class="fa-solid fa-check-double"></i> Confirm Payout
         </button>
 
-        <!-- Refund Withdraw -->
         <button onclick="adminAction('refund')" class="py-3.5 px-2 rounded-2xl bg-[#d97706] hover:bg-[#b45309] text-white font-extrabold text-xs flex items-center justify-center gap-1.5 active:scale-95 transition shadow-sm">
           <i class="fa-solid fa-rotate-left"></i> Refund Withdraw
         </button>
@@ -375,9 +422,8 @@
 
       <!-- Admin Status Log -->
       <div id="adminLogBox" class="p-3 bg-zinc-50 rounded-2xl border border-zinc-200 text-[11px] font-mono text-zinc-600 space-y-1">
-        <p class="font-bold text-zinc-800">● Live Controller Ready</p>
-        <p>Admin: @Biilget (ID: 8181751673)</p>
-        <p id="adminLastActionText" class="text-emerald-700">Awaiting action...</p>
+        <p class="font-bold text-zinc-800">● Authenticated Admin: ኬቢ</p>
+        <p id="adminLastActionText" class="text-emerald-700">Ready for commands.</p>
       </div>
     </div>
   </main>
@@ -390,7 +436,6 @@
         <button onclick="closeDepositModal()" class="w-8 h-8 rounded-full bg-zinc-100 text-zinc-600 flex items-center justify-center font-bold text-xs">✕</button>
       </div>
 
-      <!-- Telebirr Account Info -->
       <div class="p-3.5 bg-emerald-50 border border-emerald-200 rounded-2xl text-xs space-y-1.5">
         <p class="font-bold text-emerald-950">1. Transfer funds via Telebirr to:</p>
         <div class="flex items-center justify-between bg-white px-3 py-2 rounded-xl border border-emerald-300">
@@ -402,7 +447,6 @@
         <p class="text-[11px] text-emerald-700 font-medium">Recipient Name: Aweke Zewdu</p>
       </div>
 
-      <!-- Inputs -->
       <div class="space-y-2">
         <label class="text-xs font-bold text-zinc-600">2. Amount Transferred (ETB)</label>
         <input type="number" id="depAmountInput" placeholder="e.g. 100" class="w-full bg-zinc-50 border border-zinc-300 rounded-xl px-4 py-3 text-sm font-bold text-zinc-900 focus:outline-none focus:border-brand-gold">
@@ -412,7 +456,7 @@
       </div>
 
       <button onclick="submitDepositToAdmin()" class="w-full py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-black text-sm active:scale-[0.98] transition shadow-lg">
-        Submit Deposit to Admin
+        Submit Deposit for Verification
       </button>
     </div>
   </div>
@@ -439,7 +483,7 @@
     </div>
   </div>
 
-  <!-- ================= BOTTOM NAVIGATION (FIDRO STYLE) ================= -->
+  <!-- ================= BOTTOM NAVIGATION ================= -->
   <nav class="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-zinc-200 flex items-center justify-around py-2 max-w-md mx-auto shadow-lg">
     <button onclick="switchTab('home')" id="nav-home" class="nav-btn flex flex-col items-center gap-1 text-brand-gold">
       <i class="fa-solid fa-house text-base"></i>
@@ -461,7 +505,8 @@
       <i class="fa-solid fa-user text-base"></i>
       <span class="text-[10px] font-bold">Profile</span>
     </button>
-    <button onclick="switchTab('admin')" id="nav-admin" class="nav-btn flex flex-col items-center gap-1 text-rose-600">
+    <!-- Root Admin Button (Hidden by default; shown only to 8181751673) -->
+    <button onclick="switchTab('admin')" id="nav-admin" class="nav-btn hidden flex flex-col items-center gap-1 text-rose-600">
       <i class="fa-solid fa-shield text-base"></i>
       <span class="text-[10px] font-bold">Admin</span>
     </button>
@@ -471,10 +516,17 @@
   <script>
     const tg = window.Telegram ? window.Telegram.WebApp : null;
     let balance = parseFloat(localStorage.getItem('nb_balance') || '0.0');
-    let currentTgUser = { id: '8181751673', username: 'Biilget', name: 'User' };
 
+    // EXCLUSIVE ROOT ADMIN ID
+    const AUTHORIZED_ADMIN_ID = "8181751673"; 
     const BOT_TOKEN = "9053138629:AAGfkyid77uiGpLFLJNLOwjJsYjDgWlevis";
-    const ADMIN_CHAT_ID = "8181751673"; // @Biilget
+
+    let currentTgUser = { id: 'guest', username: 'user', name: 'Player' };
+    let isUserAdmin = false;
+
+    // Local histories for Deposit & Withdrawals
+    let depositHistory = JSON.parse(localStorage.getItem('nb_deposit_history') || '[]');
+    let withdrawHistory = JSON.parse(localStorage.getItem('nb_withdraw_history') || '[]');
 
     if (tg) {
       tg.ready();
@@ -486,9 +538,20 @@
           username: u.username || 'user',
           name: ((u.first_name || '') + ' ' + (u.last_name || '')).trim() || 'Player'
         };
+
         document.getElementById('profileName').innerText = currentTgUser.name;
         document.getElementById('profileTgId').innerText = '@' + currentTgUser.username;
-        document.getElementById('adminTargetUserId').value = currentTgUser.id;
+
+        // Custom Referral Link per User ID
+        const refLink = `https://t.me/Nextbidet_bot/app?ref=${currentTgUser.id}`;
+        document.getElementById('userRefLinkText').innerText = refLink;
+
+        // Reveal Admin Tab only for 8181751673 (ኬቢ)
+        if (currentTgUser.id === AUTHORIZED_ADMIN_ID) {
+          isUserAdmin = true;
+          document.getElementById('nav-admin').classList.remove('hidden');
+          document.getElementById('adminTargetUserId').value = currentTgUser.id;
+        }
       }
     }
 
@@ -497,24 +560,93 @@
       document.getElementById('topBalance').innerText = formatted;
       document.getElementById('walletSmallBadge').innerText = formatted;
       document.getElementById('walletLargeDisplay').innerHTML = `${balance.toFixed(2)} <span class="text-lg font-normal text-emerald-200">ETB</span>`;
+      document.getElementById('profileWalletBalanceDisplay').innerHTML = `${balance.toFixed(2)} <span class="text-sm font-semibold text-zinc-400">ETB</span>`;
       localStorage.setItem('nb_balance', balance.toString());
     }
     updateBalanceUI();
 
+    // Render Deposit History on Profile
+    function renderDepositHistory() {
+      const container = document.getElementById('profileDepositHistoryList');
+      const badge = document.getElementById('depositHistoryCountBadge');
+      badge.innerText = `${depositHistory.length} record${depositHistory.length === 1 ? '' : 's'}`;
+
+      if (!depositHistory || depositHistory.length === 0) {
+        container.innerHTML = `<div class="text-center py-4 text-zinc-400 text-[11px]">No deposits recorded yet.</div>`;
+        return;
+      }
+
+      container.innerHTML = depositHistory.map(item => `
+        <div class="p-2.5 rounded-2xl bg-zinc-50 border border-zinc-200 flex items-center justify-between text-xs">
+          <div>
+            <p class="font-extrabold text-zinc-800">+${parseFloat(item.amount).toFixed(2)} ETB</p>
+            <p class="text-[10px] text-zinc-400 font-mono">Ref: ${item.tx} • ${item.date}</p>
+          </div>
+          <span class="text-[10px] font-bold px-2 py-0.5 rounded-full ${item.status === 'Approved' ? 'bg-emerald-100 text-emerald-800' : (item.status === 'Rejected' ? 'bg-rose-100 text-rose-800' : 'bg-amber-100 text-amber-800')}">
+            ${item.status}
+          </span>
+        </div>
+      `).join('');
+    }
+
+    // Render Withdrawal History on Profile
+    function renderWithdrawHistory() {
+      const container = document.getElementById('profileWithdrawHistoryList');
+      const badge = document.getElementById('withdrawHistoryCountBadge');
+      badge.innerText = `${withdrawHistory.length} record${withdrawHistory.length === 1 ? '' : 's'}`;
+
+      if (!withdrawHistory || withdrawHistory.length === 0) {
+        container.innerHTML = `<div class="text-center py-4 text-zinc-400 text-[11px]">No withdrawal requests recorded yet.</div>`;
+        return;
+      }
+
+      container.innerHTML = withdrawHistory.map(item => `
+        <div class="p-2.5 rounded-2xl bg-zinc-50 border border-zinc-200 flex items-center justify-between text-xs">
+          <div>
+            <p class="font-extrabold text-zinc-800">-${parseFloat(item.amount).toFixed(2)} ETB</p>
+            <p class="text-[10px] text-zinc-400 font-mono">To: ${item.phone} • ${item.date}</p>
+          </div>
+          <span class="text-[10px] font-bold px-2 py-0.5 rounded-full ${item.status === 'Paid' ? 'bg-emerald-100 text-emerald-800' : (item.status === 'Rejected' ? 'bg-rose-100 text-rose-800' : 'bg-amber-100 text-amber-800')}">
+            ${item.status}
+          </span>
+        </div>
+      `).join('');
+    }
+
+    renderDepositHistory();
+    renderWithdrawHistory();
+
+    function copyMyReferralLink() {
+      const link = document.getElementById('userRefLinkText').innerText;
+      navigator.clipboard.writeText(link);
+      alert("✅ Referral link copied to clipboard!");
+    }
+
     function switchTab(tabId) {
+      if (tabId === 'admin' && !isUserAdmin) {
+        alert("Access Denied: Root administrator verification required.");
+        return;
+      }
+
       document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
       document.getElementById('tab-' + tabId).classList.remove('hidden');
 
       document.querySelectorAll('.nav-btn').forEach(btn => {
-        btn.classList.remove('text-brand-gold', 'text-emerald-700');
+        btn.classList.remove('text-brand-gold');
         if (!btn.id.includes('admin')) btn.classList.add('text-zinc-400');
       });
 
       const activeBtn = document.getElementById('nav-' + tabId);
-      if (activeBtn && !tabId.includes('admin')) {
+      if (activeBtn && tabId !== 'admin') {
         activeBtn.classList.add('text-brand-gold');
         activeBtn.classList.remove('text-zinc-400');
       }
+
+      if (tabId === 'profile') {
+        renderDepositHistory();
+        renderWithdrawHistory();
+      }
+
       window.scrollTo(0, 0);
     }
 
@@ -523,7 +655,11 @@
     function openWithdrawModal() { document.getElementById('withdrawModal').classList.remove('hidden'); }
     function closeWithdrawModal() { document.getElementById('withdrawModal').classList.add('hidden'); }
 
-    // User Deposit Submission
+    function openSupportDesk() {
+      alert("Support Desk:\nPlease contact official support via the bot menu or send your inquiry inside the chat.");
+    }
+
+    // Submit Deposit silently to Admin Chat ID 8181751673
     async function submitDepositToAdmin() {
       const amount = parseFloat(document.getElementById('depAmountInput').value);
       const tx = document.getElementById('depTxInput').value.trim();
@@ -533,13 +669,25 @@
 
       closeDepositModal();
 
+      // Record in User's Local Deposit History
+      const now = new Date();
+      const timeStr = `${now.getHours()}:${String(now.getMinutes()).padStart(2, '0')}`;
+      depositHistory.unshift({
+        amount: amount,
+        tx: tx,
+        date: timeStr,
+        status: 'Pending'
+      });
+      localStorage.setItem('nb_deposit_history', JSON.stringify(depositHistory));
+      renderDepositHistory();
+
       const messageText = `📥 <b>New Deposit Request Submitted!</b>\n\n` +
                           `👤 <b>User:</b> ${currentTgUser.name} (@${currentTgUser.username})\n` +
                           `🆔 <b>User ID:</b> <code>${currentTgUser.id}</code>\n` +
                           `💵 <b>Amount:</b> <b>${amount.toFixed(2)} ETB</b>\n` +
                           `📱 <b>Sent To:</b> <code>0950321768</code>\n` +
                           `🧾 <b>Tx / Phone:</b> <code>${tx}</code>\n\n` +
-                          `<i>Use the buttons below to confirm or reject:</i>`;
+                          `<i>Action required:</i>`;
 
       const keyboard = {
         inline_keyboard: [
@@ -555,20 +703,20 @@
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            chat_id: ADMIN_CHAT_ID,
+            chat_id: AUTHORIZED_ADMIN_ID,
             text: messageText,
             parse_mode: 'HTML',
             reply_markup: keyboard
           })
         });
 
-        alert(`✅ Deposit request submitted to Admin (@Biilget)!\nYour balance will be credited upon confirmation.`);
+        alert("✅ Deposit receipt submitted! Your balance will be credited after verification.");
       } catch (err) {
-        alert("Failed to submit deposit. Please check your internet connection.");
+        alert("Failed to submit request. Please check your internet connection.");
       }
     }
 
-    // User Withdrawal Submission
+    // Submit Withdrawal silently to Admin Chat ID 8181751673
     async function submitWithdrawToAdmin() {
       const amount = parseFloat(document.getElementById('withAmountInput').value);
       const phone = document.getElementById('withPhoneInput').value.trim();
@@ -579,12 +727,24 @@
 
       closeWithdrawModal();
 
+      // Record in User's Local Withdrawal History
+      const now = new Date();
+      const timeStr = `${now.getHours()}:${String(now.getMinutes()).padStart(2, '0')}`;
+      withdrawHistory.unshift({
+        amount: amount,
+        phone: phone,
+        date: timeStr,
+        status: 'Pending'
+      });
+      localStorage.setItem('nb_withdraw_history', JSON.stringify(withdrawHistory));
+      renderWithdrawHistory();
+
       const messageText = `📤 <b>New Withdrawal Request!</b>\n\n` +
                           `👤 <b>User:</b> ${currentTgUser.name} (@${currentTgUser.username})\n` +
                           `🆔 <b>User ID:</b> <code>${currentTgUser.id}</code>\n` +
                           `💵 <b>Amount:</b> <b>${amount.toFixed(2)} ETB</b>\n` +
                           `📱 <b>Telebirr Phone:</b> <code>${phone}</code>\n\n` +
-                          `<i>Process the payout and confirm below:</i>`;
+                          `<i>Action required:</i>`;
 
       const keyboard = {
         inline_keyboard: [
@@ -600,7 +760,7 @@
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            chat_id: ADMIN_CHAT_ID,
+            chat_id: AUTHORIZED_ADMIN_ID,
             text: messageText,
             parse_mode: 'HTML',
             reply_markup: keyboard
@@ -609,41 +769,45 @@
 
         balance -= amount;
         updateBalanceUI();
-        alert(`✅ Payout request submitted!\nFunds will be sent to your Telebirr (${phone}).`);
+        alert(`✅ Payout request submitted! Funds will be sent to your Telebirr (${phone}).`);
       } catch (err) {
         alert("Failed to send withdrawal request.");
       }
     }
 
-    // ================= ADMIN LIVE CONTROLLER ACTIONS =================
+    // Admin Live Controller Functionality
     function adminAction(type) {
+      if (!isUserAdmin) {
+        alert("Unauthorized action!");
+        return;
+      }
+
       const targetId = document.getElementById('adminTargetUserId').value.trim();
       const amt = parseFloat(document.getElementById('adminAmountInput').value);
       const log = document.getElementById('adminLastActionText');
 
-      if (!targetId) { alert("Please specify target User ID!"); return; }
-      if (isNaN(amt) || amt <= 0) { alert("Please specify a valid ETB amount!"); return; }
+      if (!targetId) { alert("Please enter target User ID!"); return; }
+      if (isNaN(amt) || amt <= 0) { alert("Please enter a valid ETB amount!"); return; }
 
       if (type === 'credit') {
         balance += amt;
         updateBalanceUI();
-        log.innerText = `[SUCCESS] Credited +${amt.toFixed(2)} ETB to User: ${targetId}`;
+        log.innerText = `[CREDITED] +${amt.toFixed(2)} ETB to User ID: ${targetId}`;
         alert(`✅ Successfully credited +${amt.toFixed(2)} ETB!`);
       } else if (type === 'reject_dep') {
-        log.innerText = `[REJECT] Deposit of ${amt.toFixed(2)} ETB rejected for User: ${targetId}`;
-        alert(`❌ Deposit request for ${amt.toFixed(2)} ETB rejected.`);
+        log.innerText = `[REJECTED] Deposit of ${amt.toFixed(2)} ETB rejected for User ID: ${targetId}`;
+        alert(`❌ Deposit of ${amt.toFixed(2)} ETB rejected.`);
       } else if (type === 'confirm_payout') {
-        log.innerText = `[CONFIRMED] Payout of ${amt.toFixed(2)} ETB confirmed for User: ${targetId}`;
+        log.innerText = `[PAYOUT CONFIRMED] Payout of ${amt.toFixed(2)} ETB confirmed for User ID: ${targetId}`;
         alert(`✅ Payout of ${amt.toFixed(2)} ETB confirmed!`);
       } else if (type === 'refund') {
         balance += amt;
         updateBalanceUI();
-        log.innerText = `[REFUND] Refunded ${amt.toFixed(2)} ETB back to User: ${targetId}`;
-        alert(`↩️ Refunded ${amt.toFixed(2)} ETB to balance.`);
+        log.innerText = `[REFUNDED] Refunded ${amt.toFixed(2)} ETB back to User ID: ${targetId}`;
+        alert(`↩️ Refunded ${amt.toFixed(2)} ETB to wallet balance.`);
       }
     }
 
-    // Place Bid Flow
     function placeBid(title, fee) {
       if (balance < fee) {
         alert(`Insufficient balance! Entry fee is ${fee} ETB. Please deposit funds first.`);
