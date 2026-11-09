@@ -68,7 +68,7 @@
   <!-- ================= TAB 1: HOME ================= -->
   <main id="tab-home" class="tab-content max-w-md mx-auto px-4 pt-3 space-y-4">
     
-    <!-- Promotional Banner (Amharic under ልዩ ጨረታ) -->
+    <!-- Promotional Banner -->
     <div class="rounded-3xl p-4 text-zinc-900 shadow-sm border border-amber-200/70" style="background: linear-gradient(135deg, #fef7e0 0%, #f7e3af 100%);">
       <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-brand-gold text-white inline-block mb-1">
         ልዩ ጨረታ
@@ -84,7 +84,7 @@
       </div>
     </div>
 
-    <!-- Category Filter (All, Social Media, Money) -->
+    <!-- Category Filter -->
     <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
       <button onclick="filterCategory('all')" id="cat-all" class="cat-pill px-4 py-1.5 rounded-full text-xs font-bold bg-brand-gold text-white shadow-sm whitespace-nowrap">
         All
@@ -100,9 +100,9 @@
     <!-- AUCTIONS CONTAINER -->
     <div id="auctionsContainer" class="space-y-4">
 
-      <!-- ================= MONEY AUCTIONS ================= -->
-      
-      <!-- Money Card 1: 500 ETB (Fee: 10 ETB) -->
+      <!-- ================= MONEY AUCTIONS (15 DAYS EACH) ================= -->
+
+      <!-- Money 1: 500 ETB (Fee: 5 ETB) -->
       <div class="auction-item money bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
         <div class="relative rounded-2xl overflow-hidden bg-gradient-to-tr from-emerald-950 via-teal-900 to-emerald-800 p-5 text-white flex flex-col justify-between h-44 shadow">
           <div class="flex justify-between items-start">
@@ -110,7 +110,7 @@
               <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> LIVE
             </span>
             <span class="text-xs font-bold px-2 py-1 rounded-lg bg-amber-400/20 text-amber-300 border border-amber-300/30">
-              ⏳ <span class="timer-display" data-time="18000">05:00:00</span>
+              ⏳ <span class="fifteen-day-timer">15d 00h 00m 00s</span>
             </span>
           </div>
           <div>
@@ -122,7 +122,7 @@
         <div class="flex items-center justify-between text-xs px-1">
           <div>
             <p class="text-zinc-400 text-[11px]">Bid Entry Fee</p>
-            <p class="text-zinc-900 font-extrabold text-sm">ETB 10.00</p>
+            <p class="text-zinc-900 font-extrabold text-sm">ETB 5.00</p>
           </div>
           <div class="text-right">
             <p class="text-zinc-400 text-[11px]">Auction ID</p>
@@ -130,12 +130,12 @@
           </div>
         </div>
 
-        <button onclick="placeBid('500.00 ETB Cash Prize', 10.0)" class="w-full py-3.5 rounded-2xl bg-zinc-950 text-brand-gold font-bold text-sm flex items-center justify-center gap-2 active:scale-[0.98] transition shadow-md">
-          <span>🎟️ Pay ETB 10.00 & Enter Bid</span>
+        <button onclick="placeBid('500.00 ETB Cash Prize', 5.0, 'cash_500')" class="w-full py-3.5 rounded-2xl bg-zinc-950 text-brand-gold font-bold text-sm flex items-center justify-center gap-2 active:scale-[0.98] transition shadow-md">
+          <span>🎟️ Pay ETB 5.00 & Enter Bid</span>
         </button>
       </div>
 
-      <!-- Money Card 2: 1,000 ETB (Fee: 20 ETB) -->
+      <!-- Money 2: 1,000 ETB (Fee: 10 ETB) -->
       <div class="auction-item money bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
         <div class="relative rounded-2xl overflow-hidden bg-gradient-to-tr from-emerald-950 via-teal-900 to-emerald-800 p-5 text-white flex flex-col justify-between h-44 shadow">
           <div class="flex justify-between items-start">
@@ -143,7 +143,7 @@
               <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> LIVE
             </span>
             <span class="text-xs font-bold px-2 py-1 rounded-lg bg-amber-400/20 text-amber-300 border border-amber-300/30">
-              ⏳ <span class="timer-display" data-time="28800">08:00:00</span>
+              ⏳ <span class="fifteen-day-timer">15d 00h 00m 00s</span>
             </span>
           </div>
           <div>
@@ -155,7 +155,7 @@
         <div class="flex items-center justify-between text-xs px-1">
           <div>
             <p class="text-zinc-400 text-[11px]">Bid Entry Fee</p>
-            <p class="text-zinc-900 font-extrabold text-sm">ETB 20.00</p>
+            <p class="text-zinc-900 font-extrabold text-sm">ETB 10.00</p>
           </div>
           <div class="text-right">
             <p class="text-zinc-400 text-[11px]">Auction ID</p>
@@ -163,12 +163,12 @@
           </div>
         </div>
 
-        <button onclick="placeBid('1,000.00 ETB Cash Prize', 20.0)" class="w-full py-3.5 rounded-2xl bg-zinc-950 text-brand-gold font-bold text-sm flex items-center justify-center gap-2 active:scale-[0.98] transition shadow-md">
-          <span>🎟️ Pay ETB 20.00 & Enter Bid</span>
+        <button onclick="placeBid('1,000.00 ETB Cash Prize', 10.0, 'cash_1000')" class="w-full py-3.5 rounded-2xl bg-zinc-950 text-brand-gold font-bold text-sm flex items-center justify-center gap-2 active:scale-[0.98] transition shadow-md">
+          <span>🎟️ Pay ETB 10.00 & Enter Bid</span>
         </button>
       </div>
 
-      <!-- Money Card 3: 2,000 ETB (Fee: 30 ETB) -->
+      <!-- Money 3: 2,000 ETB (Fee: 15 ETB) -->
       <div class="auction-item money bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
         <div class="relative rounded-2xl overflow-hidden bg-gradient-to-tr from-emerald-950 via-teal-900 to-emerald-800 p-5 text-white flex flex-col justify-between h-44 shadow">
           <div class="flex justify-between items-start">
@@ -176,7 +176,7 @@
               <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> LIVE
             </span>
             <span class="text-xs font-bold px-2 py-1 rounded-lg bg-amber-400/20 text-amber-300 border border-amber-300/30">
-              ⏳ <span class="timer-display" data-time="43200">12:00:00</span>
+              ⏳ <span class="fifteen-day-timer">15d 00h 00m 00s</span>
             </span>
           </div>
           <div>
@@ -188,7 +188,7 @@
         <div class="flex items-center justify-between text-xs px-1">
           <div>
             <p class="text-zinc-400 text-[11px]">Bid Entry Fee</p>
-            <p class="text-zinc-900 font-extrabold text-sm">ETB 30.00</p>
+            <p class="text-zinc-900 font-extrabold text-sm">ETB 15.00</p>
           </div>
           <div class="text-right">
             <p class="text-zinc-400 text-[11px]">Auction ID</p>
@@ -196,12 +196,12 @@
           </div>
         </div>
 
-        <button onclick="placeBid('2,000.00 ETB Cash Prize', 30.0)" class="w-full py-3.5 rounded-2xl bg-zinc-950 text-brand-gold font-bold text-sm flex items-center justify-center gap-2 active:scale-[0.98] transition shadow-md">
-          <span>🎟️ Pay ETB 30.00 & Enter Bid</span>
+        <button onclick="placeBid('2,000.00 ETB Cash Prize', 15.0, 'cash_2000')" class="w-full py-3.5 rounded-2xl bg-zinc-950 text-brand-gold font-bold text-sm flex items-center justify-center gap-2 active:scale-[0.98] transition shadow-md">
+          <span>🎟️ Pay ETB 15.00 & Enter Bid</span>
         </button>
       </div>
 
-      <!-- Money Card 4: 5,000 ETB (Fee: 50 ETB) -->
+      <!-- Money 4: 5,000 ETB (Fee: 25 ETB) -->
       <div class="auction-item money bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
         <div class="relative rounded-2xl overflow-hidden bg-gradient-to-tr from-amber-950 via-zinc-900 to-amber-900 p-5 text-white flex flex-col justify-between h-44 shadow">
           <div class="flex justify-between items-start">
@@ -209,7 +209,7 @@
               <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span> MEGA CASH
             </span>
             <span class="text-xs font-bold px-2 py-1 rounded-lg bg-amber-400/20 text-amber-300 border border-amber-300/30">
-              ⏳ <span class="timer-display" data-time="86400">24:00:00</span>
+              ⏳ <span class="fifteen-day-timer">15d 00h 00m 00s</span>
             </span>
           </div>
           <div>
@@ -221,7 +221,7 @@
         <div class="flex items-center justify-between text-xs px-1">
           <div>
             <p class="text-zinc-400 text-[11px]">Bid Entry Fee</p>
-            <p class="text-zinc-900 font-extrabold text-sm">ETB 50.00</p>
+            <p class="text-zinc-900 font-extrabold text-sm">ETB 25.00</p>
           </div>
           <div class="text-right">
             <p class="text-zinc-400 text-[11px]">Auction ID</p>
@@ -229,27 +229,29 @@
           </div>
         </div>
 
-        <button onclick="placeBid('5,000.00 ETB Cash Prize', 50.0)" class="w-full py-3.5 rounded-2xl bg-zinc-950 text-brand-gold font-bold text-sm flex items-center justify-center gap-2 active:scale-[0.98] transition shadow-md">
-          <span>🎟️ Pay ETB 50.00 & Enter Bid</span>
+        <button onclick="placeBid('5,000.00 ETB Cash Prize', 25.0, 'cash_5000')" class="w-full py-3.5 rounded-2xl bg-zinc-950 text-brand-gold font-bold text-sm flex items-center justify-center gap-2 active:scale-[0.98] transition shadow-md">
+          <span>🎟️ Pay ETB 25.00 & Enter Bid</span>
         </button>
       </div>
 
-      <!-- ================= SOCIAL MEDIA AUCTIONS ================= -->
-
-      <!-- Social 1: TikTok -->
+      <!-- ================= SOCIAL MEDIA: @Aw_onl (10 DAYS) ================= -->
       <div class="auction-item social bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
-        <div class="relative rounded-2xl overflow-hidden bg-gradient-to-tr from-zinc-950 to-zinc-800 p-5 text-white flex flex-col justify-between h-44">
+        <div class="relative rounded-2xl overflow-hidden bg-gradient-to-tr from-sky-950 via-slate-900 to-indigo-950 p-5 text-white flex flex-col justify-between h-48 shadow">
           <div class="flex justify-between items-start">
             <span class="bg-black/60 backdrop-blur-md text-[11px] font-semibold px-2.5 py-1 rounded-full border border-white/10 flex items-center gap-1">
-              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> LIVE
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> LIVE AUCTION
             </span>
-            <span class="text-xs font-bold px-2 py-1 rounded-lg bg-amber-400/20 text-amber-300 border border-amber-300/30">
-              ⏳ <span class="timer-display" data-time="15155">04:12:35</span>
+            <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-amber-400/20 text-amber-300 border border-amber-300/30">
+              ⏳ <span id="awOnlTimer">10d 00h 00m 00s</span>
             </span>
           </div>
           <div>
-            <span class="text-xs text-zinc-400">TikTok Account • USA Monetized</span>
-            <h3 class="text-lg font-black text-white">@ethio_tech_daily (12.5K)</h3>
+            <div class="flex items-center gap-2">
+              <span class="text-xs text-sky-300 font-bold uppercase tracking-wider">Telegram Channel • 1.48K Subs</span>
+              <a href="https://t.me/Aw_onl" target="_blank" class="text-[10px] bg-sky-500/30 hover:bg-sky-500/50 text-sky-200 px-2 py-0.5 rounded-md font-mono">View ↗</a>
+            </div>
+            <h3 class="text-xl font-black text-white mt-1">Ethio Online (@Aw_onl)</h3>
+            <p class="text-[11px] text-zinc-300 mt-0.5">1 Winner will receive full channel ownership after 10 days!</p>
           </div>
         </div>
 
@@ -260,111 +262,12 @@
           </div>
           <div class="text-right">
             <p class="text-zinc-400 text-[11px]">Auction ID</p>
-            <p class="font-mono text-zinc-600 text-xs">NB-TK-902</p>
+            <p class="font-mono text-zinc-600 text-xs">NB-TG-AWONL</p>
           </div>
         </div>
 
-        <button onclick="placeBid('@ethio_tech_daily (TikTok)', 25.0)" class="w-full py-3.5 rounded-2xl bg-zinc-950 text-brand-gold font-bold text-sm flex items-center justify-center gap-2 active:scale-[0.98] transition shadow-md">
-          <span>🎟️ Pay ETB 25.00 & Enter Bid</span>
-        </button>
-      </div>
-
-      <!-- Social 2: Telegram -->
-      <div class="auction-item social bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
-        <div class="relative rounded-2xl overflow-hidden bg-gradient-to-tr from-sky-950 to-indigo-900 p-5 text-white flex flex-col justify-between h-44">
-          <div class="flex justify-between items-start">
-            <span class="bg-black/60 backdrop-blur-md text-[11px] font-semibold px-2.5 py-1 rounded-full border border-white/10 flex items-center gap-1">
-              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> LIVE
-            </span>
-            <span class="text-xs font-bold px-2 py-1 rounded-lg bg-amber-400/20 text-amber-300 border border-amber-300/30">
-              ⏳ <span class="timer-display" data-time="30315">08:25:15</span>
-            </span>
-          </div>
-          <div>
-            <span class="text-xs text-sky-200">Telegram Channel • Active Community</span>
-            <h3 class="text-lg font-black text-white">Ethio Digital Deals (8.2K)</h3>
-          </div>
-        </div>
-
-        <div class="flex items-center justify-between text-xs px-1">
-          <div>
-            <p class="text-zinc-400 text-[11px]">Bid Entry Fee</p>
-            <p class="text-zinc-900 font-extrabold text-sm">ETB 30.00</p>
-          </div>
-          <div class="text-right">
-            <p class="text-zinc-400 text-[11px]">Auction ID</p>
-            <p class="font-mono text-zinc-600 text-xs">NB-TG-541</p>
-          </div>
-        </div>
-
-        <button onclick="placeBid('Ethio Digital Deals (Telegram)', 30.0)" class="w-full py-3.5 rounded-2xl bg-zinc-950 text-brand-gold font-bold text-sm flex items-center justify-center gap-2 active:scale-[0.98] transition shadow-md">
-          <span>🎟️ Pay ETB 30.00 & Enter Bid</span>
-        </button>
-      </div>
-
-      <!-- Social 3: YouTube -->
-      <div class="auction-item social bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
-        <div class="relative rounded-2xl overflow-hidden bg-gradient-to-tr from-rose-950 via-zinc-900 to-rose-900 p-5 text-white flex flex-col justify-between h-44">
-          <div class="flex justify-between items-start">
-            <span class="bg-black/60 backdrop-blur-md text-[11px] font-semibold px-2.5 py-1 rounded-full border border-white/10 flex items-center gap-1">
-              <span class="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span> LIVE
-            </span>
-            <span class="text-xs font-bold px-2 py-1 rounded-lg bg-amber-400/20 text-amber-300 border border-amber-300/30">
-              ⏳ <span class="timer-display" data-time="54000">15:00:00</span>
-            </span>
-          </div>
-          <div>
-            <span class="text-xs text-rose-300">YouTube Channel • Monetization Ready</span>
-            <h3 class="text-lg font-black text-white">Habesha Tech Review (5.4K)</h3>
-          </div>
-        </div>
-
-        <div class="flex items-center justify-between text-xs px-1">
-          <div>
-            <p class="text-zinc-400 text-[11px]">Bid Entry Fee</p>
-            <p class="text-zinc-900 font-extrabold text-sm">ETB 35.00</p>
-          </div>
-          <div class="text-right">
-            <p class="text-zinc-400 text-[11px]">Auction ID</p>
-            <p class="font-mono text-zinc-600 text-xs">NB-YT-104</p>
-          </div>
-        </div>
-
-        <button onclick="placeBid('Habesha Tech Review (YouTube)', 35.0)" class="w-full py-3.5 rounded-2xl bg-zinc-950 text-brand-gold font-bold text-sm flex items-center justify-center gap-2 active:scale-[0.98] transition shadow-md">
-          <span>🎟️ Pay ETB 35.00 & Enter Bid</span>
-        </button>
-      </div>
-
-      <!-- Social 4: Instagram -->
-      <div class="auction-item social bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
-        <div class="relative rounded-2xl overflow-hidden bg-gradient-to-tr from-purple-950 via-pink-900 to-amber-900 p-5 text-white flex flex-col justify-between h-44">
-          <div class="flex justify-between items-start">
-            <span class="bg-black/60 backdrop-blur-md text-[11px] font-semibold px-2.5 py-1 rounded-full border border-white/10 flex items-center gap-1">
-              <span class="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></span> LIVE
-            </span>
-            <span class="text-xs font-bold px-2 py-1 rounded-lg bg-amber-400/20 text-amber-300 border border-amber-300/30">
-              ⏳ <span class="timer-display" data-time="39600">11:00:00</span>
-            </span>
-          </div>
-          <div>
-            <span class="text-xs text-purple-200">Instagram Page • Active Engagement</span>
-            <h3 class="text-lg font-black text-white">@addis_vibes_official (18K)</h3>
-          </div>
-        </div>
-
-        <div class="flex items-center justify-between text-xs px-1">
-          <div>
-            <p class="text-zinc-400 text-[11px]">Bid Entry Fee</p>
-            <p class="text-zinc-900 font-extrabold text-sm">ETB 25.00</p>
-          </div>
-          <div class="text-right">
-            <p class="text-zinc-400 text-[11px]">Auction ID</p>
-            <p class="font-mono text-zinc-600 text-xs">NB-IG-320</p>
-          </div>
-        </div>
-
-        <button onclick="placeBid('@addis_vibes_official (Instagram)', 25.0)" class="w-full py-3.5 rounded-2xl bg-zinc-950 text-brand-gold font-bold text-sm flex items-center justify-center gap-2 active:scale-[0.98] transition shadow-md">
-          <span>🎟️ Pay ETB 25.00 & Enter Bid</span>
+        <button onclick="placeBid('Ethio Online (@Aw_onl)', 25.0, 'aw_onl')" class="w-full py-3.5 rounded-2xl bg-zinc-950 text-brand-gold font-bold text-sm flex items-center justify-center gap-2 active:scale-[0.98] transition shadow-md">
+          <span>🎟️ Pay ETB 25.00 & Enter Unique Bid</span>
         </button>
       </div>
 
@@ -375,41 +278,32 @@
   <main id="tab-draws" class="tab-content hidden max-w-md mx-auto px-4 pt-3 space-y-4">
     <div class="flex items-center justify-between">
       <h2 class="text-lg font-black text-zinc-900">Auction Draws</h2>
-      <span class="text-xs text-zinc-500">Past Winners</span>
+      <span class="text-xs text-zinc-500">Official Winners</span>
     </div>
 
-    <!-- Past Draw 1 -->
-    <div class="bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
-      <div class="relative rounded-2xl overflow-hidden bg-emerald-50 border border-emerald-200 p-4">
-        <span class="bg-emerald-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-md flex items-center gap-1 w-max">
-          💵 CASH WINNER
-        </span>
-        <h4 class="font-extrabold text-base text-zinc-900 mt-2">1,000.00 ETB Cash Prize</h4>
-        <div class="mt-3 flex items-center justify-between bg-white rounded-xl p-2.5 border border-emerald-200 text-xs">
-          <div>
-            <p class="text-[10px] text-zinc-400">Winning Unique Bid</p>
-            <p class="text-base font-black text-emerald-800">0.23 ETB</p>
+    <div id="drawsContainer" class="space-y-3">
+      <!-- 10-Day Channel Winner -->
+      <div id="awOnlWinnerCard" class="hidden bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
+        <div class="relative rounded-2xl overflow-hidden bg-gradient-to-tr from-sky-950 to-indigo-900 p-4 text-white">
+          <span class="bg-brand-gold text-white text-[10px] font-bold px-2.5 py-0.5 rounded-md flex items-center gap-1 w-max">
+            🏆 OFFICIAL WINNER
+          </span>
+          <h4 class="font-extrabold text-base text-white mt-2">Ethio Online (@Aw_onl)</h4>
+          <div class="mt-3 bg-white/10 backdrop-blur-md rounded-xl p-3 border border-white/20 text-xs flex justify-between items-center">
+            <div>
+              <p class="text-[10px] text-zinc-300">Winning Lowest Unique Bid</p>
+              <p id="awOnlWinBidVal" class="text-base font-black text-amber-300">0.00 ETB</p>
+            </div>
+            <div class="text-right">
+              <p class="text-[10px] text-zinc-300">Winner Account</p>
+              <p id="awOnlWinUser" class="text-xs font-bold text-white font-mono">@user</p>
+            </div>
           </div>
-          <span class="text-emerald-700 font-bold">+2519****4519</span>
         </div>
       </div>
-    </div>
 
-    <!-- Past Draw 2 -->
-    <div class="bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
-      <div class="relative rounded-2xl overflow-hidden bg-amber-50 border border-amber-200/80 p-4">
-        <span class="bg-brand-gold text-white text-[10px] font-bold px-2 py-0.5 rounded-md flex items-center gap-1 w-max">
-          🏆 SOCIAL WINNER
-        </span>
-        <h4 class="font-extrabold text-base text-zinc-900 mt-2">TikTok @habesha_vibes (25K)</h4>
-        <div class="mt-3 flex items-center justify-between bg-white rounded-xl p-2.5 border border-amber-200 text-xs">
-          <div>
-            <p class="text-[10px] text-zinc-400">Winning Unique Bid</p>
-            <p class="text-base font-black text-zinc-900">0.47 ETB</p>
-          </div>
-          <span class="text-brand-darkgold font-bold">+2519****3201</span>
-        </div>
-      </div>
+      <!-- 15-Day Cash Winners -->
+      <div id="cashWinnerCardsContainer" class="space-y-3"></div>
     </div>
   </main>
 
@@ -458,39 +352,31 @@
       </div>
     </div>
 
-    <!-- Deposit Options -->
+    <!-- Deposit Options: TELEBIRR DIRECT ONLY -->
     <div class="bg-white rounded-3xl p-4 border border-zinc-200/80 shadow-sm space-y-3">
       <span class="text-xs font-bold text-zinc-600 block">Select Deposit Method</span>
 
-      <div onclick="openDepositModal()" class="p-3.5 rounded-2xl border border-zinc-200 hover:border-emerald-500 bg-zinc-50 flex items-center justify-between cursor-pointer active:scale-[0.99] transition">
+      <div onclick="openDepositModal()" class="p-3.5 rounded-2xl border-2 border-emerald-500/40 hover:border-emerald-600 bg-emerald-50/20 flex items-center justify-between cursor-pointer active:scale-[0.99] transition shadow-xs">
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-black text-sm">
-            <i class="fa-solid fa-mobile-screen-button"></i>
+          <div class="w-11 h-11 rounded-2xl bg-[#005fb2] flex items-center justify-center p-2 shadow-xs">
+            <svg viewBox="0 0 100 100" class="w-full h-full fill-white" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="50" r="45" fill="#005fb2"/>
+              <path d="M30 48c0-11 9-20 20-20s20 9 20 20c0 8-5 15-12 18v8h-16v-8c-7-3-12-10-12-18z" fill="#f8a51d"/>
+              <circle cx="50" cy="48" r="8" fill="#ffffff"/>
+            </svg>
           </div>
           <div>
-            <div class="flex items-center gap-1.5">
-              <span class="font-extrabold text-sm text-zinc-900">Telebirr Direct</span>
-              <span class="text-[9px] bg-emerald-100 text-emerald-800 px-1.5 py-0.2 rounded font-bold">INSTANT</span>
+            <div class="flex items-center gap-2">
+              <span class="font-extrabold text-sm text-zinc-900">telebirr</span>
+              <span class="text-[9px] bg-emerald-100 text-emerald-800 font-black px-2 py-0.5 rounded-md">OFFICIAL</span>
             </div>
-            <p class="text-[11px] text-zinc-400">Phone: 0950321768 • Min 10 ETB</p>
+            <p class="text-[11px] text-zinc-500 font-medium">0950321768 • Min 10 ETB</p>
           </div>
         </div>
-        <i class="fa-solid fa-chevron-right text-zinc-300 text-xs"></i>
-      </div>
-
-      <div onclick="openDepositModal()" class="p-3.5 rounded-2xl border border-zinc-200 hover:border-purple-500 bg-zinc-50 flex items-center justify-between cursor-pointer active:scale-[0.99] transition">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-800 flex items-center justify-center font-black text-xs">
-            CBE
-          </div>
-          <div>
-            <div class="flex items-center gap-1.5">
-              <span class="font-extrabold text-sm text-zinc-900">Commercial Bank (CBE)</span>
-            </div>
-            <p class="text-[11px] text-zinc-400">Direct Transfer • Min 25 ETB</p>
-          </div>
+        <div class="flex items-center gap-1">
+          <span class="text-xs font-bold text-emerald-700">Top Up</span>
+          <i class="fa-solid fa-chevron-right text-emerald-600 text-xs"></i>
         </div>
-        <i class="fa-solid fa-chevron-right text-zinc-300 text-xs"></i>
       </div>
     </div>
   </main>
@@ -529,18 +415,38 @@
       </div>
     </div>
 
-    <!-- 2. REFERRAL LINK CARD -->
-    <div class="bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-2.5">
+    <!-- 2. RESTRUCTURED REFERRAL SECTION: 5 INVITES = 1 FREE TICKET (NO MONEY BONUS) -->
+    <div class="bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2 text-zinc-900 font-bold text-xs">
-          <i class="fa-solid fa-share-nodes text-brand-gold text-sm"></i>
-          <span>My Referral Link</span>
+          <i class="fa-solid fa-ticket text-brand-gold text-sm"></i>
+          <span>Invite & Earn Free Tickets</span>
         </div>
-        <span class="text-[10px] text-amber-600 bg-amber-50 px-2 py-0.5 rounded-full font-bold">+10 ETB / Invite</span>
+        <span class="text-[10px] text-amber-700 bg-amber-100/70 border border-amber-300/60 px-2.5 py-0.5 rounded-full font-extrabold">
+          🎟️ 5 Invites = 1 Free Ticket
+        </span>
       </div>
+
       <p class="text-[11px] text-zinc-500 leading-relaxed">
-        Share this link with your friends. Get bonus auction tickets and ETB rewards when they join and enter bids!
+        Invite <b>5 friends</b> using your unique link below to unlock <b>1 Free Bid Ticket</b>. Use your ticket to enter any auction for free! <i>(No cash bonuses apply)</i>.
       </p>
+
+      <!-- Progress Tracker -->
+      <div class="bg-zinc-50 rounded-2xl p-3 border border-zinc-200/80 space-y-1.5">
+        <div class="flex justify-between items-center text-xs">
+          <span class="text-zinc-500 text-[11px] font-medium">Referral Progress:</span>
+          <span id="refProgressText" class="font-extrabold text-zinc-900 text-[11px]">0 / 5 Invited</span>
+        </div>
+        <div class="w-full bg-zinc-200 h-2 rounded-full overflow-hidden">
+          <div id="refProgressBar" class="bg-brand-gold h-full w-0 transition-all duration-500"></div>
+        </div>
+        <div class="flex justify-between items-center pt-1 text-[10px]">
+          <span class="text-zinc-400">Available Free Tickets:</span>
+          <span id="freeTicketsBadge" class="font-black text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-md">0 Tickets</span>
+        </div>
+      </div>
+
+      <!-- Invite Link -->
       <div class="bg-zinc-50 border border-zinc-200 rounded-2xl p-2.5 flex items-center justify-between text-xs font-mono text-zinc-700">
         <span id="userRefLinkText" class="truncate pr-2 font-medium">https://t.me/Nextbidet_bot/app?ref=user</span>
         <button onclick="copyMyReferralLink()" class="px-3 py-1.5 bg-brand-gold text-zinc-950 font-extrabold rounded-xl text-xs shadow-sm active:scale-95 transition flex items-center gap-1">
@@ -588,7 +494,6 @@
       </div>
     </div>
 
-    <!-- Support Desk -->
     <div class="p-3.5 bg-white rounded-2xl border border-zinc-200 text-xs flex items-center justify-between shadow-sm">
       <div class="flex items-center gap-2">
         <i class="fa-solid fa-headset text-brand-gold text-sm"></i>
@@ -609,7 +514,6 @@
         <span class="text-[10px] bg-rose-50 text-rose-700 px-2 py-0.5 rounded-full font-bold">ROOT ACCESS</span>
       </div>
 
-      <!-- Live Inputs -->
       <div class="space-y-3">
         <div>
           <label class="text-xs font-bold text-zinc-500 block mb-1">Target User ID</label>
@@ -632,7 +536,6 @@
         </div>
       </div>
 
-      <!-- Action Buttons Matrix -->
       <div class="grid grid-cols-2 gap-2.5 pt-1">
         <button onclick="adminAction('credit')" class="py-3.5 px-2 rounded-2xl bg-[#065f46] hover:bg-[#044e3a] text-white font-extrabold text-xs flex items-center justify-center gap-1.5 active:scale-95 transition shadow-sm">
           <i class="fa-solid fa-check"></i> Credit Deposit
@@ -651,7 +554,6 @@
         </button>
       </div>
 
-      <!-- Admin Status Log -->
       <div id="adminLogBox" class="p-3 bg-zinc-50 rounded-2xl border border-zinc-200 text-[11px] font-mono text-zinc-600 space-y-1">
         <p class="font-bold text-zinc-800">● Authenticated Admin: ኬቢ</p>
         <p id="adminLastActionText" class="text-emerald-700">Ready for commands.</p>
@@ -663,7 +565,15 @@
   <div id="depositModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
     <div class="bg-white w-full max-w-md rounded-t-[32px] sm:rounded-3xl p-5 space-y-4 shadow-2xl">
       <div class="flex justify-between items-center border-b border-zinc-100 pb-2">
-        <h3 class="font-black text-base text-zinc-900">Top Up Wallet (Telebirr)</h3>
+        <div class="flex items-center gap-2">
+          <div class="w-6 h-6 rounded-lg bg-[#005fb2] flex items-center justify-center p-1">
+            <svg viewBox="0 0 100 100" class="w-full h-full fill-white" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="50" r="45" fill="#005fb2"/>
+              <path d="M30 48c0-11 9-20 20-20s20 9 20 20c0 8-5 15-12 18v8h-16v-8c-7-3-12-10-12-18z" fill="#f8a51d"/>
+            </svg>
+          </div>
+          <h3 class="font-black text-base text-zinc-900">Top Up Wallet (Telebirr)</h3>
+        </div>
         <button onclick="closeDepositModal()" class="w-8 h-8 rounded-full bg-zinc-100 text-zinc-600 flex items-center justify-center font-bold text-xs">✕</button>
       </div>
 
@@ -675,7 +585,7 @@
             Copy
           </button>
         </div>
-        <p class="text-[11px] text-emerald-700 font-medium">Recipient Name: Aweke Zewdu</p>
+        <p class="text-[12px] text-emerald-800 font-bold">Recipient Name: Aweke</p>
       </div>
 
       <div class="space-y-2">
@@ -736,7 +646,6 @@
       <i class="fa-solid fa-user text-base"></i>
       <span class="text-[10px] font-bold">Profile</span>
     </button>
-    <!-- Root Admin Tab Button -->
     <button onclick="switchTab('admin')" id="nav-admin" class="nav-btn hidden flex flex-col items-center gap-1 text-rose-600">
       <i class="fa-solid fa-shield text-base"></i>
       <span class="text-[10px] font-bold">Admin</span>
@@ -748,16 +657,20 @@
     const tg = window.Telegram ? window.Telegram.WebApp : null;
     let balance = parseFloat(localStorage.getItem('nb_balance') || '0.0');
 
-    // EXCLUSIVE ROOT ADMIN ID
     const AUTHORIZED_ADMIN_ID = "8181751673"; 
     const BOT_TOKEN = "9053138629:AAGfkyid77uiGpLFLJNLOwjJsYjDgWlevis";
 
     let currentTgUser = { id: 'guest', username: 'user', name: 'Player' };
     let isUserAdmin = false;
 
-    // Local histories for Deposit & Withdrawals
     let depositHistory = JSON.parse(localStorage.getItem('nb_deposit_history') || '[]');
     let withdrawHistory = JSON.parse(localStorage.getItem('nb_withdraw_history') || '[]');
+    let awOnlBids = JSON.parse(localStorage.getItem('nb_aw_onl_bids') || '[]');
+    let cashBids = JSON.parse(localStorage.getItem('nb_cash_bids') || '{}');
+
+    // Referral counters & free tickets
+    let referralCount = parseInt(localStorage.getItem('nb_referral_count') || '0');
+    let freeTickets = parseInt(localStorage.getItem('nb_free_tickets') || '0');
 
     if (tg) {
       tg.ready();
@@ -773,11 +686,9 @@
         document.getElementById('profileName').innerText = currentTgUser.name;
         document.getElementById('profileTgId').innerText = '@' + currentTgUser.username;
 
-        // Custom Referral Link per User ID
         const refLink = `https://t.me/Nextbidet_bot/app?ref=${currentTgUser.id}`;
         document.getElementById('userRefLinkText').innerText = refLink;
 
-        // Reveal Admin Tab only for 8181751673 (ኬቢ)
         if (currentTgUser.id === AUTHORIZED_ADMIN_ID) {
           isUserAdmin = true;
           document.getElementById('nav-admin').classList.remove('hidden');
@@ -796,7 +707,23 @@
     }
     updateBalanceUI();
 
-    // Category Filtering Logic
+    function updateReferralUI() {
+      const progress = referralCount % 5;
+      const pct = Math.min(100, Math.round((progress / 5) * 100));
+      
+      const txt = document.getElementById('refProgressText');
+      const bar = document.getElementById('refProgressBar');
+      const badge = document.getElementById('freeTicketsBadge');
+
+      if (txt) txt.innerText = `${progress} / 5 Invited`;
+      if (bar) bar.style.width = `${pct}%`;
+      if (badge) badge.innerText = `${freeTickets} Ticket${freeTickets === 1 ? '' : 's'}`;
+
+      localStorage.setItem('nb_referral_count', referralCount.toString());
+      localStorage.setItem('nb_free_tickets', freeTickets.toString());
+    }
+    updateReferralUI();
+
     function filterCategory(cat) {
       document.querySelectorAll('.cat-pill').forEach(btn => {
         btn.classList.remove('bg-brand-gold', 'text-white', 'shadow-sm');
@@ -821,7 +748,6 @@
       });
     }
 
-    // Render Deposit History on Profile
     function renderDepositHistory() {
       const container = document.getElementById('profileDepositHistoryList');
       const badge = document.getElementById('depositHistoryCountBadge');
@@ -845,7 +771,6 @@
       `).join('');
     }
 
-    // Render Withdrawal History on Profile
     function renderWithdrawHistory() {
       const container = document.getElementById('profileWithdrawHistoryList');
       const badge = document.getElementById('withdrawHistoryCountBadge');
@@ -875,7 +800,7 @@
     function copyMyReferralLink() {
       const link = document.getElementById('userRefLinkText').innerText;
       navigator.clipboard.writeText(link);
-      alert("✅ Referral link copied to clipboard!");
+      alert("✅ Referral link copied! Invite 5 friends to earn 1 Free Bid Ticket.");
     }
 
     function switchTab(tabId) {
@@ -901,6 +826,7 @@
       if (tabId === 'profile') {
         renderDepositHistory();
         renderWithdrawHistory();
+        updateReferralUI();
       }
 
       window.scrollTo(0, 0);
@@ -915,7 +841,6 @@
       alert("Support Desk:\nPlease contact official support via the bot menu or send your inquiry inside the chat.");
     }
 
-    // Submit Deposit silently to Admin Chat ID 8181751673
     async function submitDepositToAdmin() {
       const amount = parseFloat(document.getElementById('depAmountInput').value);
       const tx = document.getElementById('depTxInput').value.trim();
@@ -971,7 +896,6 @@
       }
     }
 
-    // Submit Withdrawal silently to Admin Chat ID 8181751673
     async function submitWithdrawToAdmin() {
       const amount = parseFloat(document.getElementById('withAmountInput').value);
       const phone = document.getElementById('withPhoneInput').value.trim();
@@ -1029,7 +953,6 @@
       }
     }
 
-    // Admin Live Controller Functionality
     function adminAction(type) {
       if (!isUserAdmin) {
         alert("Unauthorized action!");
@@ -1062,19 +985,61 @@
       }
     }
 
-    function placeBid(title, fee) {
-      if (balance < fee) {
-        alert(`Insufficient balance! Entry fee is ${fee} ETB. Please deposit funds first.`);
-        switchTab('wallet');
-        openDepositModal();
-        return;
+    // Place Bid Logic: supports Free Ticket usage if available
+    function placeBid(title, fee, key) {
+      let usedTicket = false;
+
+      if (freeTickets > 0) {
+        const useTicketConfirm = confirm(`🎟️ You have ${freeTickets} Free Ticket! Do you want to use 1 Free Ticket instead of paying ${fee} ETB?`);
+        if (useTicketConfirm) {
+          freeTickets--;
+          usedTicket = true;
+          updateReferralUI();
+        }
+      }
+
+      if (!usedTicket) {
+        if (balance < fee) {
+          alert(`Insufficient balance! Entry fee is ${fee} ETB. Please deposit funds first or invite 5 friends for a free ticket.`);
+          switchTab('wallet');
+          openDepositModal();
+          return;
+        }
       }
 
       const userBidVal = prompt(`Enter your lowest unique bid amount for ${title} (e.g. 0.45):`);
-      if (!userBidVal || isNaN(userBidVal) || parseFloat(userBidVal) <= 0) return;
+      if (!userBidVal || isNaN(userBidVal) || parseFloat(userBidVal) <= 0) {
+        if (usedTicket) { freeTickets++; updateReferralUI(); }
+        return;
+      }
 
-      balance -= fee;
-      updateBalanceUI();
+      const numericBid = parseFloat(userBidVal);
+
+      if (!usedTicket) {
+        balance -= fee;
+        updateBalanceUI();
+      }
+
+      if (key === 'aw_onl') {
+        awOnlBids.push({
+          userId: currentTgUser.id,
+          username: currentTgUser.username,
+          name: currentTgUser.name,
+          bidAmount: numericBid,
+          timestamp: Date.now()
+        });
+        localStorage.setItem('nb_aw_onl_bids', JSON.stringify(awOnlBids));
+      } else if (key && key.startsWith('cash_')) {
+        if (!cashBids[key]) cashBids[key] = [];
+        cashBids[key].push({
+          userId: currentTgUser.id,
+          username: currentTgUser.username,
+          name: currentTgUser.name,
+          bidAmount: numericBid,
+          timestamp: Date.now()
+        });
+        localStorage.setItem('nb_cash_bids', JSON.stringify(cashBids));
+      }
 
       const container = document.getElementById('bidsListContainer');
       const emptyNotice = container.querySelector('.text-center');
@@ -1086,29 +1051,209 @@
         <div class="space-y-1">
           <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold">Active</span>
           <h4 class="font-extrabold text-sm text-zinc-900">${title}</h4>
-          <p class="text-[11px] text-zinc-400">Your Bid: <span class="font-bold text-zinc-800">${parseFloat(userBidVal).toFixed(2)} ETB</span> • Fee: ETB ${fee.toFixed(2)}</p>
+          <p class="text-[11px] text-zinc-400">Your Bid: <span class="font-bold text-zinc-800">${numericBid.toFixed(2)} ETB</span> • ${usedTicket ? '<span class="text-amber-600 font-bold">Free Ticket Used 🎟️</span>' : 'Fee: ETB ' + fee.toFixed(2)}</p>
         </div>
         <span class="text-xs text-brand-darkgold font-bold">Confirmed ✅</span>
       `;
       container.prepend(newCard);
 
-      alert(`✅ Bid entered successfully!\nFee deducted: ${fee} ETB\nBid value: ${parseFloat(userBidVal).toFixed(2)} ETB`);
+      alert(`✅ Bid entered successfully!\n${usedTicket ? 'Used 1 Free Ticket 🎟️' : 'Fee deducted: ' + fee + ' ETB'}\nBid value: ${numericBid.toFixed(2)} ETB`);
     }
 
-    // Synchronized Countdown Timers
-    setInterval(() => {
-      document.querySelectorAll('.timer-display').forEach(el => {
-        let sec = parseInt(el.getAttribute('data-time') || '0');
-        if (sec > 0) {
-          sec--;
-          el.setAttribute('data-time', sec);
-          const h = String(Math.floor(sec / 3600)).padStart(2, '0');
-          const m = String(Math.floor((sec % 3600) / 60)).padStart(2, '0');
-          const sc = String(sec % 60).padStart(2, '0');
-          el.innerText = `${h}:${m}:${sc}`;
+    // ================= 10-DAY COUNTDOWN (CHANNEL: @Aw_onl) =================
+    const TEN_DAYS_MS = 10 * 24 * 60 * 60 * 1000;
+    let awOnlStartTime = localStorage.getItem('nb_aw_onl_starttime');
+    if (!awOnlStartTime) {
+      awOnlStartTime = Date.now().toString();
+      localStorage.setItem('nb_aw_onl_starttime', awOnlStartTime);
+    }
+
+    let isAwOnlWinnerResolved = localStorage.getItem('nb_aw_onl_resolved') === 'true';
+
+    function update10DayTimer() {
+      const now = Date.now();
+      const elapsed = now - parseInt(awOnlStartTime);
+      const remainingMs = Math.max(0, TEN_DAYS_MS - elapsed);
+      const remainingSec = Math.floor(remainingMs / 1000);
+
+      const days = Math.floor(remainingSec / 86400);
+      const hours = Math.floor((remainingSec % 86400) / 3600);
+      const minutes = Math.floor((remainingSec % 3600) / 60);
+      const seconds = remainingSec % 60;
+
+      const timerEl = document.getElementById('awOnlTimer');
+      if (timerEl) {
+        timerEl.innerText = `${days}d ${String(hours).padStart(2, '0')}h ${String(minutes).padStart(2, '0')}m ${String(seconds).padStart(2, '0')}s`;
+      }
+
+      if (remainingSec <= 0 && !isAwOnlWinnerResolved) {
+        resolveAwOnlWinner();
+      }
+    }
+
+    async function resolveAwOnlWinner() {
+      isAwOnlWinnerResolved = true;
+      localStorage.setItem('nb_aw_onl_resolved', 'true');
+
+      let winner = null;
+      if (awOnlBids.length > 0) {
+        const counts = {};
+        awOnlBids.forEach(b => counts[b.bidAmount] = (counts[b.bidAmount] || 0) + 1);
+        const uniqueBids = awOnlBids.filter(b => counts[b.bidAmount] === 1);
+        if (uniqueBids.length > 0) {
+          uniqueBids.sort((a, b) => a.bidAmount - b.bidAmount);
+          winner = uniqueBids[0];
+        } else {
+          awOnlBids.sort((a, b) => a.bidAmount - b.bidAmount);
+          winner = awOnlBids[0];
         }
+      }
+
+      const winUserDisplay = winner ? `@${winner.username || winner.name}` : '@Aw_onl_Winner';
+      const winBidDisplay = winner ? `${winner.bidAmount.toFixed(2)} ETB` : '0.42 ETB';
+
+      const card = document.getElementById('awOnlWinnerCard');
+      if (card) {
+        document.getElementById('awOnlWinUser').innerText = winUserDisplay;
+        document.getElementById('awOnlWinBidVal').innerText = winBidDisplay;
+        card.classList.remove('hidden');
+      }
+
+      if (winner && winner.userId) {
+        const winMessage = `🎉 <b>CONGRATULATIONS ${winner.name}!</b>\n\n` +
+                           `🏆 <b>You won the 10-Day Auction for Ethio Online (@Aw_onl)!</b>\n\n` +
+                           `💎 <b>Your Winning Unique Bid:</b> <code>${winner.bidAmount.toFixed(2)} ETB</code>\n` +
+                           `👑 The channel ownership transfer will be initiated shortly.\n\n` +
+                           `Thank you for participating in NextBid!`;
+
+        try {
+          await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ chat_id: winner.userId, text: winMessage, parse_mode: 'HTML' })
+          });
+        } catch (e) {
+          console.error("Auto notification failed:", e);
+        }
+      }
+    }
+
+    if (isAwOnlWinnerResolved) {
+      const card = document.getElementById('awOnlWinnerCard');
+      if (card) card.classList.remove('hidden');
+    }
+
+    // ================= 15-DAY COUNTDOWN (ALL MONEY AUCTIONS) =================
+    const FIFTEEN_DAYS_MS = 15 * 24 * 60 * 60 * 1000;
+    let cashStartTime = localStorage.getItem('nb_cash_starttime');
+    if (!cashStartTime) {
+      cashStartTime = Date.now().toString();
+      localStorage.setItem('nb_cash_starttime', cashStartTime);
+    }
+
+    let isCashWinnerResolved = localStorage.getItem('nb_cash_resolved') === 'true';
+
+    function update15DayTimers() {
+      const now = Date.now();
+      const elapsed = now - parseInt(cashStartTime);
+      const remainingMs = Math.max(0, FIFTEEN_DAYS_MS - elapsed);
+      const remainingSec = Math.floor(remainingMs / 1000);
+
+      const days = Math.floor(remainingSec / 86400);
+      const hours = Math.floor((remainingSec % 86400) / 3600);
+      const minutes = Math.floor((remainingSec % 3600) / 60);
+      const seconds = remainingSec % 60;
+      const formatted = `${days}d ${String(hours).padStart(2, '0')}h ${String(minutes).padStart(2, '0')}m ${String(seconds).padStart(2, '0')}s`;
+
+      document.querySelectorAll('.fifteen-day-timer').forEach(el => {
+        el.innerText = formatted;
       });
-    }, 1000);
+
+      if (remainingSec <= 0 && !isCashWinnerResolved) {
+        resolveCashWinners();
+      }
+    }
+
+    async function resolveCashWinners() {
+      isCashWinnerResolved = true;
+      localStorage.setItem('nb_cash_resolved', 'true');
+
+      const pools = [
+        { key: 'cash_500', title: '500.00 ETB Cash Prize' },
+        { key: 'cash_1000', title: '1,000.00 ETB Cash Prize' },
+        { key: 'cash_2000', title: '2,000.00 ETB Cash Prize' },
+        { key: 'cash_5000', title: '5,000.00 ETB Mega Cash Prize' }
+      ];
+
+      const container = document.getElementById('cashWinnerCardsContainer');
+
+      for (const pool of pools) {
+        const poolBids = cashBids[pool.key] || [];
+        let winner = null;
+
+        if (poolBids.length > 0) {
+          const counts = {};
+          poolBids.forEach(b => counts[b.bidAmount] = (counts[b.bidAmount] || 0) + 1);
+          const uniqueBids = poolBids.filter(b => counts[b.bidAmount] === 1);
+          if (uniqueBids.length > 0) {
+            uniqueBids.sort((a, b) => a.bidAmount - b.bidAmount);
+            winner = uniqueBids[0];
+          } else {
+            poolBids.sort((a, b) => a.bidAmount - b.bidAmount);
+            winner = poolBids[0];
+          }
+        }
+
+        const winUserDisplay = winner ? `@${winner.username || winner.name}` : '+2519****' + Math.floor(1000 + Math.random() * 9000);
+        const winBidDisplay = winner ? `${winner.bidAmount.toFixed(2)} ETB` : (0.15 + Math.random() * 0.35).toFixed(2) + ' ETB';
+
+        const cardHtml = `
+          <div class="bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
+            <div class="relative rounded-2xl overflow-hidden bg-emerald-50 border border-emerald-200 p-4">
+              <span class="bg-emerald-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-md flex items-center gap-1 w-max">
+                💵 15-DAY CASH WINNER
+              </span>
+              <h4 class="font-extrabold text-base text-zinc-900 mt-2">${pool.title}</h4>
+              <div class="mt-3 flex items-center justify-between bg-white rounded-xl p-2.5 border border-emerald-200 text-xs">
+                <div>
+                  <p class="text-[10px] text-zinc-400">Winning Unique Bid</p>
+                  <p class="text-base font-black text-emerald-800">${winBidDisplay}</p>
+                </div>
+                <span class="text-emerald-700 font-bold font-mono">${winUserDisplay}</span>
+              </div>
+            </div>
+          </div>
+        `;
+        container.insertAdjacentHTML('beforeend', cardHtml);
+
+        if (winner && winner.userId) {
+          const winMessage = `🎉 <b>CONGRATULATIONS ${winner.name}!</b>\n\n` +
+                             `🏆 <b>You won the 15-Day Cash Auction for ${pool.title}!</b>\n\n` +
+                             `💎 <b>Winning Lowest Unique Bid:</b> <code>${winner.bidAmount.toFixed(2)} ETB</code>\n` +
+                             `💵 Your cash reward will be deposited into your wallet balance shortly.\n\n` +
+                             `Thank you for bidding on NextBid!`;
+
+          try {
+            await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ chat_id: winner.userId, text: winMessage, parse_mode: 'HTML' })
+            });
+          } catch (e) {
+            console.error("Auto notification failed:", e);
+          }
+        }
+      }
+    }
+
+    if (isCashWinnerResolved) {
+      resolveCashWinners();
+    }
+
+    setInterval(update10DayTimer, 1000);
+    setInterval(update15DayTimers, 1000);
+    update10DayTimer();
+    update15DayTimers();
   </script>
 </body>
 </html>
