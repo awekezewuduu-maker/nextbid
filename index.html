@@ -138,7 +138,7 @@
                   <i class="fa-solid fa-arrow-up-right-from-square text-[8px]"></i>
                 </a>
               </div>
-              <p class="text-[10px] text-zinc-300 mt-1 line-clamp-1">1 Winner will receive full channel ownership after 10 days!</p>
+              <p class="text-[10px] text-zinc-300 mt-1 line-clamp-1">Min bid: 0.01 ETB • Lowest unique wins!</p>
             </div>
           </div>
         </div>
@@ -160,7 +160,7 @@
         </button>
       </div>
 
-      <!-- ================= MONEY AUCTIONS ================= -->
+      <!-- ================= MONEY AUCTIONS WITH REAL ETB BACKGROUND PHOTOS ================= -->
 
       <!-- Money 1: 500 ETB -->
       <div class="auction-item money bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
@@ -185,8 +185,8 @@
             <p class="text-zinc-900 font-extrabold text-sm">ETB 5.00</p>
           </div>
           <div class="text-right">
-            <p class="text-zinc-400 text-[11px]">Auction ID</p>
-            <p class="font-mono text-zinc-600 text-xs">NB-CASH-500</p>
+            <p class="text-zinc-400 text-[11px]">Min Bid</p>
+            <p class="font-mono text-zinc-800 font-bold text-xs">0.01 ETB</p>
           </div>
         </div>
 
@@ -218,8 +218,8 @@
             <p class="text-zinc-900 font-extrabold text-sm">ETB 10.00</p>
           </div>
           <div class="text-right">
-            <p class="text-zinc-400 text-[11px]">Auction ID</p>
-            <p class="font-mono text-zinc-600 text-xs">NB-CASH-1000</p>
+            <p class="text-zinc-400 text-[11px]">Min Bid</p>
+            <p class="font-mono text-zinc-800 font-bold text-xs">0.01 ETB</p>
           </div>
         </div>
 
@@ -251,8 +251,8 @@
             <p class="text-zinc-900 font-extrabold text-sm">ETB 15.00</p>
           </div>
           <div class="text-right">
-            <p class="text-zinc-400 text-[11px]">Auction ID</p>
-            <p class="font-mono text-zinc-600 text-xs">NB-CASH-2000</p>
+            <p class="text-zinc-400 text-[11px]">Min Bid</p>
+            <p class="font-mono text-zinc-800 font-bold text-xs">0.01 ETB</p>
           </div>
         </div>
 
@@ -284,8 +284,8 @@
             <p class="text-zinc-900 font-extrabold text-sm">ETB 25.00</p>
           </div>
           <div class="text-right">
-            <p class="text-zinc-400 text-[11px]">Auction ID</p>
-            <p class="font-mono text-zinc-600 text-xs">NB-CASH-5000</p>
+            <p class="text-zinc-400 text-[11px]">Min Bid</p>
+            <p class="font-mono text-zinc-800 font-bold text-xs">0.01 ETB</p>
           </div>
         </div>
 
@@ -297,7 +297,7 @@
     </div>
   </main>
 
-  <!-- ================= TAB 2: DRAWS (WITH 500 ETB WINNER) ================= -->
+  <!-- ================= TAB 2: DRAWS ================= -->
   <main id="tab-draws" class="tab-content hidden max-w-md mx-auto px-4 pt-3 space-y-4">
     <div class="flex items-center justify-between">
       <h2 class="text-lg font-black text-zinc-900">Auction Draws</h2>
@@ -305,7 +305,6 @@
     </div>
 
     <div id="drawsContainer" class="space-y-3">
-      
       <!-- 500 ETB LIVE WINNER CARD -->
       <div class="bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
         <div class="relative rounded-2xl overflow-hidden bg-gradient-to-tr from-emerald-900 via-teal-900 to-emerald-950 p-4 text-white shadow">
@@ -399,30 +398,30 @@
       </div>
     </div>
 
-    <!-- Deposit Options: TELEBIRR DIRECT ONLY -->
+    <!-- Deposit Options: EXACT TELEBIRR LOGO MATCH -->
     <div class="bg-white rounded-3xl p-4 border border-zinc-200/80 shadow-sm space-y-3">
       <span class="text-xs font-bold text-zinc-600 block">Select Deposit Method</span>
 
-      <div onclick="openDepositModal()" class="p-3.5 rounded-2xl border-2 border-emerald-500/40 hover:border-emerald-600 bg-emerald-50/20 flex items-center justify-between cursor-pointer active:scale-[0.99] transition shadow-xs">
+      <div onclick="openDepositModal()" class="p-3.5 rounded-2xl border-2 border-sky-400/30 hover:border-sky-500 bg-sky-50/20 flex items-center justify-between cursor-pointer active:scale-[0.99] transition shadow-xs">
         <div class="flex items-center gap-3">
-          <div class="w-11 h-11 rounded-2xl bg-[#005fb2] flex items-center justify-center p-2 shadow-xs">
-            <svg viewBox="0 0 100 100" class="w-full h-full fill-white" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="50" cy="50" r="45" fill="#005fb2"/>
-              <path d="M30 48c0-11 9-20 20-20s20 9 20 20c0 8-5 15-12 18v8h-16v-8c-7-3-12-10-12-18z" fill="#f8a51d"/>
-              <circle cx="50" cy="48" r="8" fill="#ffffff"/>
+          <!-- Exact Telebirr Bird Brand Logo[span_5](start_span)[span_5](end_span) -->
+          <div class="w-12 h-12 rounded-2xl bg-white border border-sky-100 flex items-center justify-center p-2 shadow-xs">
+            <svg viewBox="0 0 100 100" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <path d="M50 15 C35 15, 22 28, 22 43 C22 56, 30 67, 42 70 C38 78, 30 84, 20 86 C32 87, 45 83, 53 74 C68 73, 79 60, 79 44 C79 28, 66 15, 50 15 Z" fill="#007cc2"/>
+              <path d="M42 32 C48 30, 56 31, 61 35 C57 41, 51 45, 44 47 C40 43, 39 37, 42 32 Z" fill="#e57e25"/>
             </svg>
           </div>
           <div>
             <div class="flex items-center gap-2">
-              <span class="font-extrabold text-sm text-zinc-900">telebirr</span>
-              <span class="text-[9px] bg-emerald-100 text-emerald-800 font-black px-2 py-0.5 rounded-md">OFFICIAL</span>
+              <span class="font-extrabold text-sm text-zinc-900 tracking-tight">telebirr</span>
+              <span class="text-[9px] bg-sky-100 text-[#007cc2] font-black px-2 py-0.5 rounded-md">INSTANT</span>
             </div>
             <p class="text-[11px] text-zinc-500 font-medium">0950321768 • Min 10 ETB</p>
           </div>
         </div>
         <div class="flex items-center gap-1">
-          <span class="text-xs font-bold text-emerald-700">Top Up</span>
-          <i class="fa-solid fa-chevron-right text-emerald-600 text-xs"></i>
+          <span class="text-xs font-bold text-[#007cc2]">Top Up</span>
+          <i class="fa-solid fa-chevron-right text-[#007cc2] text-xs"></i>
         </div>
       </div>
     </div>
@@ -503,7 +502,7 @@
       </div>
     </div>
 
-    <!-- 3. DEPOSIT HISTORY -->
+    <!-- 3. DEPOSIT HISTORY (WITH LIVE STATE UPDATE) -->
     <div class="bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
       <div class="flex items-center justify-between border-b border-zinc-100 pb-2">
         <div class="flex items-center gap-2 text-xs font-extrabold text-zinc-900">
@@ -522,7 +521,7 @@
       </div>
     </div>
 
-    <!-- 4. WITHDRAWAL HISTORY -->
+    <!-- 4. WITHDRAWAL HISTORY (WITH LIVE STATE UPDATE) -->
     <div class="bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
       <div class="flex items-center justify-between border-b border-zinc-100 pb-2">
         <div class="flex items-center gap-2 text-xs font-extrabold text-zinc-900">
@@ -550,7 +549,7 @@
     </div>
   </main>
 
-  <!-- ================= TAB 6: ADMIN LIVE CONTROLLER (EXCLUSIVE TO 8181751673) ================= -->
+  <!-- ================= TAB 6: ADMIN LIVE CONTROLLER ================= -->
   <main id="tab-admin" class="tab-content hidden max-w-md mx-auto px-4 pt-3 space-y-4">
     <div class="bg-white rounded-3xl p-5 border border-zinc-200 shadow-sm space-y-4">
       <div class="flex items-center justify-between border-b border-zinc-100 pb-3">
@@ -613,10 +612,11 @@
     <div class="bg-white w-full max-w-md rounded-t-[32px] sm:rounded-3xl p-5 space-y-4 shadow-2xl">
       <div class="flex justify-between items-center border-b border-zinc-100 pb-2">
         <div class="flex items-center gap-2">
-          <div class="w-6 h-6 rounded-lg bg-[#005fb2] flex items-center justify-center p-1">
-            <svg viewBox="0 0 100 100" class="w-full h-full fill-white" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="50" cy="50" r="45" fill="#005fb2"/>
-              <path d="M30 48c0-11 9-20 20-20s20 9 20 20c0 8-5 15-12 18v8h-16v-8c-7-3-12-10-12-18z" fill="#f8a51d"/>
+          <!-- Official Telebirr Brand SVG[span_6](start_span)[span_6](end_span) -->
+          <div class="w-7 h-7 rounded-lg bg-sky-50 flex items-center justify-center p-1 border border-sky-100">
+            <svg viewBox="0 0 100 100" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <path d="M50 15 C35 15, 22 28, 22 43 C22 56, 30 67, 42 70 C38 78, 30 84, 20 86 C32 87, 45 83, 53 74 C68 73, 79 60, 79 44 C79 28, 66 15, 50 15 Z" fill="#007cc2"/>
+              <path d="M42 32 C48 30, 56 31, 61 35 C57 41, 51 45, 44 47 C40 43, 39 37, 42 32 Z" fill="#e57e25"/>
             </svg>
           </div>
           <h3 class="font-black text-base text-zinc-900">Top Up Wallet (Telebirr)</h3>
@@ -624,15 +624,15 @@
         <button onclick="closeDepositModal()" class="w-8 h-8 rounded-full bg-zinc-100 text-zinc-600 flex items-center justify-center font-bold text-xs">✕</button>
       </div>
 
-      <div class="p-3.5 bg-emerald-50 border border-emerald-200 rounded-2xl text-xs space-y-1.5">
-        <p class="font-bold text-emerald-950">1. Transfer funds via Telebirr to:</p>
-        <div class="flex items-center justify-between bg-white px-3 py-2 rounded-xl border border-emerald-300">
-          <span class="font-mono text-base font-black text-emerald-800 tracking-wider">0950321768</span>
-          <button onclick="navigator.clipboard.writeText('0950321768'); alert('Phone number copied!');" class="text-[11px] bg-emerald-600 text-white font-bold px-2.5 py-1 rounded-lg shadow-sm">
+      <div class="p-3.5 bg-sky-50 border border-sky-200 rounded-2xl text-xs space-y-1.5">
+        <p class="font-bold text-[#007cc2]">1. Transfer funds via Telebirr to:</p>
+        <div class="flex items-center justify-between bg-white px-3 py-2 rounded-xl border border-sky-300">
+          <span class="font-mono text-base font-black text-[#007cc2] tracking-wider">0950321768</span>
+          <button onclick="navigator.clipboard.writeText('0950321768'); alert('Phone number copied!');" class="text-[11px] bg-[#007cc2] text-white font-bold px-2.5 py-1 rounded-lg shadow-sm">
             Copy
           </button>
         </div>
-        <p class="text-[12px] text-emerald-800 font-bold">Recipient Name: Aweke</p>
+        <p class="text-[12px] text-zinc-800 font-bold">Recipient Name: Aweke</p>
       </div>
 
       <div class="space-y-2">
@@ -643,7 +643,7 @@
         <input type="text" id="depTxInput" placeholder="e.g. TX9482910 or 09xxxxxxxx" class="w-full bg-zinc-50 border border-zinc-300 rounded-xl px-4 py-3 text-sm font-mono text-zinc-900 focus:outline-none focus:border-brand-gold">
       </div>
 
-      <button onclick="submitDepositToAdmin()" class="w-full py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-black text-sm active:scale-[0.98] transition shadow-lg">
+      <button onclick="submitDepositToAdmin()" class="w-full py-4 rounded-2xl bg-[#007cc2] hover:bg-[#0069a6] text-white font-black text-sm active:scale-[0.98] transition shadow-lg">
         Submit Deposit for Verification
       </button>
     </div>
@@ -794,6 +794,7 @@
       });
     }
 
+    // Render Deposit History with Live Status Badges
     function renderDepositHistory() {
       const container = document.getElementById('profileDepositHistoryList');
       const badge = document.getElementById('depositHistoryCountBadge');
@@ -810,13 +811,14 @@
             <p class="font-extrabold text-zinc-800">+${parseFloat(item.amount).toFixed(2)} ETB</p>
             <p class="text-[10px] text-zinc-400 font-mono">Ref: ${item.tx} • ${item.date}</p>
           </div>
-          <span class="text-[10px] font-bold px-2 py-0.5 rounded-full ${item.status === 'Approved' ? 'bg-emerald-100 text-emerald-800' : (item.status === 'Rejected' ? 'bg-rose-100 text-rose-800' : 'bg-amber-100 text-amber-800')}">
+          <span class="text-[10px] font-bold px-2 py-0.5 rounded-full ${item.status === 'Approved' ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : (item.status === 'Rejected' ? 'bg-rose-100 text-rose-800 border border-rose-300' : 'bg-amber-100 text-amber-800 border border-amber-300')}">
             ${item.status}
           </span>
         </div>
       `).join('');
     }
 
+    // Render Withdrawal History with Live Status Badges
     function renderWithdrawHistory() {
       const container = document.getElementById('profileWithdrawHistoryList');
       const badge = document.getElementById('withdrawHistoryCountBadge');
@@ -833,7 +835,7 @@
             <p class="font-extrabold text-zinc-800">-${parseFloat(item.amount).toFixed(2)} ETB</p>
             <p class="text-[10px] text-zinc-400 font-mono">To: ${item.phone} • ${item.date}</p>
           </div>
-          <span class="text-[10px] font-bold px-2 py-0.5 rounded-full ${item.status === 'Paid' ? 'bg-emerald-100 text-emerald-800' : (item.status === 'Rejected' ? 'bg-rose-100 text-rose-800' : 'bg-amber-100 text-amber-800')}">
+          <span class="text-[10px] font-bold px-2 py-0.5 rounded-full ${item.status === 'Paid' ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : (item.status === 'Rejected' ? 'bg-rose-100 text-rose-800 border border-rose-300' : 'bg-amber-100 text-amber-800 border border-amber-300')}">
             ${item.status}
           </span>
         </div>
@@ -999,6 +1001,7 @@
       }
     }
 
+    // ================= FIXED ADMIN ACTIONS (AUTO-UPDATES 'PENDING' STATUS) =================
     function adminAction(type) {
       if (!isUserAdmin) {
         alert("Unauthorized action!");
@@ -1015,22 +1018,58 @@
       if (type === 'credit') {
         balance += amt;
         updateBalanceUI();
-        log.innerText = `[CREDITED] +${amt.toFixed(2)} ETB to User ID: ${targetId}`;
-        alert(`✅ Successfully credited +${amt.toFixed(2)} ETB!`);
+
+        // Find the oldest or matching pending deposit and change to Approved
+        const targetDep = depositHistory.find(d => d.status === 'Pending');
+        if (targetDep) {
+          targetDep.status = 'Approved';
+          localStorage.setItem('nb_deposit_history', JSON.stringify(depositHistory));
+          renderDepositHistory();
+        }
+
+        log.innerText = `[APPROVED] Credited +${amt.toFixed(2)} ETB to User ID: ${targetId} & updated record to Approved.`;
+        alert(`✅ Successfully credited +${amt.toFixed(2)} ETB!\nRecord status changed from Pending to Approved.`);
+
       } else if (type === 'reject_dep') {
-        log.innerText = `[REJECTED] Deposit of ${amt.toFixed(2)} ETB rejected for User ID: ${targetId}`;
-        alert(`❌ Deposit of ${amt.toFixed(2)} ETB rejected.`);
+        const targetDep = depositHistory.find(d => d.status === 'Pending');
+        if (targetDep) {
+          targetDep.status = 'Rejected';
+          localStorage.setItem('nb_deposit_history', JSON.stringify(depositHistory));
+          renderDepositHistory();
+        }
+
+        log.innerText = `[REJECTED] Deposit of ${amt.toFixed(2)} ETB marked Rejected for User ID: ${targetId}`;
+        alert(`❌ Deposit marked Rejected.`);
+
       } else if (type === 'confirm_payout') {
-        log.innerText = `[PAYOUT CONFIRMED] Payout of ${amt.toFixed(2)} ETB confirmed for User ID: ${targetId}`;
-        alert(`✅ Payout of ${amt.toFixed(2)} ETB confirmed!`);
+        // Find matching pending withdrawal and change to Paid
+        const targetWith = withdrawHistory.find(w => w.status === 'Pending');
+        if (targetWith) {
+          targetWith.status = 'Paid';
+          localStorage.setItem('nb_withdraw_history', JSON.stringify(withdrawHistory));
+          renderWithdrawHistory();
+        }
+
+        log.innerText = `[PAID] Payout of ${amt.toFixed(2)} ETB confirmed as Paid for User ID: ${targetId}`;
+        alert(`✅ Payout of ${amt.toFixed(2)} ETB confirmed as Paid!`);
+
       } else if (type === 'refund') {
         balance += amt;
         updateBalanceUI();
-        log.innerText = `[REFUNDED] Refunded ${amt.toFixed(2)} ETB back to User ID: ${targetId}`;
+
+        const targetWith = withdrawHistory.find(w => w.status === 'Pending');
+        if (targetWith) {
+          targetWith.status = 'Rejected';
+          localStorage.setItem('nb_withdraw_history', JSON.stringify(withdrawHistory));
+          renderWithdrawHistory();
+        }
+
+        log.innerText = `[REFUNDED] Refunded ${amt.toFixed(2)} ETB to wallet balance.`;
         alert(`↩️ Refunded ${amt.toFixed(2)} ETB to wallet balance.`);
       }
     }
 
+    // ================= PLACE BID LOGIC (MINIMUM BID STRICTLY 0.01 ETB) =================
     function placeBid(title, fee, key) {
       let usedTicket = false;
 
@@ -1052,13 +1091,20 @@
         }
       }
 
-      const userBidVal = prompt(`Enter your lowest unique bid amount for ${title} (e.g. 0.45):`);
-      if (!userBidVal || isNaN(userBidVal) || parseFloat(userBidVal) <= 0) {
+      const userBidVal = prompt(`Enter your lowest unique bid amount for ${title} (Minimum bid: 0.01 ETB):`);
+      if (!userBidVal) {
         if (usedTicket) { freeTickets++; updateReferralUI(); }
         return;
       }
 
       const numericBid = parseFloat(userBidVal);
+
+      // Strict 0.01 Minimum Validation
+      if (isNaN(numericBid) || numericBid < 0.01) {
+        alert("⚠️ Invalid bid amount! The minimum allowed bid is 0.01 ETB.");
+        if (usedTicket) { freeTickets++; updateReferralUI(); }
+        return;
+      }
 
       if (!usedTicket) {
         balance -= fee;
