@@ -3,21 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>NextBid - Social Media & Money Auctions</title>
+  <title>NextBid - Luxury Social & Money Auctions</title>
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Telegram WebApp SDK -->
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <!-- Font Awesome Pro Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@600;800&display=swap" rel="stylesheet">
+
   <script>
     tailwind.config = {
       theme: {
         extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          },
           colors: {
-            brand: {
-              gold: '#cba135',
-              darkgold: '#a88220',
-              emerald: '#056244',
-              darkbg: '#043d2c'
+            surface: {
+              50: '#f9f9fb',
+              100: '#f1f1f5',
+              800: '#141419',
+              900: '#0c0c0f',
+              950: '#060608'
+            },
+            luxury: {
+              gold: '#e6b84a',
+              goldLight: '#fde68a',
+              goldDark: '#b88a1e',
+              emerald: '#059669',
+              darkEmerald: '#022c22'
             }
+          },
+          boxShadow: {
+            'glow-gold': '0 0 25px -5px rgba(230, 184, 74, 0.35)',
+            'glow-emerald': '0 0 25px -5px rgba(5, 150, 105, 0.35)',
+            'card': '0 10px 30px -5px rgba(0, 0, 0, 0.06), 0 4px 10px -2px rgba(0, 0, 0, 0.03)',
+            'floating': '0 20px 40px -10px rgba(0, 0, 0, 0.12)'
           }
         }
       }
@@ -25,38 +51,59 @@
   </script>
   <style>
     body {
-      background-color: #f7f6f2;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(circle at 50% 0%, #ffffff 0%, #f4f4f7 100%);
+      font-family: 'Plus Jakarta Sans', sans-serif;
       -webkit-tap-highlight-color: transparent;
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+    }
+    .glass-dark {
+      background: rgba(12, 12, 15, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #fde68a 0%, #e6b84a 50%, #b88a1e 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
-<body class="text-zinc-800 pb-24 select-none">
+<body class="text-zinc-900 pb-28 select-none antialiased min-h-screen">
 
-  <!-- ================= TOP APP BAR ================= -->
-  <header class="sticky top-0 z-40 bg-[#f7f6f2]/95 backdrop-blur-md px-4 py-2.5 flex items-center justify-between border-b border-zinc-200/60">
-    <div class="flex items-center gap-2">
-      <div class="w-8 h-8 rounded-xl bg-zinc-900 text-brand-gold flex items-center justify-center font-black text-sm shadow-sm">
+  <!-- ================= LUXURY HEADER ================= -->
+  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur-xl px-4 py-3 flex items-center justify-between border-b border-zinc-200/50 shadow-xs">
+    <div class="flex items-center gap-2.5">
+      <div class="w-9 h-9 rounded-2xl bg-gradient-to-tr from-zinc-950 via-zinc-800 to-zinc-900 text-luxury-gold flex items-center justify-center font-black text-sm shadow-md border border-amber-400/20">
         NB
       </div>
       <div>
-        <span class="font-bold text-base tracking-tight text-zinc-900 block leading-tight">NextBid</span>
-        <span class="text-[9px] uppercase tracking-wider text-zinc-400 font-bold block">Social & Money</span>
+        <div class="flex items-center gap-1">
+          <span class="font-extrabold text-base tracking-tight text-zinc-950">NextBid</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+        </div>
+        <span class="text-[9px] uppercase tracking-widest text-zinc-400 font-bold block -mt-0.5">VIP Auctions</span>
       </div>
     </div>
 
     <div class="flex items-center gap-2">
-      <div class="bg-white border border-zinc-200 px-3 py-1 rounded-full flex items-center gap-1.5 shadow-sm">
-        <span class="text-xs font-bold text-brand-gold">🪙</span>
-        <span id="topBalance" class="text-xs font-extrabold text-zinc-900">0.00 ETB</span>
-        <button onclick="switchTab('wallet')" class="text-brand-darkgold ml-0.5 text-xs font-bold leading-none">+</button>
+      <!-- Live Wallet Balance Pill -->
+      <div class="bg-zinc-900/90 text-white border border-zinc-800 px-3 py-1.5 rounded-full flex items-center gap-2 shadow-sm">
+        <span class="text-xs gold-gradient-text font-black">🪙</span>
+        <span id="topBalance" class="text-xs font-black tracking-tight text-zinc-100 font-mono">0.00 ETB</span>
+        <button onclick="switchTab('wallet')" class="w-4 h-4 rounded-full bg-luxury-gold text-zinc-950 font-black text-[10px] flex items-center justify-center leading-none active:scale-90 transition">+</button>
       </div>
 
-      <div class="px-2 py-1 rounded-full bg-white border border-zinc-200 flex items-center gap-1 text-[11px] font-bold text-zinc-700 shadow-sm">
-        <span>🇪🇹</span>
-        <span>ETB</span>
+      <div class="px-2.5 py-1.5 rounded-full bg-white border border-zinc-200/80 flex items-center gap-1.5 text-[11px] font-black text-zinc-700 shadow-xs">
+        <span class="text-xs">🇪🇹</span>
+        <span class="font-mono text-[10px] tracking-wide">ETB</span>
       </div>
     </div>
   </header>
@@ -64,30 +111,40 @@
   <!-- ================= TAB 1: HOME ================= -->
   <main id="tab-home" class="tab-content max-w-md mx-auto px-4 pt-3 space-y-4">
     
-    <div class="rounded-3xl p-4 text-zinc-900 shadow-sm border border-amber-200/70" style="background: linear-gradient(135deg, #fef7e0 0%, #f7e3af 100%);">
-      <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-brand-gold text-white inline-block mb-1">
-        ልዩ ጨረታ
-      </span>
-      <h2 class="text-xl font-black leading-tight text-zinc-900">አሸናፊውን ጨረታዎን ያስገቡ</h2>
-      <p class="text-xs text-zinc-700 mt-1 max-w-[270px]">
-        ዝቅተኛው እና ያልተደገመው የመጫረቻ ዋጋ ያሸንፋል! ተጫርተው አሸናፊ ይሁኑ።
-      </p>
-      <div class="mt-3 flex gap-2">
-        <button onclick="switchTab('draws')" class="px-3.5 py-1.5 rounded-full bg-zinc-900 text-brand-gold text-xs font-bold shadow">
-          ያለፉ ዕጣዎች ➔
-        </button>
+    <!-- Hero Banner with Gold Embellishments -->
+    <div class="relative overflow-hidden rounded-[30px] p-5 text-zinc-900 shadow-card border border-amber-300/40" style="background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 45%, #fde68a 100%);">
+      <div class="absolute -right-6 -bottom-8 text-amber-500/10 text-9xl pointer-events-none">
+        <i class="fa-solid fa-trophy"></i>
+      </div>
+      <div class="relative z-10 space-y-2">
+        <div class="flex items-center gap-2">
+          <span class="text-[10px] uppercase font-black tracking-widest px-2.5 py-0.5 rounded-full bg-zinc-950 text-luxury-gold inline-flex items-center gap-1 shadow-sm">
+            <span>✨</span> ልዩ ጨረታ
+          </span>
+          <span class="text-[10px] font-extrabold text-amber-900/70 uppercase">VIP Exclusive</span>
+        </div>
+        <h2 class="text-2xl font-black leading-tight text-zinc-950 tracking-tight">አሸናፊውን ጨረታዎን ያስገቡ</h2>
+        <p class="text-xs text-zinc-700 font-medium max-w-[270px] leading-relaxed">
+          ዝቅተኛው እና ያልተደገመው የመጫረቻ ዋጋ ያሸንፋል! ተጫርተው አሸናፊ ይሁኑ።
+        </p>
+        <div class="pt-1">
+          <button onclick="switchTab('draws')" class="px-4 py-2 rounded-xl bg-zinc-950 hover:bg-zinc-900 text-luxury-gold text-xs font-black shadow-md flex items-center gap-1.5 active:scale-95 transition">
+            <span>ያለፉ ዕጣዎች</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </button>
+        </div>
       </div>
     </div>
 
-    <!-- Category Filter -->
+    <!-- Category Switcher Pill Tabs -->
     <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
-      <button onclick="filterCategory('all')" id="cat-all" class="cat-pill px-4 py-1.5 rounded-full text-xs font-bold bg-brand-gold text-white shadow-sm whitespace-nowrap">
+      <button onclick="filterCategory('all')" id="cat-all" class="cat-pill px-5 py-2 rounded-2xl text-xs font-black bg-zinc-950 text-luxury-gold shadow-sm whitespace-nowrap active:scale-95 transition border border-zinc-900">
         All
       </button>
-      <button onclick="filterCategory('social')" id="cat-social" class="cat-pill px-4 py-1.5 rounded-full text-xs font-bold bg-white text-zinc-600 border border-zinc-200 whitespace-nowrap">
+      <button onclick="filterCategory('social')" id="cat-social" class="cat-pill px-5 py-2 rounded-2xl text-xs font-bold bg-white text-zinc-600 border border-zinc-200/80 shadow-xs whitespace-nowrap active:scale-95 transition">
         📱 Social Media
       </button>
-      <button onclick="filterCategory('money')" id="cat-money" class="cat-pill px-4 py-1.5 rounded-full text-xs font-bold bg-white text-zinc-600 border border-zinc-200 whitespace-nowrap">
+      <button onclick="filterCategory('money')" id="cat-money" class="cat-pill px-5 py-2 rounded-2xl text-xs font-bold bg-white text-zinc-600 border border-zinc-200/80 shadow-xs whitespace-nowrap active:scale-95 transition">
         💵 Money
       </button>
     </div>
@@ -95,194 +152,195 @@
     <!-- AUCTIONS CONTAINER -->
     <div id="auctionsContainer" class="space-y-4">
 
-      <!-- TELEGRAM CHANNEL -->
-      <div class="auction-item social bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
-        <div id="card_bg_aw_onl" class="relative rounded-2xl overflow-hidden p-5 text-white flex flex-col justify-between h-52 shadow bg-cover bg-center transition-all duration-300" style="background-image: linear-gradient(135deg, rgba(10, 25, 47, 0.90) 0%, rgba(2, 6, 23, 0.85) 60%, rgba(0, 0, 0, 0.92) 100%), url('https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80');">
+      <!-- ================= TELEGRAM CHANNEL CARD ================= -->
+      <div class="auction-item social glass-card rounded-[28px] p-4 shadow-card hover:shadow-floating transition-all duration-300 space-y-3">
+        <div id="card_bg_aw_onl" class="relative rounded-[22px] overflow-hidden p-5 text-white flex flex-col justify-between h-56 shadow-md bg-cover bg-center transition-all duration-300" style="background-image: linear-gradient(135deg, rgba(8, 20, 38, 0.94) 0%, rgba(2, 6, 23, 0.88) 60%, rgba(0, 0, 0, 0.95) 100%), url('https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80');">
+          
           <div class="absolute -right-4 -bottom-6 text-sky-500/15 text-9xl pointer-events-none select-none">
             <i class="fa-brands fa-telegram"></i>
           </div>
 
           <div class="flex justify-between items-start relative z-10">
-            <span class="bg-sky-500/30 backdrop-blur-md text-[11px] font-bold text-sky-200 px-2.5 py-1 rounded-full border border-sky-400/30 flex items-center gap-1.5 shadow-sm">
-              <i class="fa-brands fa-telegram text-sky-400"></i> TELEGRAM CHANNEL
+            <span class="bg-sky-500/25 backdrop-blur-md text-[10px] font-black tracking-wider text-sky-300 px-3 py-1 rounded-full border border-sky-400/30 flex items-center gap-1.5 shadow-sm">
+              <i class="fa-brands fa-telegram text-sky-400 text-xs"></i> OFFICIAL CHANNEL
             </span>
-            <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-black/60 backdrop-blur-md text-amber-300 border border-amber-400/30 shadow-sm">
+            <span class="text-xs font-black px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-amber-300 border border-amber-400/30 shadow-sm font-mono">
               ⏳ <span id="awOnlTimer">10d 00h 00m 00s</span>
             </span>
           </div>
 
-          <div class="relative z-10 flex items-center gap-3 mt-1">
-            <div class="w-13 h-13 rounded-2xl overflow-hidden border-2 border-amber-400/80 shadow-md bg-black flex-shrink-0">
-              <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-amber-600 via-yellow-500 to-emerald-700 flex flex-col items-center justify-center p-1 text-center font-black">
-                <span class="text-[9px] text-white leading-none tracking-tighter">👑</span>
-                <span class="text-[10px] text-zinc-950 font-black leading-tight">ETB</span>
-                <span class="text-[8px] text-white leading-none font-extrabold">MONEY</span>
+          <div class="relative z-10 flex items-center gap-3.5 mt-2">
+            <div class="w-14 h-14 rounded-2xl overflow-hidden border-2 border-luxury-gold shadow-lg bg-black flex-shrink-0">
+              <div class="w-full h-full bg-gradient-to-tr from-amber-600 via-yellow-500 to-emerald-700 flex flex-col items-center justify-center p-1 text-center font-black">
+                <span class="text-[10px] text-white leading-none">👑</span>
+                <span class="text-[11px] text-zinc-950 font-black leading-tight">ETB</span>
+                <span class="text-[8px] text-white leading-none font-extrabold tracking-tighter">MONEY</span>
               </div>
             </div>
 
             <div class="min-w-0">
               <div class="flex items-center gap-1.5">
                 <h3 id="card_title_aw_onl" class="text-lg font-black text-white truncate drop-shadow-md">Ethio Online</h3>
-                <span class="text-[9px] bg-emerald-500/30 text-emerald-300 font-bold px-1.5 py-0.2 rounded border border-emerald-400/30">1.48K Subs</span>
+                <span class="text-[9px] bg-emerald-500/30 text-emerald-300 font-black px-2 py-0.5 rounded-full border border-emerald-400/30">1.48K Subs</span>
               </div>
               <div class="flex items-center gap-2 mt-0.5">
                 <span class="text-xs text-sky-300 font-mono font-bold">@Aw_onl</span>
-                <a href="https://t.me/Aw_onl" target="_blank" class="text-[10px] bg-sky-600/40 hover:bg-sky-600/70 text-sky-100 px-2 py-0.5 rounded-md font-mono flex items-center gap-1 transition">
-                  <span>Visit</span>
+                <a href="https://t.me/Aw_onl" target="_blank" class="text-[10px] bg-sky-600/30 hover:bg-sky-600/60 text-sky-100 px-2 py-0.5 rounded-md font-mono flex items-center gap-1 transition">
+                  <span>Open</span>
                   <i class="fa-solid fa-arrow-up-right-from-square text-[8px]"></i>
                 </a>
               </div>
-              <p class="text-[10px] text-zinc-300 mt-1 line-clamp-1">Min bid: 0.01 ETB • Lowest unique wins!</p>
+              <p class="text-[10px] text-zinc-300 font-medium mt-1 line-clamp-1">Min bid: 0.01 ETB • Lowest unique wins channel!</p>
             </div>
           </div>
         </div>
 
-        <div class="flex items-center justify-between text-xs px-1">
+        <div class="flex items-center justify-between text-xs px-2 pt-1">
           <div>
-            <p class="text-zinc-400 text-[11px]">Bid Entry Fee</p>
-            <p id="card_fee_aw_onl" class="text-zinc-900 font-extrabold text-sm">ETB 25.00</p>
+            <p class="text-zinc-400 text-[11px] font-bold">Bid Entry Fee</p>
+            <p id="card_fee_aw_onl" class="text-zinc-950 font-black text-base font-mono">ETB 25.00</p>
           </div>
           <div class="text-right">
-            <p class="text-zinc-400 text-[11px]">Auction ID</p>
-            <p class="font-mono text-zinc-600 text-xs">NB-TG-AWONL</p>
+            <p class="text-zinc-400 text-[11px] font-bold">Auction ID</p>
+            <p class="font-mono text-zinc-600 text-xs font-bold">NB-TG-AWONL</p>
           </div>
         </div>
 
-        <button onclick="placeBidDynamic('aw_onl')" class="w-full py-3.5 rounded-2xl bg-zinc-950 text-brand-gold font-bold text-sm flex items-center justify-center gap-2 active:scale-[0.98] transition shadow-md">
+        <button onclick="placeBidDynamic('aw_onl')" class="w-full py-4 rounded-2xl bg-zinc-950 hover:bg-zinc-900 text-luxury-gold font-black text-sm flex items-center justify-center gap-2 active:scale-[0.98] transition shadow-md border border-amber-400/20">
           <i class="fa-brands fa-telegram text-base text-sky-400"></i>
           <span>Pay Entry Fee & Enter Unique Bid</span>
         </button>
       </div>
 
-      <!-- MONEY 1: 500 ETB -->
-      <div class="auction-item money bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
-        <div id="card_bg_cash_500" class="relative rounded-2xl overflow-hidden p-5 text-white flex flex-col justify-between h-48 shadow bg-cover bg-center transition-all duration-300" style="background-image: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.7) 100%), url('https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80');">
+      <!-- ================= MONEY AUCTION 1: 500 ETB ================= -->
+      <div class="auction-item money glass-card rounded-[28px] p-4 shadow-card hover:shadow-floating transition-all duration-300 space-y-3">
+        <div id="card_bg_cash_500" class="relative rounded-[22px] overflow-hidden p-5 text-white flex flex-col justify-between h-52 shadow-md bg-cover bg-center transition-all duration-300" style="background-image: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.7) 100%), url('https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80');">
           <div class="flex justify-between items-start">
-            <span class="bg-black/60 backdrop-blur-md text-[11px] font-semibold px-2.5 py-1 rounded-full border border-white/20 flex items-center gap-1">
-              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> LIVE
+            <span class="bg-black/60 backdrop-blur-md text-[10px] font-black tracking-wider text-emerald-300 px-3 py-1 rounded-full border border-emerald-400/30 flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> LIVE CASH
             </span>
-            <span class="text-xs font-bold px-2 py-1 rounded-lg bg-black/60 backdrop-blur-md text-amber-300 border border-amber-400/40">
+            <span class="text-xs font-black px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-amber-300 border border-amber-400/30 font-mono">
               ⏳ <span class="fifteen-day-timer">15d 00h 00m 00s</span>
             </span>
           </div>
           <div>
-            <span class="text-xs text-amber-300 font-black uppercase tracking-wider drop-shadow-md">💵 INSTANT CASH PRIZE</span>
+            <span class="text-[11px] text-amber-300 font-black uppercase tracking-wider drop-shadow-md">💵 INSTANT CASH PRIZE</span>
             <h3 id="card_title_cash_500" class="text-2xl font-black text-white tracking-tight drop-shadow-lg">500.00 ETB CASH</h3>
           </div>
         </div>
 
-        <div class="flex items-center justify-between text-xs px-1">
+        <div class="flex items-center justify-between text-xs px-2 pt-1">
           <div>
-            <p class="text-zinc-400 text-[11px]">Bid Entry Fee</p>
-            <p id="card_fee_cash_500" class="text-zinc-900 font-extrabold text-sm">ETB 5.00</p>
+            <p class="text-zinc-400 text-[11px] font-bold">Bid Entry Fee</p>
+            <p id="card_fee_cash_500" class="text-zinc-950 font-black text-base font-mono">ETB 5.00</p>
           </div>
           <div class="text-right">
-            <p class="text-zinc-400 text-[11px]">Min Bid</p>
-            <p class="font-mono text-zinc-800 font-bold text-xs">0.01 ETB</p>
+            <p class="text-zinc-400 text-[11px] font-bold">Min Bid</p>
+            <p class="font-mono text-zinc-900 font-black text-xs">0.01 ETB</p>
           </div>
         </div>
 
-        <button onclick="placeBidDynamic('cash_500')" class="w-full py-3.5 rounded-2xl bg-zinc-950 text-brand-gold font-bold text-sm flex items-center justify-center gap-2 active:scale-[0.98] transition shadow-md">
+        <button onclick="placeBidDynamic('cash_500')" class="w-full py-4 rounded-2xl bg-zinc-950 hover:bg-zinc-900 text-luxury-gold font-black text-sm flex items-center justify-center gap-2 active:scale-[0.98] transition shadow-md border border-amber-400/20">
           <span>🎟️ Pay Entry Fee & Enter Bid</span>
         </button>
       </div>
 
-      <!-- MONEY 2: 1,000 ETB -->
-      <div class="auction-item money bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
-        <div id="card_bg_cash_1000" class="relative rounded-2xl overflow-hidden p-5 text-white flex flex-col justify-between h-48 shadow bg-cover bg-center transition-all duration-300" style="background-image: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.7) 100%), url('https://images.unsplash.com/photo-1580519542036-c47de6196ba5?auto=format&fit=crop&w=800&q=80');">
+      <!-- ================= MONEY AUCTION 2: 1,000 ETB ================= -->
+      <div class="auction-item money glass-card rounded-[28px] p-4 shadow-card hover:shadow-floating transition-all duration-300 space-y-3">
+        <div id="card_bg_cash_1000" class="relative rounded-[22px] overflow-hidden p-5 text-white flex flex-col justify-between h-52 shadow-md bg-cover bg-center transition-all duration-300" style="background-image: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.7) 100%), url('https://images.unsplash.com/photo-1580519542036-c47de6196ba5?auto=format&fit=crop&w=800&q=80');">
           <div class="flex justify-between items-start">
-            <span class="bg-black/60 backdrop-blur-md text-[11px] font-semibold px-2.5 py-1 rounded-full border border-white/20 flex items-center gap-1">
-              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> LIVE
+            <span class="bg-black/60 backdrop-blur-md text-[10px] font-black tracking-wider text-emerald-300 px-3 py-1 rounded-full border border-emerald-400/30 flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> LIVE CASH
             </span>
-            <span class="text-xs font-bold px-2 py-1 rounded-lg bg-black/60 backdrop-blur-md text-amber-300 border border-amber-400/40">
+            <span class="text-xs font-black px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-amber-300 border border-amber-400/30 font-mono">
               ⏳ <span class="fifteen-day-timer">15d 00h 00m 00s</span>
             </span>
           </div>
           <div>
-            <span class="text-xs text-amber-300 font-black uppercase tracking-wider drop-shadow-md">💵 INSTANT CASH PRIZE</span>
+            <span class="text-[11px] text-amber-300 font-black uppercase tracking-wider drop-shadow-md">💵 INSTANT CASH PRIZE</span>
             <h3 id="card_title_cash_1000" class="text-2xl font-black text-white tracking-tight drop-shadow-lg">1,000.00 ETB CASH</h3>
           </div>
         </div>
 
-        <div class="flex items-center justify-between text-xs px-1">
+        <div class="flex items-center justify-between text-xs px-2 pt-1">
           <div>
-            <p class="text-zinc-400 text-[11px]">Bid Entry Fee</p>
-            <p id="card_fee_cash_1000" class="text-zinc-900 font-extrabold text-sm">ETB 10.00</p>
+            <p class="text-zinc-400 text-[11px] font-bold">Bid Entry Fee</p>
+            <p id="card_fee_cash_1000" class="text-zinc-950 font-black text-base font-mono">ETB 10.00</p>
           </div>
           <div class="text-right">
-            <p class="text-zinc-400 text-[11px]">Min Bid</p>
-            <p class="font-mono text-zinc-800 font-bold text-xs">0.01 ETB</p>
+            <p class="text-zinc-400 text-[11px] font-bold">Min Bid</p>
+            <p class="font-mono text-zinc-900 font-black text-xs">0.01 ETB</p>
           </div>
         </div>
 
-        <button onclick="placeBidDynamic('cash_1000')" class="w-full py-3.5 rounded-2xl bg-zinc-950 text-brand-gold font-bold text-sm flex items-center justify-center gap-2 active:scale-[0.98] transition shadow-md">
+        <button onclick="placeBidDynamic('cash_1000')" class="w-full py-4 rounded-2xl bg-zinc-950 hover:bg-zinc-900 text-luxury-gold font-black text-sm flex items-center justify-center gap-2 active:scale-[0.98] transition shadow-md border border-amber-400/20">
           <span>🎟️ Pay Entry Fee & Enter Bid</span>
         </button>
       </div>
 
-      <!-- MONEY 3: 2,000 ETB -->
-      <div class="auction-item money bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
-        <div id="card_bg_cash_2000" class="relative rounded-2xl overflow-hidden p-5 text-white flex flex-col justify-between h-48 shadow bg-cover bg-center transition-all duration-300" style="background-image: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.7) 100%), url('https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=800&q=80');">
+      <!-- ================= MONEY AUCTION 3: 2,000 ETB ================= -->
+      <div class="auction-item money glass-card rounded-[28px] p-4 shadow-card hover:shadow-floating transition-all duration-300 space-y-3">
+        <div id="card_bg_cash_2000" class="relative rounded-[22px] overflow-hidden p-5 text-white flex flex-col justify-between h-52 shadow-md bg-cover bg-center transition-all duration-300" style="background-image: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.7) 100%), url('https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=800&q=80');">
           <div class="flex justify-between items-start">
-            <span class="bg-black/60 backdrop-blur-md text-[11px] font-semibold px-2.5 py-1 rounded-full border border-white/20 flex items-center gap-1">
-              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> LIVE
+            <span class="bg-black/60 backdrop-blur-md text-[10px] font-black tracking-wider text-emerald-300 px-3 py-1 rounded-full border border-emerald-400/30 flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> LIVE CASH
             </span>
-            <span class="text-xs font-bold px-2 py-1 rounded-lg bg-black/60 backdrop-blur-md text-amber-300 border border-amber-400/40">
+            <span class="text-xs font-black px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-amber-300 border border-amber-400/30 font-mono">
               ⏳ <span class="fifteen-day-timer">15d 00h 00m 00s</span>
             </span>
           </div>
           <div>
-            <span class="text-xs text-amber-300 font-black uppercase tracking-wider drop-shadow-md">💵 INSTANT CASH PRIZE</span>
+            <span class="text-[11px] text-amber-300 font-black uppercase tracking-wider drop-shadow-md">💵 INSTANT CASH PRIZE</span>
             <h3 id="card_title_cash_2000" class="text-2xl font-black text-white tracking-tight drop-shadow-lg">2,000.00 ETB CASH</h3>
           </div>
         </div>
 
-        <div class="flex items-center justify-between text-xs px-1">
+        <div class="flex items-center justify-between text-xs px-2 pt-1">
           <div>
-            <p class="text-zinc-400 text-[11px]">Bid Entry Fee</p>
-            <p id="card_fee_cash_2000" class="text-zinc-900 font-extrabold text-sm">ETB 15.00</p>
+            <p class="text-zinc-400 text-[11px] font-bold">Bid Entry Fee</p>
+            <p id="card_fee_cash_2000" class="text-zinc-950 font-black text-base font-mono">ETB 15.00</p>
           </div>
           <div class="text-right">
-            <p class="text-zinc-400 text-[11px]">Min Bid</p>
-            <p class="font-mono text-zinc-800 font-bold text-xs">0.01 ETB</p>
+            <p class="text-zinc-400 text-[11px] font-bold">Min Bid</p>
+            <p class="font-mono text-zinc-900 font-black text-xs">0.01 ETB</p>
           </div>
         </div>
 
-        <button onclick="placeBidDynamic('cash_2000')" class="w-full py-3.5 rounded-2xl bg-zinc-950 text-brand-gold font-bold text-sm flex items-center justify-center gap-2 active:scale-[0.98] transition shadow-md">
+        <button onclick="placeBidDynamic('cash_2000')" class="w-full py-4 rounded-2xl bg-zinc-950 hover:bg-zinc-900 text-luxury-gold font-black text-sm flex items-center justify-center gap-2 active:scale-[0.98] transition shadow-md border border-amber-400/20">
           <span>🎟️ Pay Entry Fee & Enter Bid</span>
         </button>
       </div>
 
-      <!-- MONEY 4: 5,000 ETB -->
-      <div class="auction-item money bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
-        <div id="card_bg_cash_5000" class="relative rounded-2xl overflow-hidden p-5 text-white flex flex-col justify-between h-48 shadow bg-cover bg-center transition-all duration-300" style="background-image: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.7) 100%), url('https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80');">
+      <!-- ================= MONEY AUCTION 4: 5,000 ETB ================= -->
+      <div class="auction-item money glass-card rounded-[28px] p-4 shadow-card hover:shadow-floating transition-all duration-300 space-y-3">
+        <div id="card_bg_cash_5000" class="relative rounded-[22px] overflow-hidden p-5 text-white flex flex-col justify-between h-52 shadow-md bg-cover bg-center transition-all duration-300" style="background-image: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.7) 100%), url('https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80');">
           <div class="flex justify-between items-start">
-            <span class="bg-black/60 backdrop-blur-md text-[11px] font-semibold px-2.5 py-1 rounded-full border border-white/20 flex items-center gap-1">
+            <span class="bg-black/60 backdrop-blur-md text-[10px] font-black tracking-wider text-amber-300 px-3 py-1 rounded-full border border-amber-400/40 flex items-center gap-1.5">
               <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span> MEGA CASH
             </span>
-            <span class="text-xs font-bold px-2 py-1 rounded-lg bg-black/60 backdrop-blur-md text-amber-300 border border-amber-400/40">
+            <span class="text-xs font-black px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-amber-300 border border-amber-400/30 font-mono">
               ⏳ <span class="fifteen-day-timer">15d 00h 00m 00s</span>
             </span>
           </div>
           <div>
-            <span class="text-xs text-amber-300 font-black uppercase tracking-wider drop-shadow-md">🌟 MEGA CASH PRIZE</span>
-            <h3 id="card_title_cash_5000" class="text-2xl font-black text-brand-gold tracking-tight drop-shadow-lg">5,000.00 ETB CASH</h3>
+            <span class="text-[11px] text-amber-300 font-black uppercase tracking-wider drop-shadow-md">🌟 MEGA CASH PRIZE</span>
+            <h3 id="card_title_cash_5000" class="text-2xl font-black text-luxury-gold tracking-tight drop-shadow-lg">5,000.00 ETB CASH</h3>
           </div>
         </div>
 
-        <div class="flex items-center justify-between text-xs px-1">
+        <div class="flex items-center justify-between text-xs px-2 pt-1">
           <div>
-            <p class="text-zinc-400 text-[11px]">Bid Entry Fee</p>
-            <p id="card_fee_cash_5000" class="text-zinc-900 font-extrabold text-sm">ETB 25.00</p>
+            <p class="text-zinc-400 text-[11px] font-bold">Bid Entry Fee</p>
+            <p id="card_fee_cash_5000" class="text-zinc-950 font-black text-base font-mono">ETB 25.00</p>
           </div>
           <div class="text-right">
-            <p class="text-zinc-400 text-[11px]">Min Bid</p>
-            <p class="font-mono text-zinc-800 font-bold text-xs">0.01 ETB</p>
+            <p class="text-zinc-400 text-[11px] font-bold">Min Bid</p>
+            <p class="font-mono text-zinc-900 font-black text-xs">0.01 ETB</p>
           </div>
         </div>
 
-        <button onclick="placeBidDynamic('cash_5000')" class="w-full py-3.5 rounded-2xl bg-zinc-950 text-brand-gold font-bold text-sm flex items-center justify-center gap-2 active:scale-[0.98] transition shadow-md">
-          <span>🎟️ Pay ETB 25.00 & Enter Bid</span>
+        <button onclick="placeBidDynamic('cash_5000')" class="w-full py-4 rounded-2xl bg-zinc-950 hover:bg-zinc-900 text-luxury-gold font-black text-sm flex items-center justify-center gap-2 active:scale-[0.98] transition shadow-md border border-amber-400/20">
+          <span>🎟️ Pay Entry Fee & Enter Bid</span>
         </button>
       </div>
 
@@ -292,106 +350,125 @@
   <!-- ================= TAB 2: DRAWS ================= -->
   <main id="tab-draws" class="tab-content hidden max-w-md mx-auto px-4 pt-3 space-y-4">
     <div class="flex items-center justify-between">
-      <h2 class="text-lg font-black text-zinc-900">Auction Draws</h2>
-      <span class="text-xs text-zinc-500">Official Winners</span>
+      <div>
+        <h2 class="text-xl font-black text-zinc-950">Auction Draws</h2>
+        <p class="text-xs text-zinc-500 font-medium">Verified Lowest Unique Bid Winners</p>
+      </div>
+      <span class="text-[10px] bg-emerald-50 text-emerald-800 font-black px-2.5 py-1 rounded-full border border-emerald-200">LIVE FEED</span>
     </div>
 
-    <div id="drawsContainer" class="space-y-3">
-      <div class="bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
-        <div class="relative rounded-2xl overflow-hidden bg-gradient-to-tr from-emerald-900 via-teal-900 to-emerald-950 p-4 text-white shadow">
+    <div id="drawsContainer" class="space-y-3.5">
+      <!-- 500 ETB OFFICIAL WINNER CARD -->
+      <div class="glass-card rounded-[28px] p-4 shadow-card space-y-3">
+        <div class="relative rounded-[22px] overflow-hidden bg-gradient-to-tr from-emerald-950 via-teal-950 to-zinc-950 p-5 text-white shadow-md border border-emerald-500/20">
           <div class="flex justify-between items-center">
-            <span class="bg-emerald-500 text-white text-[10px] font-black px-2.5 py-0.5 rounded-md flex items-center gap-1">
-              🏆 OFFICIAL CASH WINNER
+            <span class="bg-emerald-500/30 text-emerald-300 text-[10px] font-black px-3 py-1 rounded-full border border-emerald-400/40 flex items-center gap-1.5">
+              <span>🏆</span> OFFICIAL CASH WINNER
             </span>
-            <span class="text-[10px] text-emerald-200 font-mono">Draw #NB-500-01</span>
+            <span class="text-[10px] text-emerald-300 font-mono">#NB-500-01</span>
           </div>
-          <h4 class="font-black text-lg text-white mt-2">500.00 ETB Instant Cash</h4>
-          <div class="mt-3 bg-white/10 backdrop-blur-md rounded-xl p-3 border border-white/20 text-xs flex justify-between items-center">
+          <h4 class="font-black text-xl text-white mt-3">500.00 ETB Instant Cash</h4>
+          <div class="mt-4 bg-white/5 backdrop-blur-xl rounded-2xl p-3.5 border border-white/10 text-xs flex justify-between items-center">
             <div>
-              <p class="text-[10px] text-emerald-200 font-medium">Winning Lowest Unique Bid</p>
-              <p class="text-base font-black text-amber-300">0.19 ETB</p>
+              <p class="text-[10px] text-zinc-400 font-bold uppercase">Winning Unique Bid</p>
+              <p class="text-lg font-black text-amber-300 font-mono">0.19 ETB</p>
             </div>
             <div class="text-right">
-              <p class="text-[10px] text-emerald-200 font-medium">Winner Phone</p>
-              <p class="text-xs font-mono font-bold text-white tracking-wider">+2519****2841</p>
+              <p class="text-[10px] text-zinc-400 font-bold uppercase">Winner Phone</p>
+              <p class="text-xs font-mono font-black text-white tracking-wider">+2519****2841</p>
             </div>
           </div>
         </div>
       </div>
 
-      <div id="awOnlWinnerCard" class="hidden bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
-        <div class="relative rounded-2xl overflow-hidden bg-gradient-to-tr from-sky-950 to-indigo-900 p-4 text-white">
-          <span class="bg-brand-gold text-white text-[10px] font-bold px-2.5 py-0.5 rounded-md flex items-center gap-1 w-max">
-            🏆 OFFICIAL WINNER
+      <!-- 10-Day Channel Winner (Appears dynamically) -->
+      <div id="awOnlWinnerCard" class="hidden glass-card rounded-[28px] p-4 shadow-card space-y-3">
+        <div class="relative rounded-[22px] overflow-hidden bg-gradient-to-tr from-sky-950 to-indigo-950 p-5 text-white shadow-md border border-sky-500/20">
+          <span class="bg-luxury-gold text-zinc-950 text-[10px] font-black px-3 py-1 rounded-full flex items-center gap-1 w-max shadow-sm">
+            🏆 OFFICIAL CHANNEL WINNER
           </span>
-          <h4 class="font-extrabold text-base text-white mt-2">Ethio Online (@Aw_onl)</h4>
-          <div class="mt-3 bg-white/10 backdrop-blur-md rounded-xl p-3 border border-white/20 text-xs flex justify-between items-center">
+          <h4 class="font-black text-xl text-white mt-3">Ethio Online (@Aw_onl)</h4>
+          <div class="mt-4 bg-white/5 backdrop-blur-xl rounded-2xl p-3.5 border border-white/10 text-xs flex justify-between items-center">
             <div>
-              <p class="text-[10px] text-zinc-300">Winning Lowest Unique Bid</p>
-              <p id="awOnlWinBidVal" class="text-base font-black text-amber-300">0.00 ETB</p>
+              <p class="text-[10px] text-zinc-400 font-bold uppercase">Winning Unique Bid</p>
+              <p id="awOnlWinBidVal" class="text-lg font-black text-amber-300 font-mono">0.00 ETB</p>
             </div>
             <div class="text-right">
-              <p class="text-[10px] text-zinc-300">Winner Account</p>
+              <p class="text-[10px] text-zinc-400 font-bold uppercase">Winner Account</p>
               <p id="awOnlWinUser" class="text-xs font-bold text-white font-mono">@user</p>
             </div>
           </div>
         </div>
       </div>
 
-      <div id="cashWinnerCardsContainer" class="space-y-3"></div>
+      <div id="cashWinnerCardsContainer" class="space-y-3.5"></div>
     </div>
   </main>
 
   <!-- ================= TAB 3: MY BIDS ================= -->
   <main id="tab-mybids" class="tab-content hidden max-w-md mx-auto px-4 pt-3 space-y-4">
-    <h2 class="text-lg font-black text-zinc-900">My Bids</h2>
+    <div>
+      <h2 class="text-xl font-black text-zinc-950">My Bids</h2>
+      <p class="text-xs text-zinc-500 font-medium">Active entries and placed unique values</p>
+    </div>
     <div id="bidsListContainer" class="space-y-3">
-      <div class="bg-white rounded-2xl p-6 border border-zinc-200 shadow-sm text-center text-zinc-400 text-xs">
-        No active bids yet. Place a bid to participate!
+      <div class="glass-card rounded-[28px] p-8 text-center text-zinc-400 text-xs shadow-card">
+        <i class="fa-solid fa-ticket-simple text-3xl mb-2 text-zinc-300"></i>
+        <p class="font-bold">No active bids yet.</p>
+        <p class="text-[11px] text-zinc-400 mt-0.5">Enter any auction to see your live tickets here!</p>
       </div>
     </div>
   </main>
 
   <!-- ================= TAB 4: WALLET ================= -->
   <main id="tab-wallet" class="tab-content hidden max-w-md mx-auto px-4 pt-3 space-y-4">
-    <div class="rounded-3xl p-5 text-white shadow-lg space-y-4 bg-gradient-to-b from-[#064e3b] to-[#022c22]">
-      <div class="flex justify-between items-start">
-        <div class="flex items-center gap-2.5">
-          <div class="w-10 h-10 rounded-full bg-emerald-800/80 border border-emerald-400/30 flex items-center justify-center font-bold text-sm text-emerald-200">
+    <!-- Big Luxury Emerald Card -->
+    <div class="relative overflow-hidden rounded-[32px] p-6 text-white shadow-floating space-y-5 bg-gradient-to-tr from-[#022c22] via-[#064e3b] to-[#047857] border border-emerald-400/20">
+      <div class="absolute -right-10 -bottom-10 w-44 h-44 rounded-full bg-emerald-400/10 blur-2xl pointer-events-none"></div>
+
+      <div class="flex justify-between items-start relative z-10">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center font-black text-base text-luxury-gold shadow-inner">
             NB
           </div>
           <div>
             <h3 class="font-extrabold text-base leading-tight">NextBid Wallet</h3>
-            <p class="text-[10px] text-emerald-300 font-medium">ETB BALANCE SYSTEM</p>
+            <p class="text-[10px] text-emerald-200 font-bold uppercase tracking-widest mt-0.5">FINTECH ETB POOL</p>
           </div>
         </div>
         <div class="text-right">
-          <span class="text-[10px] text-emerald-300 font-semibold block">Your balance</span>
-          <span id="walletSmallBadge" class="text-xs font-bold text-white bg-emerald-800/60 px-2 py-0.5 rounded-full border border-emerald-600/40">
-            0.00 ETB
+          <span class="text-[10px] text-emerald-300 font-bold uppercase block">Status</span>
+          <span class="text-[10px] font-black text-emerald-200 bg-black/40 px-2.5 py-0.5 rounded-full border border-emerald-500/30">
+            ACTIVE
           </span>
         </div>
       </div>
 
-      <div>
-        <h1 id="walletLargeDisplay" class="text-3xl font-black tracking-tight text-white">0.00 <span class="text-lg font-normal text-emerald-200">ETB</span></h1>
+      <div class="relative z-10">
+        <span class="text-xs text-emerald-200 font-medium block">Total Balance</span>
+        <h1 id="walletLargeDisplay" class="text-4xl font-black tracking-tight text-white font-mono mt-0.5">
+          0.00 <span class="text-xl font-normal text-emerald-200">ETB</span>
+        </h1>
       </div>
 
-      <div class="grid grid-cols-2 gap-3 pt-1">
-        <button onclick="openDepositModal()" class="py-3 rounded-2xl bg-white text-emerald-950 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 shadow active:scale-95 transition">
+      <div class="grid grid-cols-2 gap-3 pt-1 relative z-10">
+        <button onclick="openDepositModal()" class="py-3.5 rounded-2xl bg-white hover:bg-zinc-100 text-emerald-950 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md active:scale-95 transition">
           <i class="fa-solid fa-plus text-emerald-700"></i> + Deposit
         </button>
-        <button onclick="openWithdrawModal()" class="py-3 rounded-2xl bg-emerald-800/60 hover:bg-emerald-800 text-emerald-100 border border-emerald-500/40 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 shadow active:scale-95 transition">
+        <button onclick="openWithdrawModal()" class="py-3.5 rounded-2xl bg-black/40 hover:bg-black/60 text-emerald-100 border border-emerald-400/30 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md active:scale-95 transition">
           <i class="fa-solid fa-arrow-up"></i> ↑ Withdraw
         </button>
       </div>
     </div>
 
     <!-- DYNAMIC PAYMENT METHODS LIST -->
-    <div class="bg-white rounded-3xl p-4 border border-zinc-200/80 shadow-sm space-y-3">
+    <div class="glass-card rounded-[28px] p-5 shadow-card space-y-3.5">
       <div class="flex items-center justify-between">
-        <span class="text-xs font-bold text-zinc-600 block">Select Deposit Method</span>
-        <span id="paymentMethodsBadge" class="text-[10px] text-zinc-400 font-mono">1 active</span>
+        <div>
+          <span class="text-xs font-black text-zinc-900 block">Select Deposit Method</span>
+          <span class="text-[10px] text-zinc-400 font-medium">Instant automated screenshot verification</span>
+        </div>
+        <span id="paymentMethodsBadge" class="text-[10px] text-zinc-400 font-mono bg-zinc-100 px-2 py-0.5 rounded-md font-bold">1 active</span>
       </div>
 
       <div id="dynamicPaymentMethodsList" class="space-y-2.5"></div>
@@ -400,70 +477,71 @@
 
   <!-- ================= TAB 5: PROFILE ================= -->
   <main id="tab-profile" class="tab-content hidden max-w-md mx-auto px-4 pt-3 space-y-4">
-    <div class="bg-zinc-900 text-white rounded-3xl p-4 flex items-center gap-3 shadow-md">
-      <div class="w-12 h-12 rounded-2xl bg-amber-400/20 text-brand-gold flex items-center justify-center text-xl font-black">
-        <i class="fa-solid fa-user"></i>
+    <!-- User Profile Header -->
+    <div class="glass-dark rounded-[28px] p-5 text-white flex items-center gap-3.5 shadow-floating border border-zinc-800">
+      <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-amber-500 to-amber-700 text-zinc-950 flex items-center justify-center text-2xl font-black shadow-md border border-amber-300/40">
+        <i class="fa-solid fa-user-astronaut"></i>
       </div>
       <div>
-        <h3 id="profileName" class="font-bold text-base text-white">Player</h3>
-        <p id="profileTgId" class="text-xs text-zinc-400 font-mono">@user</p>
+        <h3 id="profileName" class="font-black text-lg text-white">Player</h3>
+        <p id="profileTgId" class="text-xs text-amber-300 font-mono font-bold mt-0.5">@user</p>
       </div>
     </div>
 
-    <!-- WALLET BALANCE -->
-    <div class="rounded-3xl p-4 text-white shadow-md space-y-3 bg-gradient-to-r from-zinc-900 to-zinc-950 border border-zinc-800">
+    <!-- WALLET BALANCE CARD ON PROFILE -->
+    <div class="glass-card rounded-[28px] p-5 shadow-card space-y-3">
       <div class="flex items-center justify-between text-xs text-zinc-400">
-        <span class="flex items-center gap-1.5">
-          <i class="fa-solid fa-wallet text-brand-gold"></i> Available Wallet Balance
+        <span class="flex items-center gap-1.5 font-bold text-zinc-700">
+          <i class="fa-solid fa-wallet text-luxury-gold text-sm"></i> Available Wallet Balance
         </span>
-        <span class="text-[10px] bg-emerald-900/60 text-emerald-300 border border-emerald-500/30 px-2 py-0.5 rounded-full font-bold">Active</span>
+        <span class="text-[10px] bg-emerald-50 text-emerald-800 border border-emerald-300 px-2.5 py-0.5 rounded-full font-black">Active</span>
       </div>
-      <div class="flex items-baseline justify-between">
-        <h2 id="profileWalletBalanceDisplay" class="text-3xl font-black text-white">0.00 <span class="text-sm font-semibold text-zinc-400">ETB</span></h2>
+      <div>
+        <h2 id="profileWalletBalanceDisplay" class="text-3xl font-black text-zinc-950 font-mono">0.00 <span class="text-sm font-semibold text-zinc-400">ETB</span></h2>
       </div>
       <div class="grid grid-cols-2 gap-2 pt-1">
-        <button onclick="openDepositModal()" class="py-2.5 rounded-xl bg-brand-gold text-zinc-950 font-black text-xs uppercase flex items-center justify-center gap-1 shadow active:scale-95 transition">
+        <button onclick="openDepositModal()" class="py-3 rounded-2xl bg-zinc-950 text-luxury-gold font-black text-xs uppercase flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition">
           <i class="fa-solid fa-plus"></i> Deposit
         </button>
-        <button onclick="openWithdrawModal()" class="py-2.5 rounded-xl bg-zinc-800 text-zinc-200 border border-zinc-700 font-black text-xs uppercase flex items-center justify-center gap-1 active:scale-95 transition">
+        <button onclick="openWithdrawModal()" class="py-3 rounded-2xl bg-white text-zinc-800 border border-zinc-200 font-black text-xs uppercase flex items-center justify-center gap-1.5 shadow-xs active:scale-95 transition">
           <i class="fa-solid fa-arrow-up"></i> Withdraw
         </button>
       </div>
     </div>
 
-    <!-- REFERRAL SECTION -->
-    <div class="bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
+    <!-- REFERRAL SECTION: 5 INVITES = 1 FREE TICKET -->
+    <div class="glass-card rounded-[28px] p-5 shadow-card space-y-3.5">
       <div class="flex items-center justify-between">
-        <div class="flex items-center gap-2 text-zinc-900 font-bold text-xs">
-          <i class="fa-solid fa-ticket text-brand-gold text-sm"></i>
+        <div class="flex items-center gap-2 text-zinc-900 font-black text-xs">
+          <i class="fa-solid fa-ticket-simple text-luxury-gold text-sm"></i>
           <span>Invite & Earn Free Tickets</span>
         </div>
-        <span class="text-[10px] text-amber-700 bg-amber-100/70 border border-amber-300/60 px-2.5 py-0.5 rounded-full font-extrabold">
-          🎟️ 5 Invites = 1 Free Ticket
+        <span class="text-[10px] text-amber-800 bg-amber-100 border border-amber-300 px-2.5 py-0.5 rounded-full font-black">
+          🎟️ 5 Invites = 1 Ticket
         </span>
       </div>
 
-      <p class="text-[11px] text-zinc-500 leading-relaxed">
+      <p class="text-[11px] text-zinc-500 leading-relaxed font-medium">
         Invite <b>5 friends</b> using your unique link below to unlock <b>1 Free Bid Ticket</b>. Use your ticket to enter any auction for free! <i>(No cash bonuses apply)</i>.
       </p>
 
-      <div class="bg-zinc-50 rounded-2xl p-3 border border-zinc-200/80 space-y-1.5">
+      <div class="bg-zinc-50 rounded-2xl p-3.5 border border-zinc-200/80 space-y-2">
         <div class="flex justify-between items-center text-xs">
-          <span class="text-zinc-500 text-[11px] font-medium">Referral Progress:</span>
-          <span id="refProgressText" class="font-extrabold text-zinc-900 text-[11px]">0 / 5 Invited</span>
+          <span class="text-zinc-500 text-[11px] font-bold">Referral Progress:</span>
+          <span id="refProgressText" class="font-black text-zinc-950 text-xs font-mono">0 / 5 Invited</span>
         </div>
-        <div class="w-full bg-zinc-200 h-2 rounded-full overflow-hidden">
-          <div id="refProgressBar" class="bg-brand-gold h-full w-0 transition-all duration-500"></div>
+        <div class="w-full bg-zinc-200/80 h-2.5 rounded-full overflow-hidden">
+          <div id="refProgressBar" class="bg-gradient-to-r from-amber-400 to-luxury-gold h-full w-0 transition-all duration-500"></div>
         </div>
         <div class="flex justify-between items-center pt-1 text-[10px]">
-          <span class="text-zinc-400">Available Free Tickets:</span>
-          <span id="freeTicketsBadge" class="font-black text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-md">0 Tickets</span>
+          <span class="text-zinc-400 font-bold uppercase">Reward Tickets:</span>
+          <span id="freeTicketsBadge" class="font-black text-emerald-800 bg-emerald-100 px-2.5 py-0.5 rounded-md font-mono">0 Tickets</span>
         </div>
       </div>
 
-      <div class="bg-zinc-50 border border-zinc-200 rounded-2xl p-2.5 flex items-center justify-between text-xs font-mono text-zinc-700">
-        <span id="userRefLinkText" class="truncate pr-2 font-medium">https://t.me/Nextbidet_bot/app?ref=user</span>
-        <button onclick="copyMyReferralLink()" class="px-3 py-1.5 bg-brand-gold text-zinc-950 font-extrabold rounded-xl text-xs shadow-sm active:scale-95 transition flex items-center gap-1">
+      <div class="bg-zinc-50 border border-zinc-200/80 rounded-2xl p-2.5 flex items-center justify-between text-xs font-mono text-zinc-800">
+        <span id="userRefLinkText" class="truncate pr-2 font-bold text-[11px]">https://t.me/Nextbidet_bot/app?ref=user</span>
+        <button onclick="copyMyReferralLink()" class="px-3.5 py-2 bg-zinc-950 text-luxury-gold font-black rounded-xl text-xs shadow-sm active:scale-95 transition flex items-center gap-1.5 flex-shrink-0">
           <i class="fa-regular fa-copy"></i>
           <span>Copy</span>
         </button>
@@ -471,69 +549,73 @@
     </div>
 
     <!-- DEPOSIT HISTORY -->
-    <div class="bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
-      <div class="flex items-center justify-between border-b border-zinc-100 pb-2">
-        <div class="flex items-center gap-2 text-xs font-extrabold text-zinc-900">
-          <span class="w-6 h-6 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center text-xs">
+    <div class="glass-card rounded-[28px] p-5 shadow-card space-y-3">
+      <div class="flex items-center justify-between border-b border-zinc-100 pb-2.5">
+        <div class="flex items-center gap-2 text-xs font-black text-zinc-900">
+          <span class="w-7 h-7 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center text-xs">
             <i class="fa-solid fa-arrow-down"></i>
           </span>
           <span>Deposit History</span>
         </div>
-        <span id="depositHistoryCountBadge" class="text-[10px] text-zinc-400 font-semibold font-mono">0 records</span>
+        <span id="depositHistoryCountBadge" class="text-[10px] text-zinc-400 font-bold font-mono">0 records</span>
       </div>
 
       <div id="profileDepositHistoryList" class="space-y-2 max-h-48 overflow-y-auto no-scrollbar">
-        <div class="text-center py-4 text-zinc-400 text-[11px]">
+        <div class="text-center py-4 text-zinc-400 text-[11px] font-medium">
           No deposits recorded yet.
         </div>
       </div>
     </div>
 
     <!-- WITHDRAWAL HISTORY -->
-    <div class="bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
-      <div class="flex items-center justify-between border-b border-zinc-100 pb-2">
-        <div class="flex items-center gap-2 text-xs font-extrabold text-zinc-900">
-          <span class="w-6 h-6 rounded-lg bg-amber-50 text-brand-darkgold flex items-center justify-center text-xs">
+    <div class="glass-card rounded-[28px] p-5 shadow-card space-y-3">
+      <div class="flex items-center justify-between border-b border-zinc-100 pb-2.5">
+        <div class="flex items-center gap-2 text-xs font-black text-zinc-900">
+          <span class="w-7 h-7 rounded-xl bg-amber-50 text-brand-darkgold flex items-center justify-center text-xs">
             <i class="fa-solid fa-arrow-up"></i>
           </span>
           <span>Withdrawal History</span>
         </div>
-        <span id="withdrawHistoryCountBadge" class="text-[10px] text-zinc-400 font-semibold font-mono">0 records</span>
+        <span id="withdrawHistoryCountBadge" class="text-[10px] text-zinc-400 font-bold font-mono">0 records</span>
       </div>
 
       <div id="profileWithdrawHistoryList" class="space-y-2 max-h-48 overflow-y-auto no-scrollbar">
-        <div class="text-center py-4 text-zinc-400 text-[11px]">
+        <div class="text-center py-4 text-zinc-400 text-[11px] font-medium">
           No withdrawal requests recorded yet.
         </div>
       </div>
     </div>
 
-    <div class="p-3.5 bg-white rounded-2xl border border-zinc-200 text-xs flex items-center justify-between shadow-sm">
-      <div class="flex items-center gap-2">
-        <i class="fa-solid fa-headset text-brand-gold text-sm"></i>
-        <span>Need Help? Contact 24/7 Support Desk</span>
+    <div class="glass-card rounded-[22px] p-4 text-xs flex items-center justify-between shadow-xs">
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-xl bg-amber-50 text-luxury-gold flex items-center justify-center text-sm">
+          <i class="fa-solid fa-headset"></i>
+        </div>
+        <div>
+          <p class="font-black text-zinc-900">24/7 VIP Support Desk</p>
+          <p class="text-[10px] text-zinc-400">Instant Telegram response</p>
+        </div>
       </div>
-      <button onclick="openSupportDesk()" class="px-3 py-1 bg-zinc-100 rounded-lg text-brand-darkgold font-bold">Help</button>
+      <button onclick="openSupportDesk()" class="px-3.5 py-1.5 bg-zinc-950 text-luxury-gold rounded-xl font-black text-xs shadow-xs active:scale-95 transition">Help</button>
     </div>
   </main>
 
-  <!-- ================= TAB 6: ADMIN LIVE CONTROLLER (ID: 8181751673 ONLY) ================= -->
+  <!-- ================= TAB 6: ADMIN LIVE CONTROLLER (ID: 8181751673) ================= -->
   <main id="tab-admin" class="tab-content hidden max-w-md mx-auto px-4 pt-3 space-y-4">
-    
-    <!-- AUCTION EDITOR WITH DIRECT PHONE FILE SELECT -->
-    <div class="bg-white rounded-3xl p-5 border border-zinc-200 shadow-sm space-y-3">
+    <!-- AUCTION EDITOR -->
+    <div class="glass-card rounded-[28px] p-5 shadow-card space-y-3">
       <div class="flex items-center justify-between border-b border-zinc-100 pb-2">
-        <div class="flex items-center gap-2 text-sky-600 font-extrabold text-sm">
-          <i class="fa-solid fa-image"></i>
+        <div class="flex items-center gap-2 text-sky-600 font-black text-sm">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
           <span>Live Auction Content & Photo Editor</span>
         </div>
-        <span class="text-[9px] bg-sky-50 text-sky-700 px-2 py-0.5 rounded-full font-bold">PHONE UPLOAD</span>
+        <span class="text-[9px] bg-sky-50 text-sky-700 px-2.5 py-0.5 rounded-full font-black">ROOT PRIVILEGES</span>
       </div>
 
-      <div class="space-y-2">
+      <div class="space-y-2.5">
         <div>
-          <label class="text-[11px] font-bold text-zinc-500 block mb-0.5">Select Auction to Edit</label>
-          <select id="editorTargetSelect" class="w-full bg-[#f8f8f6] border border-zinc-200 rounded-xl px-3 py-2 text-xs font-bold text-zinc-800 focus:outline-none">
+          <label class="text-[11px] font-bold text-zinc-500 block mb-1">Select Auction to Edit</label>
+          <select id="editorTargetSelect" class="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-3 py-2 text-xs font-bold text-zinc-800 focus:outline-none">
             <option value="aw_onl">📱 Telegram Channel: Ethio Online (@Aw_onl)</option>
             <option value="cash_500">💵 Cash Prize: 500 ETB</option>
             <option value="cash_1000">💵 Cash Prize: 1,000 ETB</option>
@@ -543,76 +625,75 @@
         </div>
 
         <div>
-          <label class="text-[11px] font-bold text-zinc-500 block mb-0.5">Select Background Photo Directly from Phone</label>
-          <label for="adminDirectPhotoFile" class="w-full border-2 border-dashed border-sky-300 hover:border-sky-500 bg-sky-50/40 rounded-2xl p-3 flex items-center justify-center gap-2 cursor-pointer transition text-center">
+          <label class="text-[11px] font-bold text-zinc-500 block mb-1">Upload Card Background Photo (Directly from Phone)</label>
+          <label for="adminDirectPhotoFile" class="w-full border-2 border-dashed border-sky-300 hover:border-sky-500 bg-sky-50/40 rounded-2xl p-3.5 flex items-center justify-center gap-2 cursor-pointer transition text-center">
             <i class="fa-solid fa-cloud-arrow-up text-sky-600 text-lg"></i>
-            <span id="adminPhotoFileName" class="text-xs font-bold text-zinc-700">Choose photo from gallery</span>
+            <span id="adminPhotoFileName" class="text-xs font-black text-zinc-700">Choose photo from phone gallery</span>
             <input type="file" id="adminDirectPhotoFile" accept="image/*" class="hidden" onchange="handleAdminPhotoFileSelect(event)">
           </label>
-          <div id="adminPhotoPreviewBox" class="hidden mt-2 rounded-xl overflow-hidden border border-zinc-200 h-24 bg-zinc-950 flex items-center justify-center">
+          <div id="adminPhotoPreviewBox" class="hidden mt-2 rounded-xl overflow-hidden border border-zinc-200 h-28 bg-zinc-950 flex items-center justify-center">
             <img id="adminPhotoPreviewImg" src="" alt="Selected Photo" class="object-cover w-full h-full">
           </div>
         </div>
 
         <div class="grid grid-cols-2 gap-2">
           <div>
-            <label class="text-[11px] font-bold text-zinc-500 block mb-0.5">New Duration (Days)</label>
-            <input type="number" id="editorDaysInput" placeholder="e.g. 7 or 15" class="w-full bg-[#f8f8f6] border border-zinc-200 rounded-xl px-3 py-2 text-xs font-bold text-zinc-800">
+            <label class="text-[11px] font-bold text-zinc-500 block mb-1">New Duration (Days)</label>
+            <input type="number" id="editorDaysInput" placeholder="e.g. 7 or 15" class="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-3 py-2 text-xs font-bold text-zinc-800">
           </div>
           <div>
-            <label class="text-[11px] font-bold text-zinc-500 block mb-0.5">New Entry Fee (ETB)</label>
-            <input type="number" id="editorFeeInput" placeholder="e.g. 10.00" class="w-full bg-[#f8f8f6] border border-zinc-200 rounded-xl px-3 py-2 text-xs font-bold text-zinc-800">
+            <label class="text-[11px] font-bold text-zinc-500 block mb-1">New Entry Fee (ETB)</label>
+            <input type="number" id="editorFeeInput" placeholder="e.g. 10.00" class="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-3 py-2 text-xs font-bold text-zinc-800">
           </div>
         </div>
 
         <div>
-          <label class="text-[11px] font-bold text-zinc-500 block mb-0.5">Custom Title (Optional)</label>
-          <input type="text" id="editorTitleInput" placeholder="e.g. Special Cash Event" class="w-full bg-[#f8f8f6] border border-zinc-200 rounded-xl px-3 py-2 text-xs font-bold text-zinc-800">
+          <label class="text-[11px] font-bold text-zinc-500 block mb-1">Custom Title (Optional)</label>
+          <input type="text" id="editorTitleInput" placeholder="e.g. Special Cash Event" class="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-3 py-2 text-xs font-bold text-zinc-800">
         </div>
       </div>
 
       <div class="grid grid-cols-2 gap-2 pt-1">
-        <button onclick="applyAuctionLiveEdits()" class="py-3 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-black text-xs flex items-center justify-center gap-1 shadow">
+        <button onclick="applyAuctionLiveEdits()" class="py-3 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-black text-xs flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition">
           <i class="fa-solid fa-floppy-disk"></i> Apply Live Changes
         </button>
-        <button onclick="resetAuctionCountdown()" class="py-3 rounded-xl bg-zinc-800 hover:bg-zinc-900 text-amber-300 font-black text-xs flex items-center justify-center gap-1 shadow">
+        <button onclick="resetAuctionCountdown()" class="py-3 rounded-xl bg-zinc-900 hover:bg-zinc-950 text-amber-300 font-black text-xs flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition">
           <i class="fa-solid fa-clock-rotate-left"></i> Reset Countdown
         </button>
       </div>
     </div>
 
-    <!-- PAYMENT METHODS & LOGO MANAGER (PHONE UPLOAD) -->
-    <div class="bg-white rounded-3xl p-5 border border-zinc-200 shadow-sm space-y-3">
+    <!-- PAYMENT METHODS & LOGO MANAGER -->
+    <div class="glass-card rounded-[28px] p-5 shadow-card space-y-3">
       <div class="flex items-center justify-between border-b border-zinc-100 pb-2">
-        <div class="flex items-center gap-2 text-emerald-700 font-extrabold text-sm">
+        <div class="flex items-center gap-2 text-emerald-700 font-black text-sm">
           <i class="fa-solid fa-credit-card"></i>
           <span>Payment Methods & Custom Logo Manager</span>
         </div>
-        <span class="text-[9px] bg-emerald-50 text-emerald-800 px-2 py-0.5 rounded-full font-bold">METHODS</span>
+        <span class="text-[9px] bg-emerald-50 text-emerald-800 px-2 py-0.5 rounded-full font-black">METHODS</span>
       </div>
 
       <div class="space-y-2">
         <div>
-          <label class="text-[11px] font-bold text-zinc-500 block mb-0.5">Update Telebirr Banner/Photo from Phone</label>
+          <label class="text-[11px] font-bold text-zinc-500 block mb-1">Update Telebirr Banner/Photo from Phone</label>
           <label for="adminTelebirrLogoFile" class="w-full border-2 border-dashed border-emerald-300 hover:border-emerald-500 bg-emerald-50/40 rounded-2xl p-2.5 flex items-center justify-center gap-2 cursor-pointer transition text-center">
             <i class="fa-solid fa-image text-emerald-700 text-base"></i>
-            <span id="adminLogoFileName" class="text-xs font-bold text-zinc-700">Choose Telebirr Photo/Banner</span>
+            <span id="adminLogoFileName" class="text-xs font-black text-zinc-700">Choose Telebirr Photo/Banner</span>
             <input type="file" id="adminTelebirrLogoFile" accept="image/*" class="hidden" onchange="handleAdminTelebirrLogoSelect(event)">
           </label>
         </div>
 
-        <!-- Add Another Payment Method Form -->
         <div class="pt-2 border-t border-zinc-100 space-y-2">
-          <p class="text-xs font-black text-zinc-800">Add New Payment Method</p>
+          <p class="text-xs font-black text-zinc-900">Add New Payment Method</p>
           <div class="grid grid-cols-2 gap-2">
-            <input type="text" id="newMethodNameInput" placeholder="Method Name (e.g. CBE)" class="w-full bg-[#f8f8f6] border border-zinc-200 rounded-xl px-3 py-2 text-xs font-bold text-zinc-800">
-            <input type="text" id="newMethodAccountInput" placeholder="Account / Phone" class="w-full bg-[#f8f8f6] border border-zinc-200 rounded-xl px-3 py-2 text-xs font-bold text-zinc-800">
+            <input type="text" id="newMethodNameInput" placeholder="Method Name (e.g. CBE)" class="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-3 py-2 text-xs font-bold text-zinc-800">
+            <input type="text" id="newMethodAccountInput" placeholder="Account / Phone" class="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-3 py-2 text-xs font-bold text-zinc-800">
           </div>
           <div class="grid grid-cols-2 gap-2">
-            <input type="text" id="newMethodRecipientInput" placeholder="Recipient Name" class="w-full bg-[#f8f8f6] border border-zinc-200 rounded-xl px-3 py-2 text-xs font-bold text-zinc-800">
-            <input type="number" id="newMethodMinInput" placeholder="Min Deposit (e.g. 20)" class="w-full bg-[#f8f8f6] border border-zinc-200 rounded-xl px-3 py-2 text-xs font-bold text-zinc-800">
+            <input type="text" id="newMethodRecipientInput" placeholder="Recipient Name" class="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-3 py-2 text-xs font-bold text-zinc-800">
+            <input type="number" id="newMethodMinInput" placeholder="Min Deposit (e.g. 20)" class="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-3 py-2 text-xs font-bold text-zinc-800">
           </div>
-          <button onclick="addNewCustomPaymentMethod()" class="w-full py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-black text-xs flex items-center justify-center gap-1 shadow">
+          <button onclick="addNewCustomPaymentMethod()" class="w-full py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-black text-xs flex items-center justify-center gap-1.5 shadow active:scale-95 transition">
             <i class="fa-solid fa-plus"></i> Add Payment Method to Wallet
           </button>
         </div>
@@ -620,37 +701,37 @@
     </div>
 
     <!-- LIVE USER DEPOSIT & PAYOUT APPROVAL -->
-    <div class="bg-white rounded-3xl p-5 border border-zinc-200 shadow-sm space-y-3">
+    <div class="glass-card rounded-[28px] p-5 shadow-card space-y-3">
       <div class="flex items-center justify-between border-b border-zinc-100 pb-2">
-        <div class="flex items-center gap-2 text-rose-600 font-extrabold text-sm">
+        <div class="flex items-center gap-2 text-rose-600 font-black text-sm">
           <i class="fa-solid fa-wallet"></i>
           <span>Live Payout & Deposit Manager</span>
         </div>
-        <span class="text-[9px] bg-rose-50 text-rose-700 px-2 py-0.5 rounded-full font-bold">ADMIN ROOT</span>
+        <span class="text-[9px] bg-rose-50 text-rose-700 px-2 py-0.5 rounded-full font-black">ADMIN ROOT</span>
       </div>
 
       <div class="space-y-2">
         <div>
           <label class="text-[11px] font-bold text-zinc-500 block mb-0.5">Target Telegram User ID</label>
-          <input type="text" id="adminTargetUserId" placeholder="Target Telegram User ID" class="w-full bg-[#f8f8f6] border border-zinc-200 rounded-xl px-3 py-2 text-xs font-mono font-bold text-zinc-800">
+          <input type="text" id="adminTargetUserId" placeholder="Target Telegram User ID" class="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-3 py-2 text-xs font-mono font-bold text-zinc-800">
         </div>
         <div>
           <label class="text-[11px] font-bold text-zinc-500 block mb-0.5">Amount ETB</label>
-          <input type="number" id="adminAmountInput" placeholder="Amount ETB" class="w-full bg-[#f8f8f6] border border-zinc-200 rounded-xl px-3 py-2 text-xs font-bold text-zinc-800">
+          <input type="number" id="adminAmountInput" placeholder="Amount ETB" class="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-3 py-2 text-xs font-bold text-zinc-800">
         </div>
       </div>
 
       <div class="grid grid-cols-2 gap-2 pt-1">
-        <button onclick="adminAction('credit')" class="py-2.5 rounded-xl bg-[#065f46] text-white font-extrabold text-xs flex items-center justify-center gap-1">
+        <button onclick="adminAction('credit')" class="py-2.5 rounded-xl bg-[#065f46] text-white font-black text-xs flex items-center justify-center gap-1 active:scale-95 transition">
           <i class="fa-solid fa-check"></i> Credit Deposit
         </button>
-        <button onclick="adminAction('reject_dep')" class="py-2.5 rounded-xl bg-[#e11d48] text-white font-extrabold text-xs flex items-center justify-center gap-1">
+        <button onclick="adminAction('reject_dep')" class="py-2.5 rounded-xl bg-[#e11d48] text-white font-black text-xs flex items-center justify-center gap-1 active:scale-95 transition">
           <i class="fa-solid fa-xmark"></i> Reject Deposit
         </button>
-        <button onclick="adminAction('confirm_payout')" class="py-2.5 rounded-xl bg-[#4f46e5] text-white font-extrabold text-xs flex items-center justify-center gap-1">
+        <button onclick="adminAction('confirm_payout')" class="py-2.5 rounded-xl bg-[#4f46e5] text-white font-black text-xs flex items-center justify-center gap-1 active:scale-95 transition">
           <i class="fa-solid fa-check-double"></i> Confirm Payout
         </button>
-        <button onclick="adminAction('refund')" class="py-2.5 rounded-xl bg-[#d97706] text-white font-extrabold text-xs flex items-center justify-center gap-1">
+        <button onclick="adminAction('refund')" class="py-2.5 rounded-xl bg-[#d97706] text-white font-black text-xs flex items-center justify-center gap-1 active:scale-95 transition">
           <i class="fa-solid fa-rotate-left"></i> Refund Withdraw
         </button>
       </div>
@@ -658,59 +739,58 @@
   </main>
 
   <!-- ================= DEPOSIT MODAL WITH TELEBIRR LOGO ================= -->
-  <div id="depositModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
-    <div class="bg-white w-full max-w-md rounded-t-[32px] sm:rounded-3xl p-5 space-y-4 shadow-2xl max-h-[90vh] overflow-y-auto no-scrollbar">
-      <div class="flex justify-between items-center border-b border-zinc-100 pb-2">
-        <div class="flex items-center gap-2">
-          <!-- Official Telebirr Brand SVG -->
-          <div class="w-8 h-8 rounded-lg bg-white border border-sky-100 p-1 flex items-center justify-center shadow-xs">
+  <div id="depositModal" class="fixed inset-0 bg-black/70 backdrop-blur-md z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="bg-white w-full max-w-md rounded-t-[36px] sm:rounded-[32px] p-6 space-y-4 shadow-floating max-h-[92vh] overflow-y-auto no-scrollbar border border-zinc-100">
+      <div class="flex justify-between items-center border-b border-zinc-100 pb-3">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-xl bg-white border border-sky-100 p-1 flex items-center justify-center shadow-xs">
             <svg viewBox="0 0 340 340" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
               <path d="M78 40 L108 40 C114 40 119 45 119 51 L119 120 L188 120 C194 120 199 125 199 131 L199 155 C199 161 194 166 188 166 L119 166 L119 198 C119 216 126 230 139 239 C152 248 169 251 184 246 C194 242 198 231 194 221 C190 211 179 207 169 210 C162 212 156 211 151 207 C146 203 143 196 143 186 L143 166 L152 166 C158 166 163 161 163 155 L163 131 C163 125 158 120 152 120 L143 120 L143 51 C143 45 138 40 132 40 L102 40 C96 40 91 45 91 51 L91 120 L22 120 C16 120 11 125 11 131 L11 155 C11 161 16 166 22 166 L68 166 C85 204 114 262 170 278 C198 286 226 280 248 262 C273 241 285 208 281 174 C275 132 239 100 196 100 C154 100 118 132 112 174 C110 185 119 194 130 194 C141 194 149 185 151 174 C155 145 174 124 200 124 C226 124 247 145 251 174 C254 195 246 215 231 228 C218 238 201 242 183 238 C144 227 122 184 102 143 L102 51 C102 45 97 40 91 40 Z" fill="#0072bc"/>
             </svg>
           </div>
           <div class="flex items-center gap-1.5">
-            <span class="font-black text-sm text-[#0072bc]">ቴሌብር</span>
-            <span class="font-black text-sm text-[#f7941d]">telebirr</span>
+            <span class="font-black text-base text-[#0072bc]">ቴሌብር</span>
+            <span class="font-black text-base text-[#f7941d]">telebirr</span>
           </div>
         </div>
         <button onclick="closeDepositModal()" class="w-8 h-8 rounded-full bg-zinc-100 text-zinc-600 flex items-center justify-center font-bold text-xs">✕</button>
       </div>
 
       <!-- Account Info (NO QR BOX) -->
-      <div class="p-3.5 bg-sky-50 border border-sky-200 rounded-2xl text-xs space-y-2">
+      <div class="p-4 bg-sky-50/70 border border-sky-200/80 rounded-2xl text-xs space-y-2">
         <p class="font-bold text-[#0072bc]">1. Transfer funds to this account:</p>
-        <div class="flex items-center justify-between bg-white px-3 py-2 rounded-xl border border-sky-300">
+        <div class="flex items-center justify-between bg-white px-3.5 py-2.5 rounded-xl border border-sky-300 shadow-xs">
           <span id="modalAccountDisplay" class="font-mono text-base font-black text-[#0072bc] tracking-wider">0950321768</span>
-          <button onclick="copyModalAccount()" class="text-[11px] bg-[#0072bc] text-white font-bold px-2.5 py-1 rounded-lg shadow-sm">
+          <button onclick="copyModalAccount()" class="text-xs bg-[#0072bc] text-white font-black px-3 py-1.5 rounded-lg shadow-sm active:scale-95 transition">
             Copy
           </button>
         </div>
-        <p id="modalRecipientDisplay" class="text-[12px] text-zinc-800 font-bold">Recipient Name: Aweke</p>
+        <p id="modalRecipientDisplay" class="text-xs text-zinc-800 font-black">Recipient Name: Aweke</p>
       </div>
 
       <!-- Amount -->
       <div class="space-y-1">
-        <label class="text-xs font-bold text-zinc-600">2. Amount Transferred (ETB)</label>
+        <label class="text-xs font-black text-zinc-700">2. Amount Transferred (ETB)</label>
         <input type="number" id="depAmountInput" placeholder="e.g. 100" class="w-full bg-zinc-50 border border-zinc-300 rounded-xl px-4 py-3 text-sm font-bold text-zinc-900 focus:outline-none focus:border-[#0072bc]">
       </div>
 
       <!-- Screenshot Upload -->
       <div class="space-y-1.5">
-        <label class="text-xs font-bold text-zinc-600">3. Attach Payment Screenshot</label>
+        <label class="text-xs font-black text-zinc-700">3. Attach Payment Screenshot</label>
         <label for="depScreenshotInput" class="w-full border-2 border-dashed border-sky-300 hover:border-[#0072bc] bg-sky-50/50 rounded-2xl p-4 flex flex-col items-center justify-center gap-1.5 cursor-pointer active:scale-[0.99] transition text-center">
           <i class="fa-solid fa-camera text-2xl text-[#0072bc]"></i>
-          <span id="depFileLabelText" class="text-xs font-extrabold text-zinc-700">Tap to upload receipt screenshot</span>
-          <span class="text-[10px] text-zinc-400">PNG, JPG, or WEBP photo from phone</span>
+          <span id="depFileLabelText" class="text-xs font-black text-zinc-800">Tap to upload receipt screenshot</span>
+          <span class="text-[10px] text-zinc-400 font-medium">PNG, JPG, or WEBP photo from phone</span>
           <input type="file" id="depScreenshotInput" accept="image/*" class="hidden" onchange="previewDepositScreenshot(event)">
         </label>
         
-        <div id="depPreviewContainer" class="hidden relative rounded-2xl overflow-hidden border border-zinc-200 mt-2 max-h-36 bg-zinc-950 flex items-center justify-center">
+        <div id="depPreviewContainer" class="hidden relative rounded-2xl overflow-hidden border border-zinc-200 mt-2 max-h-36 bg-zinc-950 flex items-center justify-center shadow-inner">
           <img id="depPreviewImg" src="" alt="Screenshot Preview" class="object-contain max-h-36 w-full">
           <button onclick="clearDepositScreenshot(event)" class="absolute top-2 right-2 bg-black/70 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold">✕</button>
         </div>
       </div>
 
-      <button onclick="submitDepositWithScreenshot()" id="depSubmitBtn" class="w-full py-4 rounded-2xl bg-[#0072bc] hover:bg-[#005f9e] text-white font-black text-sm active:scale-[0.98] transition shadow-lg flex items-center justify-center gap-2">
+      <button onclick="submitDepositWithScreenshot()" id="depSubmitBtn" class="w-full py-4 rounded-2xl bg-gradient-to-r from-[#0072bc] to-[#005f9e] text-white font-black text-sm active:scale-[0.98] transition shadow-md flex items-center justify-center gap-2">
         <i class="fa-solid fa-paper-plane text-xs"></i>
         <span>Submit Screenshot for Verification</span>
       </button>
@@ -718,8 +798,8 @@
   </div>
 
   <!-- ================= WITHDRAW MODAL ================= -->
-  <div id="withdrawModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
-    <div class="bg-white w-full max-w-md rounded-t-[32px] sm:rounded-3xl p-5 space-y-4 shadow-2xl">
+  <div id="withdrawModal" class="fixed inset-0 bg-black/70 backdrop-blur-md z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="bg-white w-full max-w-md rounded-t-[36px] sm:rounded-[32px] p-6 space-y-4 shadow-floating border border-zinc-100">
       <div class="flex justify-between items-center border-b border-zinc-100 pb-2">
         <h3 class="font-black text-base text-zinc-900">Withdraw Funds (ETB)</h3>
         <button onclick="closeWithdrawModal()" class="w-8 h-8 rounded-full bg-zinc-100 text-zinc-600 flex items-center justify-center font-bold text-xs">✕</button>
@@ -727,43 +807,43 @@
 
       <div class="space-y-2">
         <label class="text-xs font-bold text-zinc-600">Amount to Withdraw (ETB)</label>
-        <input type="number" id="withAmountInput" placeholder="e.g. 50" class="w-full bg-zinc-50 border border-zinc-300 rounded-xl px-4 py-3 text-sm font-bold text-zinc-900 focus:outline-none focus:border-brand-gold">
+        <input type="number" id="withAmountInput" placeholder="e.g. 50" class="w-full bg-zinc-50 border border-zinc-300 rounded-xl px-4 py-3 text-sm font-bold text-zinc-900 focus:outline-none focus:border-zinc-950">
 
         <label class="text-xs font-bold text-zinc-600">Your Telebirr / Payout Phone Number</label>
-        <input type="tel" id="withPhoneInput" placeholder="09... or 07..." class="w-full bg-zinc-50 border border-zinc-300 rounded-xl px-4 py-3 text-sm font-mono text-zinc-900 focus:outline-none focus:border-brand-gold">
+        <input type="tel" id="withPhoneInput" placeholder="09... or 07..." class="w-full bg-zinc-50 border border-zinc-300 rounded-xl px-4 py-3 text-sm font-mono text-zinc-900 focus:outline-none focus:border-zinc-950">
       </div>
 
-      <button onclick="submitWithdrawToAdmin()" class="w-full py-4 rounded-2xl bg-zinc-950 text-brand-gold font-black text-sm active:scale-[0.98] transition shadow-lg">
+      <button onclick="submitWithdrawToAdmin()" class="w-full py-4 rounded-2xl bg-zinc-950 text-luxury-gold font-black text-sm active:scale-[0.98] transition shadow-md">
         Submit Payout Request
       </button>
     </div>
   </div>
 
-  <!-- ================= BOTTOM NAVIGATION ================= -->
-  <nav class="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-zinc-200 flex items-center justify-around py-2 max-w-md mx-auto shadow-lg">
-    <button onclick="switchTab('home')" id="nav-home" class="nav-btn flex flex-col items-center gap-1 text-brand-gold">
+  <!-- ================= LUXURY FLOATING BOTTOM NAVIGATION ================= -->
+  <nav class="fixed bottom-3 left-4 right-4 z-40 bg-zinc-950/95 backdrop-blur-2xl border border-white/10 rounded-[26px] flex items-center justify-around py-2.5 max-w-md mx-auto shadow-floating">
+    <button onclick="switchTab('home')" id="nav-home" class="nav-btn flex flex-col items-center gap-1 text-luxury-gold transition-all duration-200">
       <i class="fa-solid fa-house text-base"></i>
-      <span class="text-[10px] font-bold">Home</span>
+      <span class="text-[9px] font-extrabold tracking-wide">Home</span>
     </button>
-    <button onclick="switchTab('draws')" id="nav-draws" class="nav-btn flex flex-col items-center gap-1 text-zinc-400">
+    <button onclick="switchTab('draws')" id="nav-draws" class="nav-btn flex flex-col items-center gap-1 text-zinc-500 hover:text-zinc-300 transition-all duration-200">
       <i class="fa-solid fa-clock-rotate-left text-base"></i>
-      <span class="text-[10px] font-bold">Draws</span>
+      <span class="text-[9px] font-extrabold tracking-wide">Draws</span>
     </button>
-    <button onclick="switchTab('mybids')" id="nav-mybids" class="nav-btn flex flex-col items-center gap-1 text-zinc-400">
-      <i class="fa-solid fa-ticket text-base"></i>
-      <span class="text-[10px] font-bold">My Bids</span>
+    <button onclick="switchTab('mybids')" id="nav-mybids" class="nav-btn flex flex-col items-center gap-1 text-zinc-500 hover:text-zinc-300 transition-all duration-200">
+      <i class="fa-solid fa-ticket-simple text-base"></i>
+      <span class="text-[9px] font-extrabold tracking-wide">My Bids</span>
     </button>
-    <button onclick="switchTab('wallet')" id="nav-wallet" class="nav-btn flex flex-col items-center gap-1 text-zinc-400">
+    <button onclick="switchTab('wallet')" id="nav-wallet" class="nav-btn flex flex-col items-center gap-1 text-zinc-500 hover:text-zinc-300 transition-all duration-200">
       <i class="fa-solid fa-wallet text-base"></i>
-      <span class="text-[10px] font-bold">Wallet</span>
+      <span class="text-[9px] font-extrabold tracking-wide">Wallet</span>
     </button>
-    <button onclick="switchTab('profile')" id="nav-profile" class="nav-btn flex flex-col items-center gap-1 text-zinc-400">
-      <i class="fa-solid fa-user text-base"></i>
-      <span class="text-[10px] font-bold">Profile</span>
+    <button onclick="switchTab('profile')" id="nav-profile" class="nav-btn flex flex-col items-center gap-1 text-zinc-500 hover:text-zinc-300 transition-all duration-200">
+      <i class="fa-solid fa-user-astronaut text-base"></i>
+      <span class="text-[9px] font-extrabold tracking-wide">Profile</span>
     </button>
-    <button onclick="switchTab('admin')" id="nav-admin" class="nav-btn hidden flex flex-col items-center gap-1 text-rose-600">
+    <button onclick="switchTab('admin')" id="nav-admin" class="nav-btn hidden flex flex-col items-center gap-1 text-rose-500 transition-all duration-200">
       <i class="fa-solid fa-shield text-base"></i>
-      <span class="text-[10px] font-bold">Admin</span>
+      <span class="text-[9px] font-extrabold tracking-wide">Admin</span>
     </button>
   </nav>
 
@@ -786,7 +866,7 @@
     let referralCount = parseInt(localStorage.getItem('nb_referral_count') || '0');
     let freeTickets = parseInt(localStorage.getItem('nb_free_tickets') || '0');
 
-    // Admin Payment Methods (Telebirr + Custom Methods)
+    // Admin Payment Methods
     let paymentMethods = JSON.parse(localStorage.getItem('nb_payment_methods') || JSON.stringify([
       {
         id: 'telebirr',
@@ -832,9 +912,9 @@
       if (badge) badge.innerText = `${paymentMethods.length} active`;
 
       container.innerHTML = paymentMethods.map(m => `
-        <div onclick="selectDepositMethod('${m.id}')" class="p-3.5 rounded-2xl border-2 ${m.id === 'telebirr' ? 'border-sky-400/40 bg-sky-50/20' : 'border-zinc-200 bg-zinc-50'} flex items-center justify-between cursor-pointer active:scale-[0.99] transition shadow-xs">
-          <div class="flex items-center gap-3">
-            <div class="w-13 h-13 rounded-2xl bg-white border border-zinc-200 p-1.5 flex items-center justify-center shadow-xs overflow-hidden">
+        <div onclick="selectDepositMethod('${m.id}')" class="p-4 rounded-[22px] border-2 ${m.id === 'telebirr' ? 'border-sky-400/40 bg-sky-50/30' : 'border-zinc-200/80 bg-zinc-50'} flex items-center justify-between cursor-pointer active:scale-[0.99] transition shadow-xs">
+          <div class="flex items-center gap-3.5">
+            <div class="w-13 h-13 rounded-2xl bg-white border border-zinc-200/70 p-2 flex items-center justify-center shadow-xs overflow-hidden">
               ${m.customLogo ? `
                 <img src="${m.customLogo}" alt="${m.name}" class="w-full h-full object-contain">
               ` : (m.id === 'telebirr' ? `
@@ -848,14 +928,14 @@
             <div>
               <div class="flex items-center gap-2">
                 ${m.amharicName ? `<span class="font-black text-sm text-[#0072bc] leading-none">${m.amharicName}</span>` : ''}
-                <span class="font-extrabold text-sm text-zinc-900 leading-none">${m.name}</span>
-                <span class="text-[9px] bg-sky-100 text-[#0072bc] font-black px-1.5 py-0.5 rounded">${m.badge || 'ACTIVE'}</span>
+                <span class="font-extrabold text-sm text-zinc-950 leading-none">${m.name}</span>
+                <span class="text-[9px] bg-sky-100 text-[#0072bc] font-black px-2 py-0.5 rounded-full">${m.badge || 'ACTIVE'}</span>
               </div>
-              <p class="text-[11px] text-zinc-500 font-medium mt-1">${m.account} • Min ${m.min} ETB</p>
+              <p class="text-[11px] text-zinc-500 font-medium mt-1 font-mono">${m.account} • Min ${m.min} ETB</p>
             </div>
           </div>
           <div class="flex items-center gap-1">
-            <span class="text-xs font-bold text-[#0072bc]">Top Up</span>
+            <span class="text-xs font-black text-[#0072bc]">Top Up</span>
             <i class="fa-solid fa-chevron-right text-[#0072bc] text-xs"></i>
           </div>
         </div>
@@ -910,9 +990,8 @@
     function updateBalanceUI() {
       const formatted = balance.toFixed(2) + " ETB";
       document.getElementById('topBalance').innerText = formatted;
-      document.getElementById('walletSmallBadge').innerText = formatted;
-      document.getElementById('walletLargeDisplay').innerHTML = `${balance.toFixed(2)} <span class="text-lg font-normal text-emerald-200">ETB</span>`;
       document.getElementById('profileWalletBalanceDisplay').innerHTML = `${balance.toFixed(2)} <span class="text-sm font-semibold text-zinc-400">ETB</span>`;
+      document.getElementById('walletLargeDisplay').innerHTML = `${balance.toFixed(2)} <span class="text-xl font-normal text-emerald-200">ETB</span>`;
       localStorage.setItem('nb_balance', balance.toString());
     }
     updateBalanceUI();
@@ -936,14 +1015,14 @@
 
     function filterCategory(cat) {
       document.querySelectorAll('.cat-pill').forEach(btn => {
-        btn.classList.remove('bg-brand-gold', 'text-white', 'shadow-sm');
-        btn.classList.add('bg-white', 'text-zinc-600', 'border', 'border-zinc-200');
+        btn.classList.remove('bg-zinc-950', 'text-luxury-gold', 'border-zinc-900', 'shadow-sm');
+        btn.classList.add('bg-white', 'text-zinc-600', 'border', 'border-zinc-200/80');
       });
 
       const activeBtn = document.getElementById('cat-' + cat);
       if (activeBtn) {
-        activeBtn.classList.remove('bg-white', 'text-zinc-600', 'border', 'border-zinc-200');
-        activeBtn.classList.add('bg-brand-gold', 'text-white', 'shadow-sm');
+        activeBtn.classList.remove('bg-white', 'text-zinc-600', 'border', 'border-zinc-200/80');
+        activeBtn.classList.add('bg-zinc-950', 'text-luxury-gold', 'border-zinc-900', 'shadow-sm');
       }
 
       const items = document.querySelectorAll('.auction-item');
@@ -964,17 +1043,17 @@
       badge.innerText = `${depositHistory.length} record${depositHistory.length === 1 ? '' : 's'}`;
 
       if (!depositHistory || depositHistory.length === 0) {
-        container.innerHTML = `<div class="text-center py-4 text-zinc-400 text-[11px]">No deposits recorded yet.</div>`;
+        container.innerHTML = `<div class="text-center py-4 text-zinc-400 text-[11px] font-medium">No deposits recorded yet.</div>`;
         return;
       }
 
       container.innerHTML = depositHistory.map(item => `
-        <div class="p-2.5 rounded-2xl bg-zinc-50 border border-zinc-200 flex items-center justify-between text-xs">
+        <div class="p-3 rounded-2xl bg-zinc-50 border border-zinc-200/70 flex items-center justify-between text-xs">
           <div>
-            <p class="font-extrabold text-zinc-800">+${parseFloat(item.amount).toFixed(2)} ETB</p>
-            <p class="text-[10px] text-zinc-400 font-mono">Proof: Screenshot • ${item.date}</p>
+            <p class="font-black text-zinc-900 font-mono">+${parseFloat(item.amount).toFixed(2)} ETB</p>
+            <p class="text-[10px] text-zinc-400 font-medium">Proof: Screenshot • ${item.date}</p>
           </div>
-          <span class="text-[10px] font-bold px-2 py-0.5 rounded-full ${item.status === 'Approved' ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : (item.status === 'Rejected' ? 'bg-rose-100 text-rose-800 border border-rose-300' : 'bg-amber-100 text-amber-800 border border-amber-300')}">
+          <span class="text-[10px] font-black px-2.5 py-0.5 rounded-full ${item.status === 'Approved' ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : (item.status === 'Rejected' ? 'bg-rose-100 text-rose-800 border border-rose-300' : 'bg-amber-100 text-amber-800 border border-amber-300')}">
             ${item.status}
           </span>
         </div>
@@ -987,17 +1066,17 @@
       badge.innerText = `${withdrawHistory.length} record${withdrawHistory.length === 1 ? '' : 's'}`;
 
       if (!withdrawHistory || withdrawHistory.length === 0) {
-        container.innerHTML = `<div class="text-center py-4 text-zinc-400 text-[11px]">No withdrawal requests recorded yet.</div>`;
+        container.innerHTML = `<div class="text-center py-4 text-zinc-400 text-[11px] font-medium">No withdrawal requests recorded yet.</div>`;
         return;
       }
 
       container.innerHTML = withdrawHistory.map(item => `
-        <div class="p-2.5 rounded-2xl bg-zinc-50 border border-zinc-200 flex items-center justify-between text-xs">
+        <div class="p-3 rounded-2xl bg-zinc-50 border border-zinc-200/70 flex items-center justify-between text-xs">
           <div>
-            <p class="font-extrabold text-zinc-800">-${parseFloat(item.amount).toFixed(2)} ETB</p>
+            <p class="font-black text-zinc-900 font-mono">-${parseFloat(item.amount).toFixed(2)} ETB</p>
             <p class="text-[10px] text-zinc-400 font-mono">To: ${item.phone} • ${item.date}</p>
           </div>
-          <span class="text-[10px] font-bold px-2 py-0.5 rounded-full ${item.status === 'Paid' ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : (item.status === 'Rejected' ? 'bg-rose-100 text-rose-800 border border-rose-300' : 'bg-amber-100 text-amber-800 border border-amber-300')}">
+          <span class="text-[10px] font-black px-2.5 py-0.5 rounded-full ${item.status === 'Paid' ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : (item.status === 'Rejected' ? 'bg-rose-100 text-rose-800 border border-rose-300' : 'bg-amber-100 text-amber-800 border border-amber-300')}">
             ${item.status}
           </span>
         </div>
@@ -1023,14 +1102,16 @@
       document.getElementById('tab-' + tabId).classList.remove('hidden');
 
       document.querySelectorAll('.nav-btn').forEach(btn => {
-        btn.classList.remove('text-brand-gold');
-        if (!btn.id.includes('admin')) btn.classList.add('text-zinc-400');
+        btn.classList.remove('text-luxury-gold');
+        if (!btn.id.includes('admin')) {
+          btn.classList.add('text-zinc-500');
+        }
       });
 
       const activeBtn = document.getElementById('nav-' + tabId);
       if (activeBtn && tabId !== 'admin') {
-        activeBtn.classList.add('text-brand-gold');
-        activeBtn.classList.remove('text-zinc-400');
+        activeBtn.classList.add('text-luxury-gold');
+        activeBtn.classList.remove('text-zinc-500');
       }
 
       if (tabId === 'profile') {
@@ -1080,7 +1161,6 @@
       document.getElementById('depPreviewImg').src = '';
     }
 
-    // Direct Telegram sendPhoto with screenshot
     async function submitDepositWithScreenshot() {
       const amount = parseFloat(document.getElementById('depAmountInput').value);
 
@@ -1267,7 +1347,7 @@
       }
     }
 
-    // ================= ADMIN DIRECT FILE UPLOADS (FROM PHONE) =================
+    // Direct phone file uploads
     let adminSelectedPhotoBase64 = '';
 
     function handleAdminPhotoFileSelect(e) {
@@ -1464,14 +1544,14 @@
       if (emptyNotice) emptyNotice.remove();
 
       const newCard = document.createElement('div');
-      newCard.className = "bg-white rounded-2xl p-4 border border-zinc-200 shadow-sm flex items-center justify-between";
+      newCard.className = "glass-card rounded-[22px] p-4 shadow-sm flex items-center justify-between";
       newCard.innerHTML = `
         <div class="space-y-1">
-          <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold">Active</span>
-          <h4 class="font-extrabold text-sm text-zinc-900">${title}</h4>
-          <p class="text-[11px] text-zinc-400">Your Bid: <span class="font-bold text-zinc-800">${numericBid.toFixed(2)} ETB</span> • ${usedTicket ? '<span class="text-amber-600 font-bold">Free Ticket Used 🎟️</span>' : 'Fee: ETB ' + fee.toFixed(2)}</p>
+          <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-black">Active</span>
+          <h4 class="font-black text-sm text-zinc-950">${title}</h4>
+          <p class="text-[11px] text-zinc-500">Your Bid: <span class="font-mono font-bold text-zinc-950">${numericBid.toFixed(2)} ETB</span> • ${usedTicket ? '<span class="text-amber-600 font-bold">Free Ticket Used 🎟️</span>' : 'Fee: ETB ' + fee.toFixed(2)}</p>
         </div>
-        <span class="text-xs text-brand-darkgold font-bold">Confirmed ✅</span>
+        <span class="text-xs text-luxury-gold font-black">Confirmed ✅</span>
       `;
       container.prepend(newCard);
 
@@ -1635,18 +1715,18 @@
         const winBidDisplay = winner ? `${winner.bidAmount.toFixed(2)} ETB` : (0.15 + Math.random() * 0.35).toFixed(2) + ' ETB';
 
         const cardHtml = `
-          <div class="bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
-            <div class="relative rounded-2xl overflow-hidden bg-emerald-50 border border-emerald-200 p-4">
-              <span class="bg-emerald-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-md flex items-center gap-1 w-max">
+          <div class="glass-card rounded-[28px] p-4 shadow-card space-y-3">
+            <div class="relative rounded-[22px] overflow-hidden bg-gradient-to-tr from-emerald-950 via-teal-950 to-zinc-950 p-5 text-white shadow-md border border-emerald-500/20">
+              <span class="bg-emerald-500/30 text-emerald-300 text-[10px] font-black px-3 py-1 rounded-full border border-emerald-400/40 flex items-center gap-1.5 w-max">
                 💵 CASH WINNER
               </span>
-              <h4 class="font-extrabold text-base text-zinc-900 mt-2">${pool.title}</h4>
-              <div class="mt-3 flex items-center justify-between bg-white rounded-xl p-2.5 border border-emerald-200 text-xs">
+              <h4 class="font-black text-xl text-white mt-3">${pool.title}</h4>
+              <div class="mt-4 bg-white/5 backdrop-blur-xl rounded-2xl p-3.5 border border-white/10 text-xs flex justify-between items-center">
                 <div>
-                  <p class="text-[10px] text-zinc-400">Winning Unique Bid</p>
-                  <p class="text-base font-black text-emerald-800">${winBidDisplay}</p>
+                  <p class="text-[10px] text-zinc-400 font-bold uppercase">Winning Unique Bid</p>
+                  <p class="text-lg font-black text-amber-300 font-mono">${winBidDisplay}</p>
                 </div>
-                <span class="text-emerald-700 font-bold font-mono">${winUserDisplay}</span>
+                <span class="text-emerald-300 font-black font-mono tracking-wider">${winUserDisplay}</span>
               </div>
             </div>
           </div>
