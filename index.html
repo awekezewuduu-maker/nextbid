@@ -10,7 +10,7 @@
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <!-- Font Awesome Pro Icons -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <!-- Google Fonts: Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@600;800&display=swap" rel="stylesheet">
@@ -24,6 +24,13 @@
             mono: ['"JetBrains Mono"', 'monospace']
           },
           colors: {
+            surface: {
+              50: '#f9f9fb',
+              100: '#f1f1f5',
+              800: '#141419',
+              900: '#0c0c0f',
+              950: '#060608'
+            },
             luxury: {
               gold: '#e6b84a',
               goldLight: '#fde68a',
@@ -33,6 +40,8 @@
             }
           },
           boxShadow: {
+            'glow-gold': '0 0 25px -5px rgba(230, 184, 74, 0.35)',
+            'glow-emerald': '0 0 25px -5px rgba(5, 150, 105, 0.35)',
             'card': '0 10px 30px -5px rgba(0, 0, 0, 0.06), 0 4px 10px -2px rgba(0, 0, 0, 0.03)',
             'floating': '0 20px 40px -10px rgba(0, 0, 0, 0.12)'
           }
@@ -47,7 +56,7 @@
       -webkit-tap-highlight-color: transparent;
     }
     .glass-card {
-      background: rgba(255, 255, 255, 0.90);
+      background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(255, 255, 255, 0.9);
@@ -69,7 +78,7 @@
 </head>
 <body class="text-zinc-900 pb-28 select-none antialiased min-h-screen">
 
-  <!-- ================= TOP APP BAR ================= -->
+  <!-- ================= LUXURY HEADER ================= -->
   <header class="sticky top-0 z-40 bg-white/80 backdrop-blur-xl px-4 py-3 flex items-center justify-between border-b border-zinc-200/50 shadow-xs">
     <div class="flex items-center gap-2.5">
       <div class="w-9 h-9 rounded-2xl bg-gradient-to-tr from-zinc-950 via-zinc-800 to-zinc-900 text-luxury-gold flex items-center justify-center font-black text-sm shadow-md border border-amber-400/20">
@@ -101,7 +110,8 @@
 
   <!-- ================= TAB 1: HOME ================= -->
   <main id="tab-home" class="tab-content max-w-md mx-auto px-4 pt-3 space-y-4">
-    <!-- Promotional Banner -->
+    
+    <!-- Hero Banner with Gold Embellishments -->
     <div class="relative overflow-hidden rounded-[30px] p-5 text-zinc-900 shadow-card border border-amber-300/40" style="background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 45%, #fde68a 100%);">
       <div class="absolute -right-6 -bottom-8 text-amber-500/10 text-9xl pointer-events-none">
         <i class="fa-solid fa-trophy"></i>
@@ -126,7 +136,7 @@
       </div>
     </div>
 
-    <!-- Category Filter -->
+    <!-- Category Switcher Pill Tabs -->
     <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
       <button onclick="filterCategory('all')" id="cat-all" class="cat-pill px-5 py-2 rounded-2xl text-xs font-black bg-zinc-950 text-luxury-gold shadow-sm whitespace-nowrap active:scale-95 transition border border-zinc-900">
         All
@@ -141,9 +151,11 @@
 
     <!-- AUCTIONS CONTAINER -->
     <div id="auctionsContainer" class="space-y-4">
-      <!-- Telegram Channel Card -->
+
+      <!-- ================= TELEGRAM CHANNEL CARD ================= -->
       <div class="auction-item social glass-card rounded-[28px] p-4 shadow-card hover:shadow-floating transition-all duration-300 space-y-3">
         <div id="card_bg_aw_onl" class="relative rounded-[22px] overflow-hidden p-5 text-white flex flex-col justify-between h-56 shadow-md bg-cover bg-center transition-all duration-300" style="background-image: linear-gradient(135deg, rgba(8, 20, 38, 0.94) 0%, rgba(2, 6, 23, 0.88) 60%, rgba(0, 0, 0, 0.95) 100%), url('https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80');">
+          
           <div class="absolute -right-4 -bottom-6 text-sky-500/15 text-9xl pointer-events-none select-none">
             <i class="fa-brands fa-telegram"></i>
           </div>
@@ -200,7 +212,7 @@
         </button>
       </div>
 
-      <!-- 500 ETB -->
+      <!-- ================= MONEY AUCTION 1: 500 ETB ================= -->
       <div class="auction-item money glass-card rounded-[28px] p-4 shadow-card hover:shadow-floating transition-all duration-300 space-y-3">
         <div id="card_bg_cash_500" class="relative rounded-[22px] overflow-hidden p-5 text-white flex flex-col justify-between h-52 shadow-md bg-cover bg-center transition-all duration-300" style="background-image: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.7) 100%), url('https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80');">
           <div class="flex justify-between items-start">
@@ -233,7 +245,7 @@
         </button>
       </div>
 
-      <!-- 1,000 ETB -->
+      <!-- ================= MONEY AUCTION 2: 1,000 ETB ================= -->
       <div class="auction-item money glass-card rounded-[28px] p-4 shadow-card hover:shadow-floating transition-all duration-300 space-y-3">
         <div id="card_bg_cash_1000" class="relative rounded-[22px] overflow-hidden p-5 text-white flex flex-col justify-between h-52 shadow-md bg-cover bg-center transition-all duration-300" style="background-image: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.7) 100%), url('https://images.unsplash.com/photo-1580519542036-c47de6196ba5?auto=format&fit=crop&w=800&q=80');">
           <div class="flex justify-between items-start">
@@ -266,7 +278,7 @@
         </button>
       </div>
 
-      <!-- 2,000 ETB -->
+      <!-- ================= MONEY AUCTION 3: 2,000 ETB ================= -->
       <div class="auction-item money glass-card rounded-[28px] p-4 shadow-card hover:shadow-floating transition-all duration-300 space-y-3">
         <div id="card_bg_cash_2000" class="relative rounded-[22px] overflow-hidden p-5 text-white flex flex-col justify-between h-52 shadow-md bg-cover bg-center transition-all duration-300" style="background-image: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.7) 100%), url('https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=800&q=80');">
           <div class="flex justify-between items-start">
@@ -299,7 +311,7 @@
         </button>
       </div>
 
-      <!-- 5,000 ETB -->
+      <!-- ================= MONEY AUCTION 4: 5,000 ETB ================= -->
       <div class="auction-item money glass-card rounded-[28px] p-4 shadow-card hover:shadow-floating transition-all duration-300 space-y-3">
         <div id="card_bg_cash_5000" class="relative rounded-[22px] overflow-hidden p-5 text-white flex flex-col justify-between h-52 shadow-md bg-cover bg-center transition-all duration-300" style="background-image: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.7) 100%), url('https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80');">
           <div class="flex justify-between items-start">
@@ -331,6 +343,7 @@
           <span>🎟️ Pay Entry Fee & Enter Bid</span>
         </button>
       </div>
+
     </div>
   </main>
 
@@ -345,7 +358,7 @@
     </div>
 
     <div id="drawsContainer" class="space-y-3.5">
-      <!-- 500 ETB Winner Card -->
+      <!-- 500 ETB OFFICIAL WINNER CARD -->
       <div class="glass-card rounded-[28px] p-4 shadow-card space-y-3">
         <div class="relative rounded-[22px] overflow-hidden bg-gradient-to-tr from-emerald-950 via-teal-950 to-zinc-950 p-5 text-white shadow-md border border-emerald-500/20">
           <div class="flex justify-between items-center">
@@ -368,7 +381,7 @@
         </div>
       </div>
 
-      <!-- Channel Winner Card -->
+      <!-- 10-Day Channel Winner (Appears dynamically) -->
       <div id="awOnlWinnerCard" class="hidden glass-card rounded-[28px] p-4 shadow-card space-y-3">
         <div class="relative rounded-[22px] overflow-hidden bg-gradient-to-tr from-sky-950 to-indigo-950 p-5 text-white shadow-md border border-sky-500/20">
           <span class="bg-luxury-gold text-zinc-950 text-[10px] font-black px-3 py-1 rounded-full flex items-center gap-1 w-max shadow-sm">
@@ -409,6 +422,7 @@
 
   <!-- ================= TAB 4: WALLET ================= -->
   <main id="tab-wallet" class="tab-content hidden max-w-md mx-auto px-4 pt-3 space-y-4">
+    <!-- Big Luxury Emerald Card -->
     <div class="relative overflow-hidden rounded-[32px] p-6 text-white shadow-floating space-y-5 bg-gradient-to-tr from-[#022c22] via-[#064e3b] to-[#047857] border border-emerald-400/20">
       <div class="absolute -right-10 -bottom-10 w-44 h-44 rounded-full bg-emerald-400/10 blur-2xl pointer-events-none"></div>
 
@@ -586,113 +600,8 @@
     </div>
   </main>
 
-  <!-- ================= TAB 6: ADMIN LIVE CONTROLLER (ID: 8181751673 ONLY) ================= -->
+  <!-- ================= TAB 6: ADMIN LIVE CONTROLLER (ID: 8181751673) ================= -->
   <main id="tab-admin" class="tab-content hidden max-w-md mx-auto px-4 pt-3 space-y-4">
-    
-    <!-- DASHBOARD HEADER -->
-    <div class="glass-dark rounded-[28px] p-5 text-white flex items-center justify-between shadow-floating border border-rose-500/30">
-      <div class="flex items-center gap-3">
-        <div class="w-12 h-12 rounded-2xl bg-rose-600/30 text-rose-400 flex items-center justify-center text-xl font-black border border-rose-500/40 shadow-inner">
-          <i class="fa-solid fa-chart-pie"></i>
-        </div>
-        <div>
-          <h3 class="font-black text-base text-white">Admin Dashboard</h3>
-          <p class="text-[10px] text-zinc-400 font-mono">Admin: ኬቢ (8181751673)</p>
-        </div>
-      </div>
-      <span class="text-[10px] bg-rose-950 text-rose-300 font-black px-2.5 py-1 rounded-full border border-rose-800">
-        ROOT ACCESS
-      </span>
-    </div>
-
-    <!-- METRICS -->
-    <div class="grid grid-cols-3 gap-2.5">
-      <div class="glass-card rounded-[22px] p-3 text-center shadow-card space-y-1">
-        <span class="w-7 h-7 rounded-lg bg-sky-50 text-sky-600 inline-flex items-center justify-center text-xs">
-          <i class="fa-solid fa-users"></i>
-        </span>
-        <p class="text-[10px] text-zinc-400 font-bold uppercase tracking-tight">Users</p>
-        <p id="dashTotalUsers" class="text-base font-black text-zinc-950 font-mono">1</p>
-      </div>
-
-      <div class="glass-card rounded-[22px] p-3 text-center shadow-card space-y-1">
-        <span class="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-700 inline-flex items-center justify-center text-xs">
-          <i class="fa-solid fa-money-bill-transfer"></i>
-        </span>
-        <p class="text-[10px] text-zinc-400 font-bold uppercase tracking-tight">Deposits</p>
-        <p id="dashTotalDeposits" class="text-base font-black text-emerald-800 font-mono">0 ETB</p>
-      </div>
-
-      <div class="glass-card rounded-[22px] p-3 text-center shadow-card space-y-1">
-        <span class="w-7 h-7 rounded-lg bg-amber-50 text-amber-700 inline-flex items-center justify-center text-xs">
-          <i class="fa-solid fa-hourglass-half"></i>
-        </span>
-        <p class="text-[10px] text-zinc-400 font-bold uppercase tracking-tight">Pending</p>
-        <p id="dashPendingRequests" class="text-base font-black text-amber-800 font-mono">0</p>
-      </div>
-    </div>
-
-    <!-- USER MANAGEMENT -->
-    <div class="glass-card rounded-[28px] p-5 shadow-card space-y-3">
-      <div class="flex items-center justify-between border-b border-zinc-100 pb-2">
-        <div class="flex items-center gap-2 text-zinc-900 font-black text-xs">
-          <i class="fa-solid fa-user-gear text-luxury-gold text-sm"></i>
-          <span>User Management</span>
-        </div>
-        <span id="userManagementCountBadge" class="text-[10px] text-zinc-400 font-mono font-bold">1 active</span>
-      </div>
-
-      <div class="relative">
-        <input 
-          type="text" 
-          id="userSearchInput" 
-          placeholder="Search by User ID or Username..." 
-          oninput="filterUserManagementList()"
-          class="w-full bg-zinc-50 border border-zinc-200 rounded-xl pl-8 pr-3 py-2 text-xs font-bold text-zinc-800 focus:outline-none focus:border-zinc-950"
-        >
-        <i class="fa-solid fa-magnifying-glass absolute left-2.5 top-2.5 text-zinc-400 text-xs"></i>
-      </div>
-
-      <div id="userManagementListContainer" class="space-y-2 max-h-48 overflow-y-auto no-scrollbar"></div>
-    </div>
-
-    <!-- REPORTS & ANALYTICS -->
-    <div class="glass-card rounded-[28px] p-5 shadow-card space-y-3">
-      <div class="flex items-center justify-between border-b border-zinc-100 pb-2">
-        <div class="flex items-center gap-2 text-zinc-900 font-black text-xs">
-          <i class="fa-solid fa-chart-line text-sky-600 text-sm"></i>
-          <span>Reports & Analytics</span>
-        </div>
-        <span class="text-[10px] text-sky-700 bg-sky-50 px-2.5 py-0.5 rounded-full font-bold">LIVE STATS</span>
-      </div>
-
-      <div class="space-y-2 text-xs">
-        <div class="p-3 rounded-2xl bg-zinc-50 border border-zinc-200/80 flex items-center justify-between">
-          <div>
-            <p class="text-[11px] font-bold text-zinc-500">Gross Auction Entry Volume</p>
-            <p id="reportGrossBids" class="text-sm font-black text-zinc-950 font-mono">0.00 ETB</p>
-          </div>
-          <span class="text-[11px] font-black text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-md font-mono">100% Vol</span>
-        </div>
-
-        <div class="p-3 rounded-2xl bg-zinc-50 border border-zinc-200/80 flex items-center justify-between">
-          <div>
-            <p class="text-[11px] font-bold text-zinc-500">Total Bids Placed</p>
-            <p id="reportTotalBidsCount" class="text-sm font-black text-zinc-950 font-mono">0 Bids</p>
-          </div>
-          <span class="text-[11px] font-black text-zinc-800 bg-zinc-200 px-2 py-0.5 rounded-md font-mono">Active</span>
-        </div>
-
-        <div class="p-3 rounded-2xl bg-zinc-50 border border-zinc-200/80 flex items-center justify-between">
-          <div>
-            <p class="text-[11px] font-bold text-zinc-500">Deposit Verification Rate</p>
-            <p id="reportApprovalRate" class="text-sm font-black text-emerald-800 font-mono">100%</p>
-          </div>
-          <span class="text-[10px] text-zinc-400 font-medium font-mono">Screenshots</span>
-        </div>
-      </div>
-    </div>
-
     <!-- AUCTION EDITOR -->
     <div class="glass-card rounded-[28px] p-5 shadow-card space-y-3">
       <div class="flex items-center justify-between border-b border-zinc-100 pb-2">
@@ -754,7 +663,7 @@
       </div>
     </div>
 
-    <!-- PAYMENT METHODS MANAGER -->
+    <!-- PAYMENT METHODS & LOGO MANAGER -->
     <div class="glass-card rounded-[28px] p-5 shadow-card space-y-3">
       <div class="flex items-center justify-between border-b border-zinc-100 pb-2">
         <div class="flex items-center gap-2 text-emerald-700 font-black text-sm">
@@ -957,8 +866,7 @@
     let referralCount = parseInt(localStorage.getItem('nb_referral_count') || '0');
     let freeTickets = parseInt(localStorage.getItem('nb_free_tickets') || '0');
 
-    let registeredUsers = JSON.parse(localStorage.getItem('nb_registered_users') || '[]');
-
+    // Admin Payment Methods
     let paymentMethods = JSON.parse(localStorage.getItem('nb_payment_methods') || JSON.stringify([
       {
         id: 'telebirr',
@@ -967,12 +875,14 @@
         account: '0950321768',
         recipient: 'Aweke',
         min: 10,
-        badge: 'INSTANT'
+        badge: 'INSTANT',
+        customLogo: localStorage.getItem('nb_telebirr_custom_logo') || ''
       }
     ]));
 
     let activeSelectedMethod = paymentMethods[0];
 
+    // Live Config Persistence for Auctions
     let auctionSettings = JSON.parse(localStorage.getItem('nb_auction_settings') || JSON.stringify({
       aw_onl: { fee: 25.0, title: 'Ethio Online', days: 10, bg: '' },
       cash_500: { fee: 5.0, title: '500.00 ETB CASH', days: 15, bg: '' },
@@ -995,6 +905,7 @@
       }
     }
 
+    // Render Wallet Payment Methods
     function renderWalletPaymentMethods() {
       const container = document.getElementById('dynamicPaymentMethodsList');
       const badge = document.getElementById('paymentMethodsBadge');
@@ -1004,9 +915,15 @@
         <div onclick="selectDepositMethod('${m.id}')" class="p-4 rounded-[22px] border-2 ${m.id === 'telebirr' ? 'border-sky-400/40 bg-sky-50/30' : 'border-zinc-200/80 bg-zinc-50'} flex items-center justify-between cursor-pointer active:scale-[0.99] transition shadow-xs">
           <div class="flex items-center gap-3.5">
             <div class="w-13 h-13 rounded-2xl bg-white border border-zinc-200/70 p-2 flex items-center justify-center shadow-xs overflow-hidden">
-              <svg viewBox="0 0 340 340" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                <path d="M78 40 L108 40 C114 40 119 45 119 51 L119 120 L188 120 C194 120 199 125 199 131 L199 155 C199 161 194 166 188 166 L119 166 L119 198 C119 216 126 230 139 239 C152 248 169 251 184 246 C194 242 198 231 194 221 C190 211 179 207 169 210 C162 212 156 211 151 207 C146 203 143 196 143 186 L143 166 L152 166 C158 166 163 161 163 155 L163 131 C163 125 158 120 152 120 L143 120 L143 51 C143 45 138 40 132 40 L102 40 C96 40 91 45 91 51 L91 120 L22 120 C16 120 11 125 11 131 L11 155 C11 161 16 166 22 166 L68 166 C85 204 114 262 170 278 C198 286 226 280 248 262 C273 241 285 208 281 174 C275 132 239 100 196 100 C154 100 118 132 112 174 C110 185 119 194 130 194 C141 194 149 185 151 174 C155 145 174 124 200 124 C226 124 247 145 251 174 C254 195 246 215 231 228 C218 238 201 242 183 238 C144 227 122 184 102 143 L102 51 C102 45 97 40 91 40 Z" fill="#0072bc"/>
-              </svg>
+              ${m.customLogo ? `
+                <img src="${m.customLogo}" alt="${m.name}" class="w-full h-full object-contain">
+              ` : (m.id === 'telebirr' ? `
+                <svg viewBox="0 0 340 340" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M78 40 L108 40 C114 40 119 45 119 51 L119 120 L188 120 C194 120 199 125 199 131 L199 155 C199 161 194 166 188 166 L119 166 L119 198 C119 216 126 230 139 239 C152 248 169 251 184 246 C194 242 198 231 194 221 C190 211 179 207 169 210 C162 212 156 211 151 207 C146 203 143 196 143 186 L143 166 L152 166 C158 166 163 161 163 155 L163 131 C163 125 158 120 152 120 L143 120 L143 51 C143 45 138 40 132 40 L102 40 C96 40 91 45 91 51 L91 120 L22 120 C16 120 11 125 11 131 L11 155 C11 161 16 166 22 166 L68 166 C85 204 114 262 170 278 C198 286 226 280 248 262 C273 241 285 208 281 174 C275 132 239 100 196 100 C154 100 118 132 112 174 C110 185 119 194 130 194 C141 194 149 185 151 174 C155 145 174 124 200 124 C226 124 247 145 251 174 C254 195 246 215 231 228 C218 238 201 242 183 238 C144 227 122 184 102 143 L102 51 C102 45 97 40 91 40 Z" fill="#0072bc"/>
+                </svg>
+              ` : `
+                <i class="fa-solid fa-building-columns text-emerald-700 text-xl"></i>
+              `)}
             </div>
             <div>
               <div class="flex items-center gap-2">
@@ -1042,102 +959,6 @@
       }
     }
 
-    function updateAdminDashboardData() {
-      if (!isUserAdmin) return;
-
-      if (!registeredUsers.some(u => String(u.id) === String(currentTgUser.id))) {
-        registeredUsers.push({
-          id: String(currentTgUser.id),
-          username: currentTgUser.username,
-          name: currentTgUser.name,
-          balance: balance,
-          joined: new Date().toLocaleDateString()
-        });
-        localStorage.setItem('nb_registered_users', JSON.stringify(registeredUsers));
-      }
-
-      const totalUsers = Math.max(registeredUsers.length, 1);
-      document.getElementById('dashTotalUsers').innerText = totalUsers;
-
-      const approvedTotal = depositHistory
-        .filter(d => d.status === 'Approved')
-        .reduce((sum, item) => sum + parseFloat(item.amount || 0), 0);
-      document.getElementById('dashTotalDeposits').innerText = `${approvedTotal.toFixed(0)} ETB`;
-
-      const pendingDepCount = depositHistory.filter(d => d.status === 'Pending').length;
-      const pendingWithCount = withdrawHistory.filter(w => w.status === 'Pending').length;
-      document.getElementById('dashPendingRequests').innerText = (pendingDepCount + pendingWithCount);
-
-      const totalCashBidsCount = Object.values(cashBids).reduce((acc, curr) => acc + curr.length, 0);
-      const totalBidsCount = awOnlBids.length + totalCashBidsCount;
-
-      let grossBidVol = 0;
-      awOnlBids.forEach(() => grossBidVol += (auctionSettings.aw_onl.fee || 25));
-      for (const [k, arr] of Object.entries(cashBids)) {
-        const fee = (auctionSettings[k] ? auctionSettings[k].fee : 5);
-        grossBidVol += (arr.length * fee);
-      }
-
-      document.getElementById('reportTotalBidsCount').innerText = `${totalBidsCount} Bids`;
-      document.getElementById('reportGrossBids').innerText = `${grossBidVol.toFixed(2)} ETB`;
-
-      const totalDepAttempts = depositHistory.length;
-      const approvedCount = depositHistory.filter(d => d.status === 'Approved').length;
-      const rate = totalDepAttempts > 0 ? Math.round((approvedCount / totalDepAttempts) * 100) : 100;
-      document.getElementById('reportApprovalRate').innerText = `${rate}%`;
-
-      renderUserManagementList(registeredUsers);
-    }
-
-    function renderUserManagementList(list) {
-      const container = document.getElementById('userManagementListContainer');
-      const badge = document.getElementById('userManagementCountBadge');
-      if (badge) badge.innerText = `${list.length} user${list.length === 1 ? '' : 's'}`;
-
-      if (!list || list.length === 0) {
-        container.innerHTML = `<div class="text-center py-4 text-zinc-400 text-[11px]">No users found matching query.</div>`;
-        return;
-      }
-
-      container.innerHTML = list.map(u => `
-        <div class="p-3 rounded-2xl bg-zinc-50 border border-zinc-200/80 flex items-center justify-between text-xs">
-          <div>
-            <div class="flex items-center gap-1.5">
-              <span class="font-black text-zinc-900">${u.name}</span>
-              <span class="text-[10px] text-zinc-400 font-mono">@${u.username}</span>
-            </div>
-            <p class="text-[10px] text-zinc-400 font-mono mt-0.5">ID: <code>${u.id}</code> • Joined: ${u.joined || 'Recent'}</p>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="font-mono font-black text-emerald-700 text-xs">${(String(u.id) === String(currentTgUser.id) ? balance : (u.balance || 0)).toFixed(2)} ETB</span>
-            <button onclick="quickSelectTargetUser('${u.id}')" class="px-2.5 py-1 bg-zinc-900 text-luxury-gold text-[10px] font-black rounded-lg active:scale-95 transition">
-              Select
-            </button>
-          </div>
-        </div>
-      `).join('');
-    }
-
-    function filterUserManagementList() {
-      const query = document.getElementById('userSearchInput').value.toLowerCase().trim();
-      if (!query) {
-        renderUserManagementList(registeredUsers);
-        return;
-      }
-
-      const filtered = registeredUsers.filter(u => 
-        (u.id && String(u.id).toLowerCase().includes(query)) ||
-        (u.username && u.username.toLowerCase().includes(query)) ||
-        (u.name && u.name.toLowerCase().includes(query))
-      );
-      renderUserManagementList(filtered);
-    }
-
-    function quickSelectTargetUser(userId) {
-      document.getElementById('adminTargetUserId').value = userId;
-      alert(`User ID ${userId} populated in target adjustment field!`);
-    }
-
     if (tg) {
       tg.ready();
       tg.expand();
@@ -1155,11 +976,10 @@
         const refLink = `https://t.me/Nextbidet_bot/app?ref=${currentTgUser.id}`;
         document.getElementById('userRefLinkText').innerText = refLink;
 
-        if (String(currentTgUser.id) === String(AUTHORIZED_ADMIN_ID)) {
+        if (currentTgUser.id === AUTHORIZED_ADMIN_ID) {
           isUserAdmin = true;
           document.getElementById('nav-admin').classList.remove('hidden');
           document.getElementById('adminTargetUserId').value = currentTgUser.id;
-          updateAdminDashboardData();
         }
       }
     }
@@ -1173,8 +993,6 @@
       document.getElementById('profileWalletBalanceDisplay').innerHTML = `${balance.toFixed(2)} <span class="text-sm font-semibold text-zinc-400">ETB</span>`;
       document.getElementById('walletLargeDisplay').innerHTML = `${balance.toFixed(2)} <span class="text-xl font-normal text-emerald-200">ETB</span>`;
       localStorage.setItem('nb_balance', balance.toString());
-
-      if (isUserAdmin) updateAdminDashboardData();
     }
     updateBalanceUI();
 
@@ -1281,8 +1099,7 @@
       }
 
       document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
-      const activeContent = document.getElementById('tab-' + tabId);
-      if (activeContent) activeContent.classList.remove('hidden');
+      document.getElementById('tab-' + tabId).classList.remove('hidden');
 
       document.querySelectorAll('.nav-btn').forEach(btn => {
         btn.classList.remove('text-luxury-gold');
@@ -1301,10 +1118,6 @@
         renderDepositHistory();
         renderWithdrawHistory();
         updateReferralUI();
-      }
-
-      if (tabId === 'admin') {
-        updateAdminDashboardData();
       }
 
       window.scrollTo(0, 0);
@@ -1348,7 +1161,6 @@
       document.getElementById('depPreviewImg').src = '';
     }
 
-    // Submit Deposit Screenshot to Telegram Bot
     async function submitDepositWithScreenshot() {
       const amount = parseFloat(document.getElementById('depAmountInput').value);
 
@@ -1383,7 +1195,7 @@
                           `🆔 <b>User ID:</b> <code>${currentTgUser.id}</code>\n` +
                           `💵 <b>Amount Claimed:</b> <b>${amount.toFixed(2)} ETB</b>\n` +
                           `📱 <b>Method:</b> ${activeSelectedMethod.name} (${activeSelectedMethod.account})\n\n` +
-                          `<i>Review screenshot in NextBid Admin Dashboard and confirm!</i>`;
+                          `<i>Review screenshot and approve or reject in the NextBid App Admin panel!</i>`;
 
       const formData = new FormData();
       formData.append('chat_id', AUTHORIZED_ADMIN_ID);
@@ -1400,7 +1212,7 @@
         const resData = await response.json();
 
         if (resData.ok) {
-          alert("✅ Payment screenshot submitted to admin!\nYour balance will be updated once verified.");
+          alert("✅ Payment screenshot submitted to admin!\nYour balance will be updated once confirmed.");
           closeDepositModal();
         } else {
           throw new Error(resData.description || "Photo upload failed");
@@ -1533,8 +1345,6 @@
 
         alert(`↩️ Refunded ${amt.toFixed(2)} ETB to wallet balance.`);
       }
-
-      updateAdminDashboardData();
     }
 
     // Direct phone file uploads
@@ -1746,8 +1556,6 @@
       container.prepend(newCard);
 
       alert(`✅ Bid entered successfully!\n${usedTicket ? 'Used 1 Free Ticket 🎟️' : 'Fee deducted: ' + fee + ' ETB'}\nBid value: ${numericBid.toFixed(2)} ETB`);
-
-      if (isUserAdmin) updateAdminDashboardData();
     }
 
     // ================= COUNTDOWNS =================
@@ -1956,3 +1764,6 @@
   </script>
 </body>
 </html>
+
+
+Im bact to this feature
