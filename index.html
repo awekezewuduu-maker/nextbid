@@ -8,9 +8,9 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Telegram WebApp SDK -->
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <!-- Font Awesome -->
+  <!-- Font Awesome Icons -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-  <!-- Google Fonts: Plus Jakarta Sans -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@600;800&display=swap" rel="stylesheet">
@@ -24,13 +24,6 @@
             mono: ['"JetBrains Mono"', 'monospace']
           },
           colors: {
-            surface: {
-              50: '#f9f9fb',
-              100: '#f1f1f5',
-              800: '#141419',
-              900: '#0c0c0f',
-              950: '#060608'
-            },
             luxury: {
               gold: '#e6b84a',
               goldLight: '#fde68a',
@@ -40,8 +33,6 @@
             }
           },
           boxShadow: {
-            'glow-gold': '0 0 25px -5px rgba(230, 184, 74, 0.35)',
-            'glow-emerald': '0 0 25px -5px rgba(5, 150, 105, 0.35)',
             'card': '0 10px 30px -5px rgba(0, 0, 0, 0.06), 0 4px 10px -2px rgba(0, 0, 0, 0.03)',
             'floating': '0 20px 40px -10px rgba(0, 0, 0, 0.12)'
           }
@@ -56,7 +47,7 @@
       -webkit-tap-highlight-color: transparent;
     }
     .glass-card {
-      background: rgba(255, 255, 255, 0.88);
+      background: rgba(255, 255, 255, 0.90);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(255, 255, 255, 0.9);
@@ -209,7 +200,8 @@
         </button>
       </div>
 
-      <!-- Money Auctions (500, 1000, 2000, 5000) -->
+      <!-- Money Auctions -->
+      <!-- 500 ETB -->
       <div class="auction-item money glass-card rounded-[28px] p-4 shadow-card hover:shadow-floating transition-all duration-300 space-y-3">
         <div id="card_bg_cash_500" class="relative rounded-[22px] overflow-hidden p-5 text-white flex flex-col justify-between h-52 shadow-md bg-cover bg-center transition-all duration-300" style="background-image: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.7) 100%), url('https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80');">
           <div class="flex justify-between items-start">
@@ -242,6 +234,7 @@
         </button>
       </div>
 
+      <!-- 1,000 ETB -->
       <div class="auction-item money glass-card rounded-[28px] p-4 shadow-card hover:shadow-floating transition-all duration-300 space-y-3">
         <div id="card_bg_cash_1000" class="relative rounded-[22px] overflow-hidden p-5 text-white flex flex-col justify-between h-52 shadow-md bg-cover bg-center transition-all duration-300" style="background-image: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.7) 100%), url('https://images.unsplash.com/photo-1580519542036-c47de6196ba5?auto=format&fit=crop&w=800&q=80');">
           <div class="flex justify-between items-start">
@@ -274,6 +267,7 @@
         </button>
       </div>
 
+      <!-- 2,000 ETB -->
       <div class="auction-item money glass-card rounded-[28px] p-4 shadow-card hover:shadow-floating transition-all duration-300 space-y-3">
         <div id="card_bg_cash_2000" class="relative rounded-[22px] overflow-hidden p-5 text-white flex flex-col justify-between h-52 shadow-md bg-cover bg-center transition-all duration-300" style="background-image: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.7) 100%), url('https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=800&q=80');">
           <div class="flex justify-between items-start">
@@ -306,6 +300,7 @@
         </button>
       </div>
 
+      <!-- 5,000 ETB -->
       <div class="auction-item money glass-card rounded-[28px] p-4 shadow-card hover:shadow-floating transition-all duration-300 space-y-3">
         <div id="card_bg_cash_5000" class="relative rounded-[22px] overflow-hidden p-5 text-white flex flex-col justify-between h-52 shadow-md bg-cover bg-center transition-all duration-300" style="background-image: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.7) 100%), url('https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80');">
           <div class="flex justify-between items-start">
@@ -342,18 +337,252 @@
 
   <!-- ================= TAB 2: DRAWS ================= -->
   <main id="tab-draws" class="tab-content hidden max-w-md mx-auto px-4 pt-3 space-y-4">
-    <!-- Draws section is rendered above -->
+    <div class="flex items-center justify-between">
+      <div>
+        <h2 class="text-xl font-black text-zinc-950">Auction Draws</h2>
+        <p class="text-xs text-zinc-500 font-medium">Verified Lowest Unique Bid Winners</p>
+      </div>
+      <span class="text-[10px] bg-emerald-50 text-emerald-800 font-black px-2.5 py-1 rounded-full border border-emerald-200">LIVE FEED</span>
+    </div>
+
+    <div id="drawsContainer" class="space-y-3.5">
+      <!-- 500 ETB Winner Card -->
+      <div class="glass-card rounded-[28px] p-4 shadow-card space-y-3">
+        <div class="relative rounded-[22px] overflow-hidden bg-gradient-to-tr from-emerald-950 via-teal-950 to-zinc-950 p-5 text-white shadow-md border border-emerald-500/20">
+          <div class="flex justify-between items-center">
+            <span class="bg-emerald-500/30 text-emerald-300 text-[10px] font-black px-3 py-1 rounded-full border border-emerald-400/40 flex items-center gap-1.5">
+              <span>🏆</span> OFFICIAL CASH WINNER
+            </span>
+            <span class="text-[10px] text-emerald-300 font-mono">#NB-500-01</span>
+          </div>
+          <h4 class="font-black text-xl text-white mt-3">500.00 ETB Instant Cash</h4>
+          <div class="mt-4 bg-white/5 backdrop-blur-xl rounded-2xl p-3.5 border border-white/10 text-xs flex justify-between items-center">
+            <div>
+              <p class="text-[10px] text-zinc-400 font-bold uppercase">Winning Unique Bid</p>
+              <p class="text-lg font-black text-amber-300 font-mono">0.19 ETB</p>
+            </div>
+            <div class="text-right">
+              <p class="text-[10px] text-zinc-400 font-bold uppercase">Winner Phone</p>
+              <p class="text-xs font-mono font-black text-white tracking-wider">+2519****2841</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Channel Winner Card -->
+      <div id="awOnlWinnerCard" class="hidden glass-card rounded-[28px] p-4 shadow-card space-y-3">
+        <div class="relative rounded-[22px] overflow-hidden bg-gradient-to-tr from-sky-950 to-indigo-950 p-5 text-white shadow-md border border-sky-500/20">
+          <span class="bg-luxury-gold text-zinc-950 text-[10px] font-black px-3 py-1 rounded-full flex items-center gap-1 w-max shadow-sm">
+            🏆 OFFICIAL CHANNEL WINNER
+          </span>
+          <h4 class="font-black text-xl text-white mt-3">Ethio Online (@Aw_onl)</h4>
+          <div class="mt-4 bg-white/5 backdrop-blur-xl rounded-2xl p-3.5 border border-white/10 text-xs flex justify-between items-center">
+            <div>
+              <p class="text-[10px] text-zinc-400 font-bold uppercase">Winning Unique Bid</p>
+              <p id="awOnlWinBidVal" class="text-lg font-black text-amber-300 font-mono">0.00 ETB</p>
+            </div>
+            <div class="text-right">
+              <p class="text-[10px] text-zinc-400 font-bold uppercase">Winner Account</p>
+              <p id="awOnlWinUser" class="text-xs font-bold text-white font-mono">@user</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="cashWinnerCardsContainer" class="space-y-3.5"></div>
+    </div>
+  </main>
+
+  <!-- ================= TAB 3: MY BIDS ================= -->
+  <main id="tab-mybids" class="tab-content hidden max-w-md mx-auto px-4 pt-3 space-y-4">
+    <div>
+      <h2 class="text-xl font-black text-zinc-950">My Bids</h2>
+      <p class="text-xs text-zinc-500 font-medium">Active entries and placed unique values</p>
+    </div>
+    <div id="bidsListContainer" class="space-y-3">
+      <div class="glass-card rounded-[28px] p-8 text-center text-zinc-400 text-xs shadow-card">
+        <i class="fa-solid fa-ticket-simple text-3xl mb-2 text-zinc-300"></i>
+        <p class="font-bold">No active bids yet.</p>
+        <p class="text-[11px] text-zinc-400 mt-0.5">Enter any auction to see your live tickets here!</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- ================= TAB 4: WALLET ================= -->
+  <main id="tab-wallet" class="tab-content hidden max-w-md mx-auto px-4 pt-3 space-y-4">
+    <div class="relative overflow-hidden rounded-[32px] p-6 text-white shadow-floating space-y-5 bg-gradient-to-tr from-[#022c22] via-[#064e3b] to-[#047857] border border-emerald-400/20">
+      <div class="absolute -right-10 -bottom-10 w-44 h-44 rounded-full bg-emerald-400/10 blur-2xl pointer-events-none"></div>
+
+      <div class="flex justify-between items-start relative z-10">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center font-black text-base text-luxury-gold shadow-inner">
+            NB
+          </div>
+          <div>
+            <h3 class="font-extrabold text-base leading-tight">NextBid Wallet</h3>
+            <p class="text-[10px] text-emerald-200 font-bold uppercase tracking-widest mt-0.5">FINTECH ETB POOL</p>
+          </div>
+        </div>
+        <div class="text-right">
+          <span class="text-[10px] text-emerald-300 font-bold uppercase block">Status</span>
+          <span class="text-[10px] font-black text-emerald-200 bg-black/40 px-2.5 py-0.5 rounded-full border border-emerald-500/30">
+            ACTIVE
+          </span>
+        </div>
+      </div>
+
+      <div class="relative z-10">
+        <span class="text-xs text-emerald-200 font-medium block">Total Balance</span>
+        <h1 id="walletLargeDisplay" class="text-4xl font-black tracking-tight text-white font-mono mt-0.5">
+          0.00 <span class="text-xl font-normal text-emerald-200">ETB</span>
+        </h1>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3 pt-1 relative z-10">
+        <button onclick="openDepositModal()" class="py-3.5 rounded-2xl bg-white hover:bg-zinc-100 text-emerald-950 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md active:scale-95 transition">
+          <i class="fa-solid fa-plus text-emerald-700"></i> + Deposit
+        </button>
+        <button onclick="openWithdrawModal()" class="py-3.5 rounded-2xl bg-black/40 hover:bg-black/60 text-emerald-100 border border-emerald-400/30 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md active:scale-95 transition">
+          <i class="fa-solid fa-arrow-up"></i> ↑ Withdraw
+        </button>
+      </div>
+    </div>
+
+    <!-- Payment Methods Selection (Telebirr Default) -->
+    <div class="glass-card rounded-[28px] p-5 shadow-card space-y-3.5">
+      <div class="flex items-center justify-between">
+        <div>
+          <span class="text-xs font-black text-zinc-900 block">Select Deposit Method</span>
+          <span class="text-[10px] text-zinc-400 font-medium">Instant automated screenshot verification</span>
+        </div>
+        <span id="paymentMethodsBadge" class="text-[10px] text-zinc-400 font-mono bg-zinc-100 px-2 py-0.5 rounded-md font-bold">1 active</span>
+      </div>
+
+      <div id="dynamicPaymentMethodsList" class="space-y-2.5"></div>
+    </div>
   </main>
 
   <!-- ================= TAB 5: PROFILE ================= -->
   <main id="tab-profile" class="tab-content hidden max-w-md mx-auto px-4 pt-3 space-y-4">
-    <!-- Profile section is rendered above -->
+    <!-- User Profile Header -->
+    <div class="glass-dark rounded-[28px] p-5 text-white flex items-center gap-3.5 shadow-floating border border-zinc-800">
+      <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-amber-500 to-amber-700 text-zinc-950 flex items-center justify-center text-2xl font-black shadow-md border border-amber-300/40">
+        <i class="fa-solid fa-user-astronaut"></i>
+      </div>
+      <div>
+        <h3 id="profileName" class="font-black text-lg text-white">Player</h3>
+        <p id="profileTgId" class="text-xs text-amber-300 font-mono font-bold mt-0.5">@user</p>
+      </div>
+    </div>
+
+    <!-- Profile Wallet Balance -->
+    <div class="glass-card rounded-[28px] p-5 shadow-card space-y-3">
+      <div class="flex items-center justify-between text-xs text-zinc-400">
+        <span class="flex items-center gap-1.5 font-bold text-zinc-700">
+          <i class="fa-solid fa-wallet text-luxury-gold text-sm"></i> Available Wallet Balance
+        </span>
+        <span class="text-[10px] bg-emerald-50 text-emerald-800 border border-emerald-300 px-2.5 py-0.5 rounded-full font-black">Active</span>
+      </div>
+      <div>
+        <h2 id="profileWalletBalanceDisplay" class="text-3xl font-black text-zinc-950 font-mono">0.00 <span class="text-sm font-semibold text-zinc-400">ETB</span></h2>
+      </div>
+      <div class="grid grid-cols-2 gap-2 pt-1">
+        <button onclick="openDepositModal()" class="py-3 rounded-2xl bg-zinc-950 text-luxury-gold font-black text-xs uppercase flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition">
+          <i class="fa-solid fa-plus"></i> Deposit
+        </button>
+        <button onclick="openWithdrawModal()" class="py-3 rounded-2xl bg-white text-zinc-800 border border-zinc-200 font-black text-xs uppercase flex items-center justify-center gap-1.5 shadow-xs active:scale-95 transition">
+          <i class="fa-solid fa-arrow-up"></i> Withdraw
+        </button>
+      </div>
+    </div>
+
+    <!-- Referral: 5 Invites = 1 Ticket -->
+    <div class="glass-card rounded-[28px] p-5 shadow-card space-y-3.5">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2 text-zinc-900 font-black text-xs">
+          <i class="fa-solid fa-ticket-simple text-luxury-gold text-sm"></i>
+          <span>Invite & Earn Free Tickets</span>
+        </div>
+        <span class="text-[10px] text-amber-800 bg-amber-100 border border-amber-300 px-2.5 py-0.5 rounded-full font-black">
+          🎟️ 5 Invites = 1 Ticket
+        </span>
+      </div>
+
+      <p class="text-[11px] text-zinc-500 leading-relaxed font-medium">
+        Invite <b>5 friends</b> using your unique link below to unlock <b>1 Free Bid Ticket</b>. Use your ticket to enter any auction for free! <i>(No cash bonuses apply)</i>.
+      </p>
+
+      <div class="bg-zinc-50 rounded-2xl p-3.5 border border-zinc-200/80 space-y-2">
+        <div class="flex justify-between items-center text-xs">
+          <span class="text-zinc-500 text-[11px] font-bold">Referral Progress:</span>
+          <span id="refProgressText" class="font-black text-zinc-950 text-xs font-mono">0 / 5 Invited</span>
+        </div>
+        <div class="w-full bg-zinc-200/80 h-2.5 rounded-full overflow-hidden">
+          <div id="refProgressBar" class="bg-gradient-to-r from-amber-400 to-luxury-gold h-full w-0 transition-all duration-500"></div>
+        </div>
+        <div class="flex justify-between items-center pt-1 text-[10px]">
+          <span class="text-zinc-400 font-bold uppercase">Reward Tickets:</span>
+          <span id="freeTicketsBadge" class="font-black text-emerald-800 bg-emerald-100 px-2.5 py-0.5 rounded-md font-mono">0 Tickets</span>
+        </div>
+      </div>
+
+      <div class="bg-zinc-50 border border-zinc-200/80 rounded-2xl p-2.5 flex items-center justify-between text-xs font-mono text-zinc-800">
+        <span id="userRefLinkText" class="truncate pr-2 font-bold text-[11px]">https://t.me/Nextbidet_bot/app?ref=user</span>
+        <button onclick="copyMyReferralLink()" class="px-3.5 py-2 bg-zinc-950 text-luxury-gold font-black rounded-xl text-xs shadow-sm active:scale-95 transition flex items-center gap-1.5 flex-shrink-0">
+          <i class="fa-regular fa-copy"></i>
+          <span>Copy</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Deposit & Withdrawal Records -->
+    <div class="glass-card rounded-[28px] p-5 shadow-card space-y-3">
+      <div class="flex items-center justify-between border-b border-zinc-100 pb-2.5">
+        <div class="flex items-center gap-2 text-xs font-black text-zinc-900">
+          <span class="w-7 h-7 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center text-xs">
+            <i class="fa-solid fa-arrow-down"></i>
+          </span>
+          <span>Deposit History</span>
+        </div>
+        <span id="depositHistoryCountBadge" class="text-[10px] text-zinc-400 font-bold font-mono">0 records</span>
+      </div>
+      <div id="profileDepositHistoryList" class="space-y-2 max-h-48 overflow-y-auto no-scrollbar">
+        <div class="text-center py-4 text-zinc-400 text-[11px] font-medium">No deposits recorded yet.</div>
+      </div>
+    </div>
+
+    <div class="glass-card rounded-[28px] p-5 shadow-card space-y-3">
+      <div class="flex items-center justify-between border-b border-zinc-100 pb-2.5">
+        <div class="flex items-center gap-2 text-xs font-black text-zinc-900">
+          <span class="w-7 h-7 rounded-xl bg-amber-50 text-brand-darkgold flex items-center justify-center text-xs">
+            <i class="fa-solid fa-arrow-up"></i>
+          </span>
+          <span>Withdrawal History</span>
+        </div>
+        <span id="withdrawHistoryCountBadge" class="text-[10px] text-zinc-400 font-bold font-mono">0 records</span>
+      </div>
+      <div id="profileWithdrawHistoryList" class="space-y-2 max-h-48 overflow-y-auto no-scrollbar">
+        <div class="text-center py-4 text-zinc-400 text-[11px] font-medium">No withdrawal requests recorded yet.</div>
+      </div>
+    </div>
+
+    <div class="glass-card rounded-[22px] p-4 text-xs flex items-center justify-between shadow-xs">
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-xl bg-amber-50 text-luxury-gold flex items-center justify-center text-sm">
+          <i class="fa-solid fa-headset"></i>
+        </div>
+        <div>
+          <p class="font-black text-zinc-900">24/7 VIP Support Desk</p>
+          <p class="text-[10px] text-zinc-400">Instant Telegram response</p>
+        </div>
+      </div>
+      <button onclick="openSupportDesk()" class="px-3.5 py-1.5 bg-zinc-950 text-luxury-gold rounded-xl font-black text-xs shadow-xs active:scale-95 transition">Help</button>
+    </div>
   </main>
 
-  <!-- ================= TAB 6: NEW FULL ADMIN DASHBOARD (ID: 8181751673 ONLY) ================= -->
+  <!-- ================= TAB 6: ADMIN DASHBOARD (ID: 8181751673 ONLY) ================= -->
   <main id="tab-admin" class="tab-content hidden max-w-md mx-auto px-4 pt-3 space-y-4">
-    
-    <!-- DASHBOARD HEADER -->
+    <!-- Header -->
     <div class="glass-dark rounded-[28px] p-5 text-white flex items-center justify-between shadow-floating border border-rose-500/30">
       <div class="flex items-center gap-3">
         <div class="w-12 h-12 rounded-2xl bg-rose-600/30 text-rose-400 flex items-center justify-center text-xl font-black border border-rose-500/40 shadow-inner">
@@ -361,7 +590,7 @@
         </div>
         <div>
           <h3 class="font-black text-base text-white">Admin Dashboard</h3>
-          <p class="text-[10px] text-zinc-400 font-mono">Logged: ኬቢ (8181751673)</p>
+          <p class="text-[10px] text-zinc-400 font-mono">Admin: ኬቢ (8181751673)</p>
         </div>
       </div>
       <span class="text-[10px] bg-rose-950 text-rose-300 font-black px-2.5 py-1 rounded-full border border-rose-800">
@@ -369,9 +598,8 @@
       </span>
     </div>
 
-    <!-- 1. DASHBOARD METRICS: TOTAL REGISTERED USERS, DEPOSITS & PENDING -->
+    <!-- Metrics -->
     <div class="grid grid-cols-3 gap-2.5">
-      <!-- Total Registered Users -->
       <div class="glass-card rounded-[22px] p-3 text-center shadow-card space-y-1">
         <span class="w-7 h-7 rounded-lg bg-sky-50 text-sky-600 inline-flex items-center justify-center text-xs">
           <i class="fa-solid fa-users"></i>
@@ -380,7 +608,6 @@
         <p id="dashTotalUsers" class="text-base font-black text-zinc-950 font-mono">1</p>
       </div>
 
-      <!-- Total Deposits -->
       <div class="glass-card rounded-[22px] p-3 text-center shadow-card space-y-1">
         <span class="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-700 inline-flex items-center justify-center text-xs">
           <i class="fa-solid fa-money-bill-transfer"></i>
@@ -389,7 +616,6 @@
         <p id="dashTotalDeposits" class="text-base font-black text-emerald-800 font-mono">0 ETB</p>
       </div>
 
-      <!-- Pending Requests -->
       <div class="glass-card rounded-[22px] p-3 text-center shadow-card space-y-1">
         <span class="w-7 h-7 rounded-lg bg-amber-50 text-amber-700 inline-flex items-center justify-center text-xs">
           <i class="fa-solid fa-hourglass-half"></i>
@@ -399,7 +625,7 @@
       </div>
     </div>
 
-    <!-- 2. USER MANAGEMENT SECTION -->
+    <!-- User Management Table -->
     <div class="glass-card rounded-[28px] p-5 shadow-card space-y-3">
       <div class="flex items-center justify-between border-b border-zinc-100 pb-2">
         <div class="flex items-center gap-2 text-zinc-900 font-black text-xs">
@@ -409,7 +635,6 @@
         <span id="userManagementCountBadge" class="text-[10px] text-zinc-400 font-mono font-bold">1 active</span>
       </div>
 
-      <!-- Search User Input -->
       <div class="relative">
         <input 
           type="text" 
@@ -421,20 +646,17 @@
         <i class="fa-solid fa-magnifying-glass absolute left-2.5 top-2.5 text-zinc-400 text-xs"></i>
       </div>
 
-      <!-- User Management Table -->
-      <div id="userManagementListContainer" class="space-y-2 max-h-48 overflow-y-auto no-scrollbar">
-        <!-- Rendered via JS -->
-      </div>
+      <div id="userManagementListContainer" class="space-y-2 max-h-48 overflow-y-auto no-scrollbar"></div>
     </div>
 
-    <!-- 3. REPORTS & ANALYTICS SECTION -->
+    <!-- Reports & Analytics -->
     <div class="glass-card rounded-[28px] p-5 shadow-card space-y-3">
       <div class="flex items-center justify-between border-b border-zinc-100 pb-2">
         <div class="flex items-center gap-2 text-zinc-900 font-black text-xs">
           <i class="fa-solid fa-chart-line text-sky-600 text-sm"></i>
           <span>Reports & Analytics</span>
         </div>
-        <span class="text-[10px] text-sky-700 bg-sky-50 px-2.5 py-0.5 rounded-full font-bold">30D STATS</span>
+        <span class="text-[10px] text-sky-700 bg-sky-50 px-2.5 py-0.5 rounded-full font-bold">LIVE STATS</span>
       </div>
 
       <div class="space-y-2 text-xs">
@@ -464,7 +686,7 @@
       </div>
     </div>
 
-    <!-- 4. LIVE AUCTION EDITOR -->
+    <!-- Live Auction Content & Phone Gallery Editor -->
     <div class="glass-card rounded-[28px] p-5 shadow-card space-y-3">
       <div class="flex items-center justify-between border-b border-zinc-100 pb-2">
         <div class="flex items-center gap-2 text-sky-600 font-black text-sm">
@@ -525,7 +747,7 @@
       </div>
     </div>
 
-    <!-- 5. LIVE PAYOUT & DEPOSIT ACTION CONTROLS -->
+    <!-- Manual Wallet / Payout Adjustments -->
     <div class="glass-card rounded-[28px] p-5 shadow-card space-y-3">
       <div class="flex items-center justify-between border-b border-zinc-100 pb-2">
         <div class="flex items-center gap-2 text-rose-600 font-black text-sm">
@@ -580,7 +802,6 @@
         <button onclick="closeDepositModal()" class="w-8 h-8 rounded-full bg-zinc-100 text-zinc-600 flex items-center justify-center font-bold text-xs">✕</button>
       </div>
 
-      <!-- Account Info -->
       <div class="p-4 bg-sky-50/70 border border-sky-200/80 rounded-2xl text-xs space-y-2">
         <p class="font-bold text-[#0072bc]">1. Transfer funds to this account:</p>
         <div class="flex items-center justify-between bg-white px-3.5 py-2.5 rounded-xl border border-sky-300 shadow-xs">
@@ -592,7 +813,6 @@
         <p id="modalRecipientDisplay" class="text-xs text-zinc-800 font-black">Recipient Name: Aweke</p>
       </div>
 
-      <!-- Amount Input -->
       <div class="space-y-1">
         <label class="text-xs font-black text-zinc-700">2. Amount Transferred (ETB)</label>
         <input type="number" id="depAmountInput" placeholder="e.g. 100" class="w-full bg-zinc-50 border border-zinc-300 rounded-xl px-4 py-3 text-sm font-bold text-zinc-900 focus:outline-none focus:border-[#0072bc]">
@@ -665,14 +885,13 @@
       <i class="fa-solid fa-user-astronaut text-base"></i>
       <span class="text-[9px] font-extrabold tracking-wide">Profile</span>
     </button>
-    <!-- Hidden by default, exposed only to 8181751673 -->
     <button onclick="switchTab('admin')" id="nav-admin" class="nav-btn hidden flex flex-col items-center gap-1 text-rose-500 transition-all duration-200">
       <i class="fa-solid fa-shield text-base"></i>
       <span class="text-[9px] font-extrabold tracking-wide">Admin</span>
     </button>
   </nav>
 
-  <!-- ================= APPLICATION LOGIC & DASHBOARD DATA ================= -->
+  <!-- ================= LOGIC SCRIPT ================= -->
   <script>
     const tg = window.Telegram ? window.Telegram.WebApp : null;
     let balance = parseFloat(localStorage.getItem('nb_balance') || '0.0');
@@ -691,10 +910,8 @@
     let referralCount = parseInt(localStorage.getItem('nb_referral_count') || '0');
     let freeTickets = parseInt(localStorage.getItem('nb_free_tickets') || '0');
 
-    // Registered users tracking pool for Admin Dashboard
     let registeredUsers = JSON.parse(localStorage.getItem('nb_registered_users') || '[]');
 
-    // Admin-managed payment methods list
     let paymentMethods = JSON.parse(localStorage.getItem('nb_payment_methods') || JSON.stringify([
       {
         id: 'telebirr',
@@ -709,7 +926,6 @@
 
     let activeSelectedMethod = paymentMethods[0];
 
-    // Live Config Persistence for Auctions
     let auctionSettings = JSON.parse(localStorage.getItem('nb_auction_settings') || JSON.stringify({
       aw_onl: { fee: 25.0, title: 'Ethio Online', days: 10, bg: '' },
       cash_500: { fee: 5.0, title: '500.00 ETB CASH', days: 15, bg: '' },
@@ -732,7 +948,6 @@
       }
     }
 
-    // Render Wallet Payment Methods
     function renderWalletPaymentMethods() {
       const container = document.getElementById('dynamicPaymentMethodsList');
       const badge = document.getElementById('paymentMethodsBadge');
@@ -742,13 +957,9 @@
         <div onclick="selectDepositMethod('${m.id}')" class="p-4 rounded-[22px] border-2 ${m.id === 'telebirr' ? 'border-sky-400/40 bg-sky-50/30' : 'border-zinc-200/80 bg-zinc-50'} flex items-center justify-between cursor-pointer active:scale-[0.99] transition shadow-xs">
           <div class="flex items-center gap-3.5">
             <div class="w-13 h-13 rounded-2xl bg-white border border-zinc-200/70 p-2 flex items-center justify-center shadow-xs overflow-hidden">
-              ${m.id === 'telebirr' ? `
-                <svg viewBox="0 0 340 340" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M78 40 L108 40 C114 40 119 45 119 51 L119 120 L188 120 C194 120 199 125 199 131 L199 155 C199 161 194 166 188 166 L119 166 L119 198 C119 216 126 230 139 239 C152 248 169 251 184 246 C194 242 198 231 194 221 C190 211 179 207 169 210 C162 212 156 211 151 207 C146 203 143 196 143 186 L143 166 L152 166 C158 166 163 161 163 155 L163 131 C163 125 158 120 152 120 L143 120 L143 51 C143 45 138 40 132 40 L102 40 C96 40 91 45 91 51 L91 120 L22 120 C16 120 11 125 11 131 L11 155 C11 161 16 166 22 166 L68 166 C85 204 114 262 170 278 C198 286 226 280 248 262 C273 241 285 208 281 174 C275 132 239 100 196 100 C154 100 118 132 112 174 C110 185 119 194 130 194 C141 194 149 185 151 174 C155 145 174 124 200 124 C226 124 247 145 251 174 C254 195 246 215 231 228 C218 238 201 242 183 238 C144 227 122 184 102 143 L102 51 C102 45 97 40 91 40 Z" fill="#0072bc"/>
-                </svg>
-              ` : `
-                <i class="fa-solid fa-building-columns text-emerald-700 text-xl"></i>
-              `}
+              <svg viewBox="0 0 340 340" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <path d="M78 40 L108 40 C114 40 119 45 119 51 L119 120 L188 120 C194 120 199 125 199 131 L199 155 C199 161 194 166 188 166 L119 166 L119 198 C119 216 126 230 139 239 C152 248 169 251 184 246 C194 242 198 231 194 221 C190 211 179 207 169 210 C162 212 156 211 151 207 C146 203 143 196 143 186 L143 166 L152 166 C158 166 163 161 163 155 L163 131 C163 125 158 120 152 120 L143 120 L143 51 C143 45 138 40 132 40 L102 40 C96 40 91 45 91 51 L91 120 L22 120 C16 120 11 125 11 131 L11 155 C11 161 16 166 22 166 L68 166 C85 204 114 262 170 278 C198 286 226 280 248 262 C273 241 285 208 281 174 C275 132 239 100 196 100 C154 100 118 132 112 174 C110 185 119 194 130 194 C141 194 149 185 151 174 C155 145 174 124 200 124 C226 124 247 145 251 174 C254 195 246 215 231 228 C218 238 201 242 183 238 C144 227 122 184 102 143 L102 51 C102 45 97 40 91 40 Z" fill="#0072bc"/>
+              </svg>
             </div>
             <div>
               <div class="flex items-center gap-2">
@@ -784,14 +995,13 @@
       }
     }
 
-    // ================= ADMIN DASHBOARD, USER MANAGEMENT & ANALYTICS =================
+    // Admin Dashboard Data
     function updateAdminDashboardData() {
       if (!isUserAdmin) return;
 
-      // Ensure current user is inside registeredUsers
-      if (!registeredUsers.some(u => u.id === currentTgUser.id)) {
+      if (!registeredUsers.some(u => String(u.id) === String(currentTgUser.id))) {
         registeredUsers.push({
-          id: currentTgUser.id,
+          id: String(currentTgUser.id),
           username: currentTgUser.username,
           name: currentTgUser.name,
           balance: balance,
@@ -800,22 +1010,18 @@
         localStorage.setItem('nb_registered_users', JSON.stringify(registeredUsers));
       }
 
-      // 1. Total Registered Users
       const totalUsers = Math.max(registeredUsers.length, 1);
       document.getElementById('dashTotalUsers').innerText = totalUsers;
 
-      // 2. Total Approved Deposits
       const approvedTotal = depositHistory
         .filter(d => d.status === 'Approved')
         .reduce((sum, item) => sum + parseFloat(item.amount || 0), 0);
       document.getElementById('dashTotalDeposits').innerText = `${approvedTotal.toFixed(0)} ETB`;
 
-      // 3. Pending Requests Count (Deposits + Withdrawals)
       const pendingDepCount = depositHistory.filter(d => d.status === 'Pending').length;
       const pendingWithCount = withdrawHistory.filter(w => w.status === 'Pending').length;
       document.getElementById('dashPendingRequests').innerText = (pendingDepCount + pendingWithCount);
 
-      // 4. Reports & Analytics
       const totalCashBidsCount = Object.values(cashBids).reduce((acc, curr) => acc + curr.length, 0);
       const totalBidsCount = awOnlBids.length + totalCashBidsCount;
 
@@ -834,7 +1040,6 @@
       const rate = totalDepAttempts > 0 ? Math.round((approvedCount / totalDepAttempts) * 100) : 100;
       document.getElementById('reportApprovalRate').innerText = `${rate}%`;
 
-      // 5. Render User Management List
       renderUserManagementList(registeredUsers);
     }
 
@@ -858,7 +1063,7 @@
             <p class="text-[10px] text-zinc-400 font-mono mt-0.5">ID: <code>${u.id}</code> • Joined: ${u.joined || 'Recent'}</p>
           </div>
           <div class="flex items-center gap-2">
-            <span class="font-mono font-black text-emerald-700 text-xs">${(u.id === currentTgUser.id ? balance : (u.balance || 0)).toFixed(2)} ETB</span>
+            <span class="font-mono font-black text-emerald-700 text-xs">${(String(u.id) === String(currentTgUser.id) ? balance : (u.balance || 0)).toFixed(2)} ETB</span>
             <button onclick="quickSelectTargetUser('${u.id}')" class="px-2.5 py-1 bg-zinc-900 text-luxury-gold text-[10px] font-black rounded-lg active:scale-95 transition">
               Select
             </button>
@@ -875,7 +1080,7 @@
       }
 
       const filtered = registeredUsers.filter(u => 
-        (u.id && u.id.toLowerCase().includes(query)) ||
+        (u.id && String(u.id).toLowerCase().includes(query)) ||
         (u.username && u.username.toLowerCase().includes(query)) ||
         (u.name && u.name.toLowerCase().includes(query))
       );
@@ -905,7 +1110,7 @@
         document.getElementById('userRefLinkText').innerText = refLink;
 
         // Reveal Admin Dashboard strictly for 8181751673
-        if (currentTgUser.id === AUTHORIZED_ADMIN_ID) {
+        if (String(currentTgUser.id) === String(AUTHORIZED_ADMIN_ID)) {
           isUserAdmin = true;
           document.getElementById('nav-admin').classList.remove('hidden');
           document.getElementById('adminTargetUserId').value = currentTgUser.id;
@@ -1031,7 +1236,8 @@
       }
 
       document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
-      document.getElementById('tab-' + tabId).classList.remove('hidden');
+      const activeContent = document.getElementById('tab-' + tabId);
+      if (activeContent) activeContent.classList.remove('hidden');
 
       document.querySelectorAll('.nav-btn').forEach(btn => {
         btn.classList.remove('text-luxury-gold');
@@ -1097,7 +1303,7 @@
       document.getElementById('depPreviewImg').src = '';
     }
 
-    // Direct Telegram sendPhoto
+    // Submit Deposit Screenshot to Telegram Bot
     async function submitDepositWithScreenshot() {
       const amount = parseFloat(document.getElementById('depAmountInput').value);
 
@@ -1223,7 +1429,7 @@
       }
     }
 
-    // ================= ADMIN ACTIONS (WALLET) =================
+    // Admin Live Actions
     function adminAction(type) {
       if (!isUserAdmin) {
         alert("Unauthorized action!");
@@ -1286,7 +1492,7 @@
       updateAdminDashboardData();
     }
 
-    // Direct phone file uploads
+    // Admin direct photo uploads
     let adminSelectedPhotoBase64 = '';
 
     function handleAdminPhotoFileSelect(e) {
@@ -1443,7 +1649,7 @@
       if (isUserAdmin) updateAdminDashboardData();
     }
 
-    // ================= COUNTDOWNS =================
+    // Countdowns
     function getAwOnlDurationMs() {
       const days = parseInt(localStorage.getItem('nb_aw_onl_custom_days') || (auctionSettings.aw_onl ? auctionSettings.aw_onl.days : 10));
       return days * 24 * 60 * 60 * 1000;
