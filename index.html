@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>NextBid - Social Media & Money Auctions</title>
+  <title>NextBid - Luxury Social & Money Auctions</title>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Telegram WebApp SDK -->
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <!-- Font Awesome Icons -->
+  <!-- Font Awesome Pro Icons -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@600;800&display=swap" rel="stylesheet">
@@ -200,7 +200,6 @@
         </button>
       </div>
 
-      <!-- Money Auctions -->
       <!-- 500 ETB -->
       <div class="auction-item money glass-card rounded-[28px] p-4 shadow-card hover:shadow-floating transition-all duration-300 space-y-3">
         <div id="card_bg_cash_500" class="relative rounded-[22px] overflow-hidden p-5 text-white flex flex-col justify-between h-52 shadow-md bg-cover bg-center transition-all duration-300" style="background-image: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.7) 100%), url('https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80');">
@@ -448,7 +447,7 @@
       </div>
     </div>
 
-    <!-- Payment Methods Selection (Telebirr Default) -->
+    <!-- DYNAMIC PAYMENT METHODS LIST -->
     <div class="glass-card rounded-[28px] p-5 shadow-card space-y-3.5">
       <div class="flex items-center justify-between">
         <div>
@@ -475,7 +474,7 @@
       </div>
     </div>
 
-    <!-- Profile Wallet Balance -->
+    <!-- WALLET BALANCE CARD ON PROFILE -->
     <div class="glass-card rounded-[28px] p-5 shadow-card space-y-3">
       <div class="flex items-center justify-between text-xs text-zinc-400">
         <span class="flex items-center gap-1.5 font-bold text-zinc-700">
@@ -496,7 +495,7 @@
       </div>
     </div>
 
-    <!-- Referral: 5 Invites = 1 Ticket -->
+    <!-- REFERRAL SECTION: 5 INVITES = 1 FREE TICKET -->
     <div class="glass-card rounded-[28px] p-5 shadow-card space-y-3.5">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2 text-zinc-900 font-black text-xs">
@@ -535,7 +534,7 @@
       </div>
     </div>
 
-    <!-- Deposit & Withdrawal Records -->
+    <!-- DEPOSIT HISTORY -->
     <div class="glass-card rounded-[28px] p-5 shadow-card space-y-3">
       <div class="flex items-center justify-between border-b border-zinc-100 pb-2.5">
         <div class="flex items-center gap-2 text-xs font-black text-zinc-900">
@@ -546,11 +545,15 @@
         </div>
         <span id="depositHistoryCountBadge" class="text-[10px] text-zinc-400 font-bold font-mono">0 records</span>
       </div>
+
       <div id="profileDepositHistoryList" class="space-y-2 max-h-48 overflow-y-auto no-scrollbar">
-        <div class="text-center py-4 text-zinc-400 text-[11px] font-medium">No deposits recorded yet.</div>
+        <div class="text-center py-4 text-zinc-400 text-[11px] font-medium">
+          No deposits recorded yet.
+        </div>
       </div>
     </div>
 
+    <!-- WITHDRAWAL HISTORY -->
     <div class="glass-card rounded-[28px] p-5 shadow-card space-y-3">
       <div class="flex items-center justify-between border-b border-zinc-100 pb-2.5">
         <div class="flex items-center gap-2 text-xs font-black text-zinc-900">
@@ -561,8 +564,11 @@
         </div>
         <span id="withdrawHistoryCountBadge" class="text-[10px] text-zinc-400 font-bold font-mono">0 records</span>
       </div>
+
       <div id="profileWithdrawHistoryList" class="space-y-2 max-h-48 overflow-y-auto no-scrollbar">
-        <div class="text-center py-4 text-zinc-400 text-[11px] font-medium">No withdrawal requests recorded yet.</div>
+        <div class="text-center py-4 text-zinc-400 text-[11px] font-medium">
+          No withdrawal requests recorded yet.
+        </div>
       </div>
     </div>
 
@@ -580,9 +586,10 @@
     </div>
   </main>
 
-  <!-- ================= TAB 6: ADMIN DASHBOARD (ID: 8181751673 ONLY) ================= -->
+  <!-- ================= TAB 6: ADMIN LIVE CONTROLLER (ID: 8181751673 ONLY) ================= -->
   <main id="tab-admin" class="tab-content hidden max-w-md mx-auto px-4 pt-3 space-y-4">
-    <!-- Header -->
+    
+    <!-- DASHBOARD HEADER -->
     <div class="glass-dark rounded-[28px] p-5 text-white flex items-center justify-between shadow-floating border border-rose-500/30">
       <div class="flex items-center gap-3">
         <div class="w-12 h-12 rounded-2xl bg-rose-600/30 text-rose-400 flex items-center justify-center text-xl font-black border border-rose-500/40 shadow-inner">
@@ -598,7 +605,7 @@
       </span>
     </div>
 
-    <!-- Metrics -->
+    <!-- METRICS -->
     <div class="grid grid-cols-3 gap-2.5">
       <div class="glass-card rounded-[22px] p-3 text-center shadow-card space-y-1">
         <span class="w-7 h-7 rounded-lg bg-sky-50 text-sky-600 inline-flex items-center justify-center text-xs">
@@ -625,7 +632,7 @@
       </div>
     </div>
 
-    <!-- User Management Table -->
+    <!-- USER MANAGEMENT -->
     <div class="glass-card rounded-[28px] p-5 shadow-card space-y-3">
       <div class="flex items-center justify-between border-b border-zinc-100 pb-2">
         <div class="flex items-center gap-2 text-zinc-900 font-black text-xs">
@@ -649,7 +656,7 @@
       <div id="userManagementListContainer" class="space-y-2 max-h-48 overflow-y-auto no-scrollbar"></div>
     </div>
 
-    <!-- Reports & Analytics -->
+    <!-- REPORTS & ANALYTICS -->
     <div class="glass-card rounded-[28px] p-5 shadow-card space-y-3">
       <div class="flex items-center justify-between border-b border-zinc-100 pb-2">
         <div class="flex items-center gap-2 text-zinc-900 font-black text-xs">
@@ -686,14 +693,14 @@
       </div>
     </div>
 
-    <!-- Live Auction Content & Phone Gallery Editor -->
+    <!-- AUCTION EDITOR -->
     <div class="glass-card rounded-[28px] p-5 shadow-card space-y-3">
       <div class="flex items-center justify-between border-b border-zinc-100 pb-2">
         <div class="flex items-center gap-2 text-sky-600 font-black text-sm">
           <i class="fa-solid fa-wand-magic-sparkles"></i>
           <span>Live Auction Content & Photo Editor</span>
         </div>
-        <span class="text-[9px] bg-sky-50 text-sky-700 px-2.5 py-0.5 rounded-full font-black">DIRECT EDIT</span>
+        <span class="text-[9px] bg-sky-50 text-sky-700 px-2.5 py-0.5 rounded-full font-black">ROOT PRIVILEGES</span>
       </div>
 
       <div class="space-y-2.5">
@@ -747,13 +754,51 @@
       </div>
     </div>
 
-    <!-- Manual Wallet / Payout Adjustments -->
+    <!-- PAYMENT METHODS MANAGER -->
+    <div class="glass-card rounded-[28px] p-5 shadow-card space-y-3">
+      <div class="flex items-center justify-between border-b border-zinc-100 pb-2">
+        <div class="flex items-center gap-2 text-emerald-700 font-black text-sm">
+          <i class="fa-solid fa-credit-card"></i>
+          <span>Payment Methods & Custom Logo Manager</span>
+        </div>
+        <span class="text-[9px] bg-emerald-50 text-emerald-800 px-2 py-0.5 rounded-full font-black">METHODS</span>
+      </div>
+
+      <div class="space-y-2">
+        <div>
+          <label class="text-[11px] font-bold text-zinc-500 block mb-1">Update Telebirr Banner/Photo from Phone</label>
+          <label for="adminTelebirrLogoFile" class="w-full border-2 border-dashed border-emerald-300 hover:border-emerald-500 bg-emerald-50/40 rounded-2xl p-2.5 flex items-center justify-center gap-2 cursor-pointer transition text-center">
+            <i class="fa-solid fa-image text-emerald-700 text-base"></i>
+            <span id="adminLogoFileName" class="text-xs font-black text-zinc-700">Choose Telebirr Photo/Banner</span>
+            <input type="file" id="adminTelebirrLogoFile" accept="image/*" class="hidden" onchange="handleAdminTelebirrLogoSelect(event)">
+          </label>
+        </div>
+
+        <div class="pt-2 border-t border-zinc-100 space-y-2">
+          <p class="text-xs font-black text-zinc-900">Add New Payment Method</p>
+          <div class="grid grid-cols-2 gap-2">
+            <input type="text" id="newMethodNameInput" placeholder="Method Name (e.g. CBE)" class="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-3 py-2 text-xs font-bold text-zinc-800">
+            <input type="text" id="newMethodAccountInput" placeholder="Account / Phone" class="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-3 py-2 text-xs font-bold text-zinc-800">
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <input type="text" id="newMethodRecipientInput" placeholder="Recipient Name" class="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-3 py-2 text-xs font-bold text-zinc-800">
+            <input type="number" id="newMethodMinInput" placeholder="Min Deposit (e.g. 20)" class="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-3 py-2 text-xs font-bold text-zinc-800">
+          </div>
+          <button onclick="addNewCustomPaymentMethod()" class="w-full py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-black text-xs flex items-center justify-center gap-1.5 shadow active:scale-95 transition">
+            <i class="fa-solid fa-plus"></i> Add Payment Method to Wallet
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- LIVE USER DEPOSIT & PAYOUT APPROVAL -->
     <div class="glass-card rounded-[28px] p-5 shadow-card space-y-3">
       <div class="flex items-center justify-between border-b border-zinc-100 pb-2">
         <div class="flex items-center gap-2 text-rose-600 font-black text-sm">
-          <i class="fa-solid fa-shield"></i>
-          <span>Manual Payout & Credit Adjustments</span>
+          <i class="fa-solid fa-wallet"></i>
+          <span>Live Payout & Deposit Manager</span>
         </div>
+        <span class="text-[9px] bg-rose-50 text-rose-700 px-2 py-0.5 rounded-full font-black">ADMIN ROOT</span>
       </div>
 
       <div class="space-y-2">
@@ -784,7 +829,7 @@
     </div>
   </main>
 
-  <!-- ================= DEPOSIT MODAL WITH EXACT TELEBIRR LOGO (NO QR) ================= -->
+  <!-- ================= DEPOSIT MODAL WITH TELEBIRR LOGO ================= -->
   <div id="depositModal" class="fixed inset-0 bg-black/70 backdrop-blur-md z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
     <div class="bg-white w-full max-w-md rounded-t-[36px] sm:rounded-[32px] p-6 space-y-4 shadow-floating max-h-[92vh] overflow-y-auto no-scrollbar border border-zinc-100">
       <div class="flex justify-between items-center border-b border-zinc-100 pb-3">
@@ -802,6 +847,7 @@
         <button onclick="closeDepositModal()" class="w-8 h-8 rounded-full bg-zinc-100 text-zinc-600 flex items-center justify-center font-bold text-xs">✕</button>
       </div>
 
+      <!-- Account Info (NO QR BOX) -->
       <div class="p-4 bg-sky-50/70 border border-sky-200/80 rounded-2xl text-xs space-y-2">
         <p class="font-bold text-[#0072bc]">1. Transfer funds to this account:</p>
         <div class="flex items-center justify-between bg-white px-3.5 py-2.5 rounded-xl border border-sky-300 shadow-xs">
@@ -813,12 +859,13 @@
         <p id="modalRecipientDisplay" class="text-xs text-zinc-800 font-black">Recipient Name: Aweke</p>
       </div>
 
+      <!-- Amount -->
       <div class="space-y-1">
         <label class="text-xs font-black text-zinc-700">2. Amount Transferred (ETB)</label>
         <input type="number" id="depAmountInput" placeholder="e.g. 100" class="w-full bg-zinc-50 border border-zinc-300 rounded-xl px-4 py-3 text-sm font-bold text-zinc-900 focus:outline-none focus:border-[#0072bc]">
       </div>
 
-      <!-- Screenshot Upload (No Phone/TxId) -->
+      <!-- Screenshot Upload -->
       <div class="space-y-1.5">
         <label class="text-xs font-black text-zinc-700">3. Attach Payment Screenshot</label>
         <label for="depScreenshotInput" class="w-full border-2 border-dashed border-sky-300 hover:border-[#0072bc] bg-sky-50/50 rounded-2xl p-4 flex flex-col items-center justify-center gap-1.5 cursor-pointer active:scale-[0.99] transition text-center">
@@ -891,7 +938,7 @@
     </button>
   </nav>
 
-  <!-- ================= LOGIC SCRIPT ================= -->
+  <!-- ================= APPLICATION JAVASCRIPT ================= -->
   <script>
     const tg = window.Telegram ? window.Telegram.WebApp : null;
     let balance = parseFloat(localStorage.getItem('nb_balance') || '0.0');
@@ -995,7 +1042,6 @@
       }
     }
 
-    // Admin Dashboard Data
     function updateAdminDashboardData() {
       if (!isUserAdmin) return;
 
@@ -1109,7 +1155,6 @@
         const refLink = `https://t.me/Nextbidet_bot/app?ref=${currentTgUser.id}`;
         document.getElementById('userRefLinkText').innerText = refLink;
 
-        // Reveal Admin Dashboard strictly for 8181751673
         if (String(currentTgUser.id) === String(AUTHORIZED_ADMIN_ID)) {
           isUserAdmin = true;
           document.getElementById('nav-admin').classList.remove('hidden');
@@ -1429,7 +1474,7 @@
       }
     }
 
-    // Admin Live Actions
+    // ================= ADMIN ACTIONS (WALLET) =================
     function adminAction(type) {
       if (!isUserAdmin) {
         alert("Unauthorized action!");
@@ -1492,7 +1537,7 @@
       updateAdminDashboardData();
     }
 
-    // Admin direct photo uploads
+    // Direct phone file uploads
     let adminSelectedPhotoBase64 = '';
 
     function handleAdminPhotoFileSelect(e) {
@@ -1505,6 +1550,26 @@
         adminSelectedPhotoBase64 = evt.target.result;
         document.getElementById('adminPhotoPreviewImg').src = adminSelectedPhotoBase64;
         document.getElementById('adminPhotoPreviewBox').classList.remove('hidden');
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function handleAdminTelebirrLogoSelect(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      document.getElementById('adminLogoFileName').innerText = file.name;
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        const logoBase64 = evt.target.result;
+        const tb = paymentMethods.find(m => m.id === 'telebirr');
+        if (tb) {
+          tb.customLogo = logoBase64;
+          localStorage.setItem('nb_telebirr_custom_logo', logoBase64);
+          localStorage.setItem('nb_payment_methods', JSON.stringify(paymentMethods));
+          alert("✅ Telebirr photo updated directly from phone!");
+          renderWalletPaymentMethods();
+        }
       };
       reader.readAsDataURL(file);
     }
@@ -1560,6 +1625,42 @@
         localStorage.removeItem('nb_cash_resolved');
       }
       alert(`⏳ Countdown reset for ${target}!`);
+    }
+
+    function addNewCustomPaymentMethod() {
+      if (!isUserAdmin) return;
+
+      const name = document.getElementById('newMethodNameInput').value.trim();
+      const account = document.getElementById('newMethodAccountInput').value.trim();
+      const recipient = document.getElementById('newMethodRecipientInput').value.trim() || 'Aweke';
+      const min = parseFloat(document.getElementById('newMethodMinInput').value) || 10;
+
+      if (!name || !account) {
+        alert("Please fill method name and account number!");
+        return;
+      }
+
+      const methodId = 'method_' + Date.now();
+      paymentMethods.push({
+        id: methodId,
+        name: name,
+        amharicName: '',
+        account: account,
+        recipient: recipient,
+        min: min,
+        badge: 'ACTIVE',
+        customLogo: ''
+      });
+
+      localStorage.setItem('nb_payment_methods', JSON.stringify(paymentMethods));
+      renderWalletPaymentMethods();
+
+      document.getElementById('newMethodNameInput').value = '';
+      document.getElementById('newMethodAccountInput').value = '';
+      document.getElementById('newMethodRecipientInput').value = '';
+      document.getElementById('newMethodMinInput').value = '';
+
+      alert(`✅ New payment method "${name}" added to Wallet!`);
     }
 
     function placeBidDynamic(key) {
@@ -1649,7 +1750,7 @@
       if (isUserAdmin) updateAdminDashboardData();
     }
 
-    // Countdowns
+    // ================= COUNTDOWNS =================
     function getAwOnlDurationMs() {
       const days = parseInt(localStorage.getItem('nb_aw_onl_custom_days') || (auctionSettings.aw_onl ? auctionSettings.aw_onl.days : 10));
       return days * 24 * 60 * 60 * 1000;
