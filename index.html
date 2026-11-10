@@ -4,11 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>NextBid - Social Media & Money Auctions</title>
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Telegram WebApp SDK -->
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <script>
     tailwind.config = {
@@ -51,7 +48,6 @@
     </div>
 
     <div class="flex items-center gap-2">
-      <!-- Balance Pill -->
       <div class="bg-white border border-zinc-200 px-3 py-1 rounded-full flex items-center gap-1.5 shadow-sm">
         <span class="text-xs font-bold text-brand-gold">🪙</span>
         <span id="topBalance" class="text-xs font-extrabold text-zinc-900">0.00 ETB</span>
@@ -67,8 +63,6 @@
 
   <!-- ================= TAB 1: HOME ================= -->
   <main id="tab-home" class="tab-content max-w-md mx-auto px-4 pt-3 space-y-4">
-    
-    <!-- Promotional Banner -->
     <div class="rounded-3xl p-4 text-zinc-900 shadow-sm border border-amber-200/70" style="background: linear-gradient(135deg, #fef7e0 0%, #f7e3af 100%);">
       <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-brand-gold text-white inline-block mb-1">
         ልዩ ጨረታ
@@ -100,10 +94,9 @@
     <!-- AUCTIONS CONTAINER -->
     <div id="auctionsContainer" class="space-y-4">
 
-      <!-- ================= EXCLUSIVE TELEGRAM CHANNEL: Ethio Online (@Aw_onl) ================= -->
+      <!-- TELEGRAM CHANNEL -->
       <div class="auction-item social bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
         <div id="card_bg_aw_onl" class="relative rounded-2xl overflow-hidden p-5 text-white flex flex-col justify-between h-52 shadow bg-cover bg-center transition-all duration-300" style="background-image: linear-gradient(135deg, rgba(10, 25, 47, 0.90) 0%, rgba(2, 6, 23, 0.85) 60%, rgba(0, 0, 0, 0.92) 100%), url('https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80');">
-          
           <div class="absolute -right-4 -bottom-6 text-sky-500/15 text-9xl pointer-events-none select-none">
             <i class="fa-brands fa-telegram"></i>
           </div>
@@ -160,9 +153,7 @@
         </button>
       </div>
 
-      <!-- ================= MONEY AUCTIONS ================= -->
-
-      <!-- Money 1: 500 ETB -->
+      <!-- MONEY 1: 500 ETB -->
       <div class="auction-item money bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
         <div id="card_bg_cash_500" class="relative rounded-2xl overflow-hidden p-5 text-white flex flex-col justify-between h-48 shadow bg-cover bg-center transition-all duration-300" style="background-image: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.7) 100%), url('https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80');">
           <div class="flex justify-between items-start">
@@ -195,7 +186,7 @@
         </button>
       </div>
 
-      <!-- Money 2: 1,000 ETB -->
+      <!-- MONEY 2: 1,000 ETB -->
       <div class="auction-item money bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
         <div id="card_bg_cash_1000" class="relative rounded-2xl overflow-hidden p-5 text-white flex flex-col justify-between h-48 shadow bg-cover bg-center transition-all duration-300" style="background-image: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.7) 100%), url('https://images.unsplash.com/photo-1580519542036-c47de6196ba5?auto=format&fit=crop&w=800&q=80');">
           <div class="flex justify-between items-start">
@@ -228,7 +219,7 @@
         </button>
       </div>
 
-      <!-- Money 3: 2,000 ETB -->
+      <!-- MONEY 3: 2,000 ETB -->
       <div class="auction-item money bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
         <div id="card_bg_cash_2000" class="relative rounded-2xl overflow-hidden p-5 text-white flex flex-col justify-between h-48 shadow bg-cover bg-center transition-all duration-300" style="background-image: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.7) 100%), url('https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=800&q=80');">
           <div class="flex justify-between items-start">
@@ -261,7 +252,7 @@
         </button>
       </div>
 
-      <!-- Money 4: 5,000 ETB -->
+      <!-- MONEY 4: 5,000 ETB -->
       <div class="auction-item money bg-white rounded-3xl p-4 border border-zinc-200 shadow-sm space-y-3">
         <div id="card_bg_cash_5000" class="relative rounded-2xl overflow-hidden p-5 text-white flex flex-col justify-between h-48 shadow bg-cover bg-center transition-all duration-300" style="background-image: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.7) 100%), url('https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80');">
           <div class="flex justify-between items-start">
@@ -290,7 +281,7 @@
         </div>
 
         <button onclick="placeBidDynamic('cash_5000')" class="w-full py-3.5 rounded-2xl bg-zinc-950 text-brand-gold font-bold text-sm flex items-center justify-center gap-2 active:scale-[0.98] transition shadow-md">
-          <span>🎟️ Pay Entry Fee & Enter Bid</span>
+          <span>🎟️ Pay ETB 25.00 & Enter Bid</span>
         </button>
       </div>
 
@@ -397,29 +388,15 @@
       </div>
     </div>
 
-    <!-- Deposit Options: TELEBIRR OFFICIAL LOGO CARD -->
+    <!-- DYNAMIC PAYMENT METHODS LIST (CONFIGURED BY ADMIN) -->
     <div class="bg-white rounded-3xl p-4 border border-zinc-200/80 shadow-sm space-y-3">
-      <span class="text-xs font-bold text-zinc-600 block">Select Deposit Method</span>
+      <div class="flex items-center justify-between">
+        <span class="text-xs font-bold text-zinc-600 block">Select Deposit Method</span>
+        <span id="paymentMethodsBadge" class="text-[10px] text-zinc-400 font-mono">1 active</span>
+      </div>
 
-      <div onclick="openDepositModal()" class="p-3.5 rounded-2xl border-2 border-sky-400/40 hover:border-sky-500 bg-sky-50/20 flex items-center justify-between cursor-pointer active:scale-[0.99] transition shadow-xs">
-        <div class="flex items-center gap-3">
-          <div class="w-13 h-13 rounded-2xl bg-white border border-sky-100 p-1.5 flex items-center justify-center shadow-xs">
-            <svg viewBox="0 0 340 340" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-              <path d="M78 40 L108 40 C114 40 119 45 119 51 L119 120 L188 120 C194 120 199 125 199 131 L199 155 C199 161 194 166 188 166 L119 166 L119 198 C119 216 126 230 139 239 C152 248 169 251 184 246 C194 242 198 231 194 221 C190 211 179 207 169 210 C162 212 156 211 151 207 C146 203 143 196 143 186 L143 166 L152 166 C158 166 163 161 163 155 L163 131 C163 125 158 120 152 120 L143 120 L143 51 C143 45 138 40 132 40 L102 40 C96 40 91 45 91 51 L91 120 L22 120 C16 120 11 125 11 131 L11 155 C11 161 16 166 22 166 L68 166 C85 204 114 262 170 278 C198 286 226 280 248 262 C273 241 285 208 281 174 C275 132 239 100 196 100 C154 100 118 132 112 174 C110 185 119 194 130 194 C141 194 149 185 151 174 C155 145 174 124 200 124 C226 124 247 145 251 174 C254 195 246 215 231 228 C218 238 201 242 183 238 C144 227 122 184 102 143 L102 51 C102 45 97 40 91 40 Z" fill="#0072bc"/>
-            </svg>
-          </div>
-          <div>
-            <div class="flex items-center gap-2">
-              <span class="font-black text-sm text-[#0072bc] leading-none">ቴሌብር</span>
-              <span class="font-extrabold text-sm text-[#f7941d] leading-none">telebirr</span>
-            </div>
-            <p class="text-[11px] text-zinc-500 font-medium mt-1">0950321768 • Instant Verification</p>
-          </div>
-        </div>
-        <div class="flex items-center gap-1">
-          <span class="text-xs font-bold text-[#0072bc]">Top Up</span>
-          <i class="fa-solid fa-chevron-right text-[#0072bc] text-xs"></i>
-        </div>
+      <div id="dynamicPaymentMethodsList" class="space-y-2.5">
+        <!-- Rendered via JS -->
       </div>
     </div>
   </main>
@@ -543,17 +520,17 @@
     </div>
   </main>
 
-  <!-- ================= TAB 6: ADMIN LIVE CONTROLLER & CONTENT EDITOR (ONLY FOR 8181751673) ================= -->
+  <!-- ================= TAB 6: FULL ADMIN CONTROLLER (PHOTO FROM PHONE + MULTI-METHOD MANAGER) ================= -->
   <main id="tab-admin" class="tab-content hidden max-w-md mx-auto px-4 pt-3 space-y-4">
     
-    <!-- 1. LIVE AUCTION CONTENT EDITOR (CHANGE PHOTO, TIME, FEE, TITLE) -->
+    <!-- 1. LIVE AUCTION EDITOR (NOW ACCEPTS PHOTOS DIRECTLY FROM PHONE) -->
     <div class="bg-white rounded-3xl p-5 border border-zinc-200 shadow-sm space-y-3">
       <div class="flex items-center justify-between border-b border-zinc-100 pb-2">
         <div class="flex items-center gap-2 text-sky-600 font-extrabold text-sm">
-          <i class="fa-solid fa-pen-to-square"></i>
-          <span>Live Auction Content Editor</span>
+          <i class="fa-solid fa-image"></i>
+          <span>Live Auction Content & Photo Editor</span>
         </div>
-        <span class="text-[9px] bg-sky-50 text-sky-700 px-2 py-0.5 rounded-full font-bold">ALL THINGS</span>
+        <span class="text-[9px] bg-sky-50 text-sky-700 px-2 py-0.5 rounded-full font-bold">PHONE UPLOAD</span>
       </div>
 
       <div class="space-y-2">
@@ -568,25 +545,33 @@
           </select>
         </div>
 
+        <!-- Direct Phone File Selector (Replaces URL) -->
         <div>
-          <label class="text-[11px] font-bold text-zinc-500 block mb-0.5">New Card Background Photo URL</label>
-          <input type="text" id="editorPhotoUrl" placeholder="https://...image.jpg" class="w-full bg-[#f8f8f6] border border-zinc-200 rounded-xl px-3 py-2 text-xs font-mono text-zinc-800">
+          <label class="text-[11px] font-bold text-zinc-500 block mb-0.5">Select Background Photo Directly from Phone</label>
+          <label for="adminDirectPhotoFile" class="w-full border-2 border-dashed border-sky-300 hover:border-sky-500 bg-sky-50/40 rounded-2xl p-3 flex items-center justify-center gap-2 cursor-pointer transition text-center">
+            <i class="fa-solid fa-cloud-arrow-up text-sky-600 text-lg"></i>
+            <span id="adminPhotoFileName" class="text-xs font-bold text-zinc-700">Choose image from gallery/files</span>
+            <input type="file" id="adminDirectPhotoFile" accept="image/*" class="hidden" onchange="handleAdminPhotoFileSelect(event)">
+          </label>
+          <div id="adminPhotoPreviewBox" class="hidden mt-2 rounded-xl overflow-hidden border border-zinc-200 h-24 bg-zinc-950 flex items-center justify-center">
+            <img id="adminPhotoPreviewImg" src="" alt="Selected Photo" class="object-cover w-full h-full">
+          </div>
         </div>
 
         <div class="grid grid-cols-2 gap-2">
           <div>
             <label class="text-[11px] font-bold text-zinc-500 block mb-0.5">New Duration (Days)</label>
-            <input type="number" id="editorDaysInput" placeholder="e.g. 7 or 10" class="w-full bg-[#f8f8f6] border border-zinc-200 rounded-xl px-3 py-2 text-xs font-bold text-zinc-800">
+            <input type="number" id="editorDaysInput" placeholder="e.g. 7 or 15" class="w-full bg-[#f8f8f6] border border-zinc-200 rounded-xl px-3 py-2 text-xs font-bold text-zinc-800">
           </div>
           <div>
             <label class="text-[11px] font-bold text-zinc-500 block mb-0.5">New Entry Fee (ETB)</label>
-            <input type="number" id="editorFeeInput" placeholder="e.g. 15.00" class="w-full bg-[#f8f8f6] border border-zinc-200 rounded-xl px-3 py-2 text-xs font-bold text-zinc-800">
+            <input type="number" id="editorFeeInput" placeholder="e.g. 10.00" class="w-full bg-[#f8f8f6] border border-zinc-200 rounded-xl px-3 py-2 text-xs font-bold text-zinc-800">
           </div>
         </div>
 
         <div>
           <label class="text-[11px] font-bold text-zinc-500 block mb-0.5">Custom Title (Optional)</label>
-          <input type="text" id="editorTitleInput" placeholder="e.g. Special VIP 10,000 ETB" class="w-full bg-[#f8f8f6] border border-zinc-200 rounded-xl px-3 py-2 text-xs font-bold text-zinc-800">
+          <input type="text" id="editorTitleInput" placeholder="e.g. Special Cash Event" class="w-full bg-[#f8f8f6] border border-zinc-200 rounded-xl px-3 py-2 text-xs font-bold text-zinc-800">
         </div>
       </div>
 
@@ -598,14 +583,48 @@
           <i class="fa-solid fa-clock-rotate-left"></i> Reset Countdown
         </button>
       </div>
+    </div>
 
-      <div id="adminLogBox" class="p-2.5 bg-zinc-50 rounded-xl border border-zinc-200 text-[10px] font-mono text-zinc-600 space-y-0.5">
-        <p class="font-bold text-zinc-800">● Live Editor Status: Authenticated Admin ኬቢ (8181751673)</p>
-        <p id="adminLastActionText" class="text-emerald-700">Ready for commands.</p>
+    <!-- 2. PAYMENT METHODS & TELEBIRR DEPOSIT MANAGER -->
+    <div class="bg-white rounded-3xl p-5 border border-zinc-200 shadow-sm space-y-3">
+      <div class="flex items-center justify-between border-b border-zinc-100 pb-2">
+        <div class="flex items-center gap-2 text-emerald-700 font-extrabold text-sm">
+          <i class="fa-solid fa-credit-card"></i>
+          <span>Payment Methods & Deposit Photo Manager</span>
+        </div>
+        <span class="text-[9px] bg-emerald-50 text-emerald-800 px-2 py-0.5 rounded-full font-bold">METHODS</span>
+      </div>
+
+      <div class="space-y-2">
+        <!-- Telebirr Deposit QR / Proof Photo Upload -->
+        <div>
+          <label class="text-[11px] font-bold text-zinc-500 block mb-0.5">Telebirr Deposit QR/Photo from Phone</label>
+          <label for="adminTelebirrQrFile" class="w-full border-2 border-dashed border-emerald-300 hover:border-emerald-500 bg-emerald-50/40 rounded-2xl p-2.5 flex items-center justify-center gap-2 cursor-pointer transition text-center">
+            <i class="fa-solid fa-qrcode text-emerald-700 text-base"></i>
+            <span id="adminQrFileName" class="text-xs font-bold text-zinc-700">Upload Telebirr QR / Account Photo</span>
+            <input type="file" id="adminTelebirrQrFile" accept="image/*" class="hidden" onchange="handleAdminQrFileSelect(event)">
+          </label>
+        </div>
+
+        <!-- Add Another Payment Method Form -->
+        <div class="pt-2 border-t border-zinc-100 space-y-2">
+          <p class="text-xs font-black text-zinc-800">Add New Payment Method</p>
+          <div class="grid grid-cols-2 gap-2">
+            <input type="text" id="newMethodNameInput" placeholder="Method Name (e.g. CBE)" class="w-full bg-[#f8f8f6] border border-zinc-200 rounded-xl px-3 py-2 text-xs font-bold text-zinc-800">
+            <input type="text" id="newMethodAccountInput" placeholder="Account / Phone" class="w-full bg-[#f8f8f6] border border-zinc-200 rounded-xl px-3 py-2 text-xs font-bold text-zinc-800">
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <input type="text" id="newMethodRecipientInput" placeholder="Recipient Name" class="w-full bg-[#f8f8f6] border border-zinc-200 rounded-xl px-3 py-2 text-xs font-bold text-zinc-800">
+            <input type="number" id="newMethodMinInput" placeholder="Min Deposit (e.g. 20)" class="w-full bg-[#f8f8f6] border border-zinc-200 rounded-xl px-3 py-2 text-xs font-bold text-zinc-800">
+          </div>
+          <button onclick="addNewCustomPaymentMethod()" class="w-full py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-black text-xs flex items-center justify-center gap-1 shadow">
+            <i class="fa-solid fa-plus"></i> Add Payment Method to Wallet
+          </button>
+        </div>
       </div>
     </div>
 
-    <!-- 2. LIVE USER DEPOSIT & PAYOUT APPROVAL -->
+    <!-- 3. LIVE USER DEPOSIT & PAYOUT APPROVAL -->
     <div class="bg-white rounded-3xl p-5 border border-zinc-200 shadow-sm space-y-3">
       <div class="flex items-center justify-between border-b border-zinc-100 pb-2">
         <div class="flex items-center gap-2 text-rose-600 font-extrabold text-sm">
@@ -643,46 +662,50 @@
     </div>
   </main>
 
-  <!-- ================= DEPOSIT MODAL WITH SCREENSHOT UPLOAD ================= -->
+  <!-- ================= DYNAMIC DEPOSIT MODAL WITH SCREENSHOT UPLOAD ================= -->
   <div id="depositModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
-    <div class="bg-white w-full max-w-md rounded-t-[32px] sm:rounded-3xl p-5 space-y-4 shadow-2xl">
+    <div class="bg-white w-full max-w-md rounded-t-[32px] sm:rounded-3xl p-5 space-y-4 shadow-2xl max-h-[90vh] overflow-y-auto no-scrollbar">
       <div class="flex justify-between items-center border-b border-zinc-100 pb-2">
         <div class="flex items-center gap-2">
-          <div class="w-7 h-7 rounded-lg bg-sky-50 flex items-center justify-center p-1 border border-sky-100">
-            <svg viewBox="0 0 340 340" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-              <path d="M78 40 L108 40 C114 40 119 45 119 51 L119 120 L188 120 C194 120 199 125 199 131 L199 155 C199 161 194 166 188 166 L119 166 L119 198 C119 216 126 230 139 239 C152 248 169 251 184 246 C194 242 198 231 194 221 C190 211 179 207 169 210 C162 212 156 211 151 207 C146 203 143 196 143 186 L143 166 L152 166 C158 166 163 161 163 155 L163 131 C163 125 158 120 152 120 L143 120 L143 51 C143 45 138 40 132 40 L102 40 C96 40 91 45 91 51 L91 120 L22 120 C16 120 11 125 11 131 L11 155 C11 161 16 166 22 166 L68 166 C85 204 114 262 170 278 C198 286 226 280 248 262 C273 241 285 208 281 174 C275 132 239 100 196 100 C154 100 118 132 112 174 C110 185 119 194 130 194 C141 194 149 185 151 174 C155 145 174 124 200 124 C226 124 247 145 251 174 C254 195 246 215 231 228 C218 238 201 242 183 238 C144 227 122 184 102 143 L102 51 C102 45 97 40 91 40 Z" fill="#0072bc"/>
-            </svg>
-          </div>
-          <div class="flex items-center gap-1.5">
-            <span class="font-black text-sm text-[#0072bc]">ቴሌብር</span>
-            <span class="font-black text-sm text-[#f7941d]">telebirr</span>
-          </div>
+          <span id="modalMethodLogoContainer" class="w-7 h-7 rounded-lg bg-sky-50 flex items-center justify-center p-1 border border-sky-100">
+            <!-- Icon -->
+          </span>
+          <h3 id="modalMethodTitle" class="font-black text-base text-zinc-900">Top Up Wallet</h3>
         </div>
         <button onclick="closeDepositModal()" class="w-8 h-8 rounded-full bg-zinc-100 text-zinc-600 flex items-center justify-center font-bold text-xs">✕</button>
       </div>
 
-      <div class="p-3.5 bg-sky-50 border border-sky-200 rounded-2xl text-xs space-y-1.5">
-        <p class="font-bold text-[#0072bc]">1. Transfer funds via Telebirr to:</p>
+      <!-- Step 1: Dynamic Account Info & Optional QR Photo -->
+      <div class="p-3.5 bg-sky-50 border border-sky-200 rounded-2xl text-xs space-y-2">
+        <p class="font-bold text-[#0072bc]">1. Transfer funds to this account:</p>
         <div class="flex items-center justify-between bg-white px-3 py-2 rounded-xl border border-sky-300">
-          <span class="font-mono text-base font-black text-[#0072bc] tracking-wider">0950321768</span>
-          <button onclick="navigator.clipboard.writeText('0950321768'); alert('Phone number copied!');" class="text-[11px] bg-[#0072bc] text-white font-bold px-2.5 py-1 rounded-lg shadow-sm">
+          <span id="modalAccountDisplay" class="font-mono text-base font-black text-[#0072bc] tracking-wider">0950321768</span>
+          <button onclick="copyModalAccount()" class="text-[11px] bg-[#0072bc] text-white font-bold px-2.5 py-1 rounded-lg shadow-sm">
             Copy
           </button>
         </div>
-        <p class="text-[12px] text-zinc-800 font-bold">Recipient Name: Aweke</p>
+        <p id="modalRecipientDisplay" class="text-[12px] text-zinc-800 font-bold">Recipient Name: Aweke</p>
+        
+        <!-- Optional Telebirr QR Photo Uploaded by Admin -->
+        <div id="modalQrPhotoContainer" class="hidden rounded-xl overflow-hidden border border-sky-300 bg-white p-1 text-center">
+          <img id="modalQrPhotoImg" src="" alt="Telebirr QR Code" class="max-h-40 mx-auto rounded-lg">
+          <span class="text-[10px] text-zinc-400 font-medium mt-1 block">Scan Telebirr QR directly</span>
+        </div>
       </div>
 
+      <!-- Step 2: Amount -->
       <div class="space-y-1">
         <label class="text-xs font-bold text-zinc-600">2. Amount Transferred (ETB)</label>
         <input type="number" id="depAmountInput" placeholder="e.g. 100" class="w-full bg-zinc-50 border border-zinc-300 rounded-xl px-4 py-3 text-sm font-bold text-zinc-900 focus:outline-none focus:border-[#0072bc]">
       </div>
 
+      <!-- Step 3: Screenshot Proof -->
       <div class="space-y-1.5">
-        <label class="text-xs font-bold text-zinc-600">3. Attach Telebirr Payment Screenshot</label>
+        <label class="text-xs font-bold text-zinc-600">3. Attach Payment Screenshot</label>
         <label for="depScreenshotInput" class="w-full border-2 border-dashed border-sky-300 hover:border-[#0072bc] bg-sky-50/50 rounded-2xl p-4 flex flex-col items-center justify-center gap-1.5 cursor-pointer active:scale-[0.99] transition text-center">
           <i class="fa-solid fa-camera text-2xl text-[#0072bc]"></i>
           <span id="depFileLabelText" class="text-xs font-extrabold text-zinc-700">Tap to upload receipt screenshot</span>
-          <span class="text-[10px] text-zinc-400">PNG, JPG, or WEBP photo of Telebirr SMS/App</span>
+          <span class="text-[10px] text-zinc-400">PNG, JPG, or WEBP photo from phone</span>
           <input type="file" id="depScreenshotInput" accept="image/*" class="hidden" onchange="previewDepositScreenshot(event)">
         </label>
         
@@ -711,7 +734,7 @@
         <label class="text-xs font-bold text-zinc-600">Amount to Withdraw (ETB)</label>
         <input type="number" id="withAmountInput" placeholder="e.g. 50" class="w-full bg-zinc-50 border border-zinc-300 rounded-xl px-4 py-3 text-sm font-bold text-zinc-900 focus:outline-none focus:border-brand-gold">
 
-        <label class="text-xs font-bold text-zinc-600">Your Telebirr Phone Number</label>
+        <label class="text-xs font-bold text-zinc-600">Your Telebirr / Payout Phone Number</label>
         <input type="tel" id="withPhoneInput" placeholder="09... or 07..." class="w-full bg-zinc-50 border border-zinc-300 rounded-xl px-4 py-3 text-sm font-mono text-zinc-900 focus:outline-none focus:border-brand-gold">
       </div>
 
@@ -768,7 +791,23 @@
     let referralCount = parseInt(localStorage.getItem('nb_referral_count') || '0');
     let freeTickets = parseInt(localStorage.getItem('nb_free_tickets') || '0');
 
-    // Live Config Persistence
+    // Admin-managed payment methods list (Supports Telebirr + any added methods)
+    let paymentMethods = JSON.parse(localStorage.getItem('nb_payment_methods') || JSON.stringify([
+      {
+        id: 'telebirr',
+        name: 'telebirr',
+        amharicName: 'ቴሌብር',
+        account: '0950321768',
+        recipient: 'Aweke',
+        min: 10,
+        badge: 'INSTANT',
+        qrPhoto: localStorage.getItem('nb_telebirr_qr_photo') || ''
+      }
+    ]));
+
+    let activeSelectedMethod = paymentMethods[0];
+
+    // Live Config Persistence for Auctions
     let auctionSettings = JSON.parse(localStorage.getItem('nb_auction_settings') || JSON.stringify({
       aw_onl: { fee: 25.0, title: 'Ethio Online', days: 10, bg: '' },
       cash_500: { fee: 5.0, title: '500.00 ETB CASH', days: 15, bg: '' },
@@ -788,6 +827,70 @@
         if (bgEl && conf.bg) {
           bgEl.style.backgroundImage = `linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.7) 100%), url('${conf.bg}')`;
         }
+      }
+    }
+
+    // Render Wallet Payment Methods
+    function renderWalletPaymentMethods() {
+      const container = document.getElementById('dynamicPaymentMethodsList');
+      const badge = document.getElementById('paymentMethodsBadge');
+      if (badge) badge.innerText = `${paymentMethods.length} active`;
+
+      container.innerHTML = paymentMethods.map(m => `
+        <div onclick="selectDepositMethod('${m.id}')" class="p-3.5 rounded-2xl border-2 ${m.id === 'telebirr' ? 'border-sky-400/40 bg-sky-50/20' : 'border-zinc-200 bg-zinc-50'} flex items-center justify-between cursor-pointer active:scale-[0.99] transition shadow-xs">
+          <div class="flex items-center gap-3">
+            <div class="w-13 h-13 rounded-2xl bg-white border border-zinc-200 p-1.5 flex items-center justify-center shadow-xs">
+              ${m.id === 'telebirr' ? `
+                <svg viewBox="0 0 340 340" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M78 40 L108 40 C114 40 119 45 119 51 L119 120 L188 120 C194 120 199 125 199 131 L199 155 C199 161 194 166 188 166 L119 166 L119 198 C119 216 126 230 139 239 C152 248 169 251 184 246 C194 242 198 231 194 221 C190 211 179 207 169 210 C162 212 156 211 151 207 C146 203 143 196 143 186 L143 166 L152 166 C158 166 163 161 163 155 L163 131 C163 125 158 120 152 120 L143 120 L143 51 C143 45 138 40 132 40 L102 40 C96 40 91 45 91 51 L91 120 L22 120 C16 120 11 125 11 131 L11 155 C11 161 16 166 22 166 L68 166 C85 204 114 262 170 278 C198 286 226 280 248 262 C273 241 285 208 281 174 C275 132 239 100 196 100 C154 100 118 132 112 174 C110 185 119 194 130 194 C141 194 149 185 151 174 C155 145 174 124 200 124 C226 124 247 145 251 174 C254 195 246 215 231 228 C218 238 201 242 183 238 C144 227 122 184 102 143 L102 51 C102 45 97 40 91 40 Z" fill="#0072bc"/>
+                </svg>
+              ` : `
+                <i class="fa-solid fa-building-columns text-emerald-700 text-xl"></i>
+              `}
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                ${m.amharicName ? `<span class="font-black text-sm text-[#0072bc] leading-none">${m.amharicName}</span>` : ''}
+                <span class="font-extrabold text-sm text-zinc-900 leading-none">${m.name}</span>
+                <span class="text-[9px] bg-sky-100 text-[#0072bc] font-black px-1.5 py-0.5 rounded">${m.badge || 'VERIFIED'}</span>
+              </div>
+              <p class="text-[11px] text-zinc-500 font-medium mt-1">${m.account} • Min ${m.min} ETB</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-1">
+            <span class="text-xs font-bold text-[#0072bc]">Top Up</span>
+            <i class="fa-solid fa-chevron-right text-[#0072bc] text-xs"></i>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function selectDepositMethod(methodId) {
+      const found = paymentMethods.find(m => m.id === methodId);
+      if (found) {
+        activeSelectedMethod = found;
+        document.getElementById('modalMethodTitle').innerText = `Top Up via ${found.name}`;
+        document.getElementById('modalAccountDisplay').innerText = found.account;
+        document.getElementById('modalRecipientDisplay').innerText = `Recipient Name: ${found.recipient}`;
+
+        const qrContainer = document.getElementById('modalQrPhotoContainer');
+        const qrImg = document.getElementById('modalQrPhotoImg');
+
+        if (found.qrPhoto) {
+          qrImg.src = found.qrPhoto;
+          qrContainer.classList.remove('hidden');
+        } else {
+          qrContainer.classList.add('hidden');
+        }
+
+        openDepositModal();
+      }
+    }
+
+    function copyModalAccount() {
+      if (activeSelectedMethod && activeSelectedMethod.account) {
+        navigator.clipboard.writeText(activeSelectedMethod.account);
+        alert(`${activeSelectedMethod.name} account copied!`);
       }
     }
 
@@ -817,6 +920,7 @@
     }
 
     applyRenderedAuctionSettings();
+    renderWalletPaymentMethods();
 
     function updateBalanceUI() {
       const formatted = balance.toFixed(2) + " ETB";
@@ -1001,7 +1105,7 @@
       }
 
       if (!selectedScreenshotFile) {
-        alert("Please attach the Telebirr payment screenshot before submitting!");
+        alert("Please attach the payment screenshot before submitting!");
         return;
       }
 
@@ -1025,7 +1129,7 @@
                           `👤 <b>User:</b> ${currentTgUser.name} (@${currentTgUser.username})\n` +
                           `🆔 <b>User ID:</b> <code>${currentTgUser.id}</code>\n` +
                           `💵 <b>Amount Claimed:</b> <b>${amount.toFixed(2)} ETB</b>\n` +
-                          `📱 <b>Sent To:</b> <code>0950321768</code> (Aweke)\n\n` +
+                          `📱 <b>Method:</b> ${activeSelectedMethod.name} (${activeSelectedMethod.account})\n\n` +
                           `<i>Review screenshot and approve or reject in the NextBid App Admin panel!</i>`;
 
       const formData = new FormData();
@@ -1077,7 +1181,7 @@
 
       if (!amount || amount <= 0) { alert("Please enter a valid amount!"); return; }
       if (balance < amount) { alert("Insufficient wallet balance!"); return; }
-      if (!phone) { alert("Please enter your Telebirr phone number!"); return; }
+      if (!phone) { alert("Please enter your payout phone number!"); return; }
 
       closeWithdrawModal();
 
@@ -1096,7 +1200,7 @@
                           `👤 <b>User:</b> ${currentTgUser.name} (@${currentTgUser.username})\n` +
                           `🆔 <b>User ID:</b> <code>${currentTgUser.id}</code>\n` +
                           `💵 <b>Amount:</b> <b>${amount.toFixed(2)} ETB</b>\n` +
-                          `📱 <b>Telebirr Phone:</b> <code>${phone}</code>`;
+                          `📱 <b>Payout Phone:</b> <code>${phone}</code>`;
 
       try {
         await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
@@ -1111,7 +1215,7 @@
 
         balance -= amount;
         updateBalanceUI();
-        alert(`✅ Payout request submitted! Funds will be sent to your Telebirr (${phone}).`);
+        alert(`✅ Payout request submitted! Funds will be sent to (${phone}).`);
       } catch (err) {
         alert("Failed to send withdrawal request.");
       }
@@ -1126,7 +1230,6 @@
 
       const targetId = document.getElementById('adminTargetUserId').value.trim();
       const amt = parseFloat(document.getElementById('adminAmountInput').value);
-      const log = document.getElementById('adminLastActionText');
 
       if (!targetId) { alert("Please enter target User ID!"); return; }
       if (isNaN(amt) || amt <= 0) { alert("Please enter a valid ETB amount!"); return; }
@@ -1142,7 +1245,6 @@
           renderDepositHistory();
         }
 
-        log.innerText = `[APPROVED] Credited +${amt.toFixed(2)} ETB to User ID: ${targetId} & updated record to Approved.`;
         alert(`✅ Successfully credited +${amt.toFixed(2)} ETB!\nRecord status changed from Pending to Approved.`);
 
       } else if (type === 'reject_dep') {
@@ -1153,7 +1255,6 @@
           renderDepositHistory();
         }
 
-        log.innerText = `[REJECTED] Deposit of ${amt.toFixed(2)} ETB marked Rejected for User ID: ${targetId}`;
         alert(`❌ Deposit marked Rejected.`);
 
       } else if (type === 'confirm_payout') {
@@ -1164,7 +1265,6 @@
           renderWithdrawHistory();
         }
 
-        log.innerText = `[PAID] Payout of ${amt.toFixed(2)} ETB confirmed as Paid for User ID: ${targetId}`;
         alert(`✅ Payout of ${amt.toFixed(2)} ETB confirmed as Paid!`);
 
       } else if (type === 'refund') {
@@ -1178,12 +1278,48 @@
           renderWithdrawHistory();
         }
 
-        log.innerText = `[REFUNDED] Refunded ${amt.toFixed(2)} ETB to wallet balance.`;
         alert(`↩️ Refunded ${amt.toFixed(2)} ETB to wallet balance.`);
       }
     }
 
-    // ================= ADMIN LIVE CONTENT EDITOR (PHOTO, TIME, FEE, TITLE) =================
+    // ================= ADMIN DIRECT FILE UPLOADS (FROM PHONE) =================
+    let adminSelectedPhotoBase64 = '';
+
+    function handleAdminPhotoFileSelect(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      document.getElementById('adminPhotoFileName').innerText = file.name;
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        adminSelectedPhotoBase64 = evt.target.result;
+        document.getElementById('adminPhotoPreviewImg').src = adminSelectedPhotoBase64;
+        document.getElementById('adminPhotoPreviewBox').classList.remove('hidden');
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function handleAdminQrFileSelect(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      document.getElementById('adminQrFileName').innerText = file.name;
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        const qrBase64 = evt.target.result;
+        // Save to Telebirr method
+        const tb = paymentMethods.find(m => m.id === 'telebirr');
+        if (tb) {
+          tb.qrPhoto = qrBase64;
+          localStorage.setItem('nb_telebirr_qr_photo', qrBase64);
+          localStorage.setItem('nb_payment_methods', JSON.stringify(paymentMethods));
+          alert("✅ Telebirr Deposit QR/Photo updated from phone!");
+          renderWalletPaymentMethods();
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+
     function applyAuctionLiveEdits() {
       if (!isUserAdmin) {
         alert("Unauthorized!");
@@ -1191,17 +1327,17 @@
       }
 
       const target = document.getElementById('editorTargetSelect').value;
-      const newPhoto = document.getElementById('editorPhotoUrl').value.trim();
       const newDays = parseInt(document.getElementById('editorDaysInput').value);
       const newFee = parseFloat(document.getElementById('editorFeeInput').value);
       const newTitle = document.getElementById('editorTitleInput').value.trim();
-      const log = document.getElementById('adminLastActionText');
 
       if (!auctionSettings[target]) auctionSettings[target] = {};
 
-      if (newPhoto) {
-        auctionSettings[target].bg = newPhoto;
+      // If user chose photo from phone, apply Base64 directly
+      if (adminSelectedPhotoBase64) {
+        auctionSettings[target].bg = adminSelectedPhotoBase64;
       }
+
       if (!isNaN(newFee) && newFee > 0) {
         auctionSettings[target].fee = newFee;
       }
@@ -1222,8 +1358,7 @@
       localStorage.setItem('nb_auction_settings', JSON.stringify(auctionSettings));
       applyRenderedAuctionSettings();
 
-      log.innerText = `[UPDATED] Successfully updated parameters for ${target}!`;
-      alert(`✅ Auction updated live!\nTarget: ${target}\nPhoto: ${newPhoto ? 'Updated' : 'Unchanged'}\nFee: ${!isNaN(newFee) ? newFee + ' ETB' : 'Unchanged'}\nDays: ${!isNaN(newDays) ? newDays + ' Days' : 'Unchanged'}`);
+      alert(`✅ Auction updated live!\nTarget: ${target}\nPhoto: ${adminSelectedPhotoBase64 ? 'Updated from Phone' : 'Unchanged'}\nFee: ${!isNaN(newFee) ? newFee + ' ETB' : 'Unchanged'}\nDays: ${!isNaN(newDays) ? newDays + ' Days' : 'Unchanged'}`);
     }
 
     function resetAuctionCountdown() {
@@ -1237,6 +1372,43 @@
         localStorage.removeItem('nb_cash_resolved');
       }
       alert(`⏳ Countdown reset for ${target}!`);
+    }
+
+    // Add New Custom Payment Method directly to Wallet
+    function addNewCustomPaymentMethod() {
+      if (!isUserAdmin) return;
+
+      const name = document.getElementById('newMethodNameInput').value.trim();
+      const account = document.getElementById('newMethodAccountInput').value.trim();
+      const recipient = document.getElementById('newMethodRecipientInput').value.trim() || 'Aweke';
+      const min = parseFloat(document.getElementById('newMethodMinInput').value) || 10;
+
+      if (!name || !account) {
+        alert("Please fill method name and account number!");
+        return;
+      }
+
+      const methodId = 'method_' + Date.now();
+      paymentMethods.push({
+        id: methodId,
+        name: name,
+        amharicName: '',
+        account: account,
+        recipient: recipient,
+        min: min,
+        badge: 'ACTIVE',
+        qrPhoto: ''
+      });
+
+      localStorage.setItem('nb_payment_methods', JSON.stringify(paymentMethods));
+      renderWalletPaymentMethods();
+
+      document.getElementById('newMethodNameInput').value = '';
+      document.getElementById('newMethodAccountInput').value = '';
+      document.getElementById('newMethodRecipientInput').value = '';
+      document.getElementById('newMethodMinInput').value = '';
+
+      alert(`✅ New payment method "${name}" added to Wallet!`);
     }
 
     function placeBidDynamic(key) {
